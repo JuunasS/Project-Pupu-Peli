@@ -7,7 +7,11 @@ public class PlayerActivatePC : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (MatrixCanvasObject & Input.GetKeyDown(KeyCode.Escape))
+        {
+            MatrixCanvasObject.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             MatrixCanvasObject.SetActive(true);
         }

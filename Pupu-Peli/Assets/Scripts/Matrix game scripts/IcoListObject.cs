@@ -22,7 +22,6 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Drag ended");
-        //transform.localPosition = returnPos;
         dragging = false;
         StartCoroutine(ReturnToStart());
     }
