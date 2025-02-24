@@ -1,24 +1,47 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
 {
-    Vector3 mouseDragStartPos;
+    public Vector3 mouseDragStartPos;
+    public bool dragging = false;
 
-    Vector3 returnPos;
+    public Vector3 returnPos;
+    public float returnDuration = 0.5f;
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag window");
         transform.position = Input.mousePosition - mouseDragStartPos;
         transform.SetAsLastSibling();
+        dragging = true;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Drag ended");
-        transform.localPosition = returnPos;
+        //transform.localPosition = returnPos;
+        dragging = false;
+        StartCoroutine(ReturnToStart());
+    }
+
+    public IEnumerator ReturnToStart()
+    {
+        float timeElapsed = 0;
+
+        while (timeElapsed < returnDuration)
+        {
+            float t = timeElapsed / returnDuration;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, returnPos, t);
+            timeElapsed += Time.deltaTime;
+            if (dragging) { break; }
+
+            yield return null;  
+        }
+
+        if (!dragging) { transform.localPosition = returnPos; }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -36,6 +59,5 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
