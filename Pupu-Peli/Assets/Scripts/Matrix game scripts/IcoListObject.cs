@@ -11,6 +11,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public Vector3 returnPos;
     public float returnDuration = 0.5f;
 
+    // Double click variables
+    private float firstLeftClickTime;
+    private float timeBetweenClick = 0.5f;
+    private bool isTimeCheckAllowed = true;
+    private int leftClickNum = 0;
+
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag window");
@@ -45,7 +51,35 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (Input.GetMouseButtonDown(0)) { 
+        
+            leftClickNum++;
+        }
+        if (leftClickNum == 1 && isTimeCheckAllowed)
+        {
+            firstLeftClickTime = Time.time;
+            StartCoroutine(DetectDoubleClick());
+        }
+
         mouseDragStartPos = Input.mousePosition - transform.position;
+    }
+
+    public IEnumerator DetectDoubleClick()
+    {
+        isTimeCheckAllowed = false;
+
+        while (Time.time < firstLeftClickTime + timeBetweenClick)
+        {
+            if (leftClickNum == 2)
+            {
+                Debug.Log("Double Click on ico: " + this.gameObject.name);
+                FindAnyObjectByType<GeneralInfoPanel>().ActivateInfoPanel(this.gameObject.name);
+                break;
+            }
+            yield return null;
+        }
+        leftClickNum = 0;
+        isTimeCheckAllowed = true;
     }
     
 
