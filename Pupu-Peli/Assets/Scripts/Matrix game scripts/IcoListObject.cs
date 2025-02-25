@@ -73,7 +73,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             if (leftClickNum == 2)
             {
                 Debug.Log("Double Click on ico: " + this.gameObject.name);
-                FindAnyObjectByType<GeneralInfoPanel>().ActivateInfoPanel(this.gameObject.name);
+                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this.gameObject.name);
                 break;
             }
             yield return null;

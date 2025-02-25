@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class GeneralInfoPanel : MonoBehaviour
+public class GeneralInfo : MonoBehaviour
 {
     public GameObject generalInfoPanel;
     public TMP_Text generalInfoText;
