@@ -5,11 +5,18 @@ using UnityEngine.EventSystems;
 
 public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
 {
+    // Drag and drop variables
+    public CanvasGroup canvasGroup;
+    private Transform originalParent;
+
     public Vector3 mouseDragStartPos;
     public bool dragging = false;
 
     public Vector3 returnPos;
     public float returnDuration = 0.5f;
+
+    public Vector3 newPosition;
+    public bool newPositionSet = false; 
 
     // Double click variables
     private float firstLeftClickTime;
@@ -17,36 +24,66 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     private bool isTimeCheckAllowed = true;
     private int leftClickNum = 0;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        originalParent = transform.parent;
+        returnPos = transform.localPosition;
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag window");
         transform.position = Input.mousePosition - mouseDragStartPos;
         transform.SetAsLastSibling();
         dragging = true;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Drag ended");
         dragging = false;
-        StartCoroutine(ReturnToStart());
+        canvasGroup.blocksRaycasts = true;
+
+        // Check if is hovering over input panel and set it there if so
+        if (newPosition != null && !newPositionSet)
+        {
+            newPositionSet = true;
+            StartCoroutine(LerpToLocalVector3(newPosition));
+        }
+        else
+        {
+            // Return to matrix
+            newPositionSet = false;
+            this.transform.parent = originalParent;
+            StartCoroutine(LerpToLocalVector3(returnPos));
+            DragManager.Instance.SetDragObject(null);
+            FindAnyObjectByType<InputPanel>().CheckObjectList();
+        }
     }
 
-    public IEnumerator ReturnToStart()
+    public IEnumerator LerpToLocalVector3(Vector3 pos)
     {
         float timeElapsed = 0;
 
         while (timeElapsed < returnDuration)
         {
             float t = timeElapsed / returnDuration;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, returnPos, t);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, pos, t);
             timeElapsed += Time.deltaTime;
             if (dragging) { break; }
 
             yield return null;  
         }
 
-        if (!dragging) { transform.localPosition = returnPos; }
+        if (!dragging) { transform.localPosition = pos; }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -62,6 +99,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         }
 
         mouseDragStartPos = Input.mousePosition - transform.position;
+        DragManager.Instance.SetDragObject(this.gameObject);
     }
 
     public IEnumerator DetectDoubleClick()
@@ -82,15 +120,4 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         isTimeCheckAllowed = true;
     }
     
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        returnPos = transform.localPosition;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }
