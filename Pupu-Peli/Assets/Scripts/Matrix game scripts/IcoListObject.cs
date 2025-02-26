@@ -16,7 +16,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public float returnDuration = 0.5f;
 
     public Vector3 newPosition;
-    public bool newPositionSet = false; 
+    public bool setToNewPosition = false; 
 
     // Double click variables
     private float firstLeftClickTime;
@@ -53,15 +53,16 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         canvasGroup.blocksRaycasts = true;
 
         // Check if is hovering over input panel and set it there if so
-        if (newPosition != null && !newPositionSet)
+        if (setToNewPosition)
         {
-            newPositionSet = true;
+            Debug.Log("Drag back to new position");
+            setToNewPosition = false;
             StartCoroutine(LerpToLocalVector3(newPosition));
         }
         else
         {
             // Return to matrix
-            newPositionSet = false;
+            Debug.Log("Drag back to original position");
             this.transform.parent = originalParent;
             StartCoroutine(LerpToLocalVector3(returnPos));
             DragManager.Instance.SetDragObject(null);

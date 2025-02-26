@@ -14,7 +14,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Dropped into input!");
-
+        if (DragManager.Instance.dragObject == null) { return; }
         if(DragManager.Instance.dragObject.GetComponent<IcoListObject>() != null )
         {
             // Does not contain [!]
@@ -23,6 +23,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
                 Debug.Log("Received input: " + DragManager.Instance.dragObject);
                 inputObjects.Add(DragManager.Instance.dragObject);
 
+                DragManager.Instance.dragObject.GetComponent<IcoListObject>().setToNewPosition = true;
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().gameObject.transform.parent = inputPositions[inputObjects.Count - 1];
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().newPosition = new Vector3(0, 0, 0);
             }
