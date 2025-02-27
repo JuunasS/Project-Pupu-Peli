@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MatrixPanelManager : MonoBehaviour
 {
-    public Transform matrixPanelTransform;
+    public RectTransform matrixPanelRectTransform;
     public GameObject matrixContentPanel;
 
     // Starting point for populating content panel
@@ -93,5 +93,11 @@ public class MatrixPanelManager : MonoBehaviour
             }
 
         }
+
+        // Set Matrix panel width and height based on the generatex ico objects!
+
+        Debug.Log("matrixPanelRectTransform.rect.size!!");
+        matrixPanelRectTransform.sizeDelta = new Vector2(icoObjListSqrt * icoObjWidth +50 , icoObjListSqrt * icoObjHeight +50 );
+
     }
 }
