@@ -24,6 +24,9 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     private bool isTimeCheckAllowed = true;
     private int leftClickNum = 0;
 
+    // Ico Object Data
+    public ScriptableObject icoData;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
