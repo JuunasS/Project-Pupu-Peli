@@ -60,7 +60,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         {
             Debug.Log("Drag back to new position");
             setToNewPosition = false;
-            StartCoroutine(LerpToLocalVector3(newPosition));
+            //StartCoroutine(LerpToLocalVector3(newPosition));
         }
         else
         {
@@ -73,8 +73,14 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         }
     }
 
+    public void MoveToPos(Vector3 pos)
+    {
+        StartCoroutine(LerpToLocalVector3(pos));
+    }
+
     public IEnumerator LerpToLocalVector3(Vector3 pos)
     {
+        Debug.Log("Lerping to new position");
         float timeElapsed = 0;
 
         while (timeElapsed < returnDuration)
