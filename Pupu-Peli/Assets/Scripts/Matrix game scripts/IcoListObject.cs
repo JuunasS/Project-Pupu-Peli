@@ -75,6 +75,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public void MoveToPos(Vector3 pos)
     {
+        Debug.Log("MoveToPos: " + pos);
         StartCoroutine(LerpToLocalVector3(pos));
     }
 
@@ -85,14 +86,18 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
         while (timeElapsed < returnDuration)
         {
+            Debug.Log("Lerp 1: " + timeElapsed);
             float t = timeElapsed / returnDuration;
             transform.localPosition = Vector3.Lerp(transform.localPosition, pos, t);
             timeElapsed += Time.deltaTime;
+
+            Debug.Log("Lerp 2, dragging: " + dragging);
             if (dragging) { break; }
 
             yield return null;  
         }
 
+        Debug.Log("Lerp 3");
         if (!dragging) { transform.localPosition = pos; }
     }
 

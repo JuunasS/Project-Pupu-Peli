@@ -28,7 +28,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().setToNewPosition = true;
                 //DragManager.Instance.dragObject.GetComponent<IcoListObject>().gameObject.transform.SetParent(firstInputPosition);
                 //DragManager.Instance.dragObject.GetComponent<IcoListObject>().newPosition = new Vector3(0, 0, 0);
-
+                DragManager.Instance.dragObject.GetComponent<IcoListObject>().dragging = false;
                 SetObjectToPosition(DragManager.Instance.dragObject);
             }
         }
