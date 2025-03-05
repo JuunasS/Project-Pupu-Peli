@@ -11,6 +11,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
 
     public List<GameObject> inputObjects;
 
+    public int rowMax;
 
     public int row = 0, col = 0;
 
@@ -55,7 +56,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
         inputObj.GetComponent<IcoListObject>().MoveToPos(tempPos);
 
 
-        if (row + 1 == 3) // End of the row
+        if (row + 1 == rowMax) // End of the row
         {
             Debug.Log("Adding column!!");
             col--;
