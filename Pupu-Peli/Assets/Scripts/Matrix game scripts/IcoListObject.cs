@@ -27,6 +27,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     // Ico Object Data
     public ScriptableObject icoData;
 
+    public float padding;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -86,12 +88,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
         while (timeElapsed < returnDuration)
         {
-            Debug.Log("Lerp 1: " + timeElapsed);
+            //Debug.Log("Lerp 1: " + timeElapsed);
             float t = timeElapsed / returnDuration;
             transform.localPosition = Vector3.Lerp(transform.localPosition, pos, t);
             timeElapsed += Time.deltaTime;
 
-            Debug.Log("Lerp 2, dragging: " + dragging);
+            //Debug.Log("Lerp 2, dragging: " + dragging);
             if (dragging) { break; }
 
             yield return null;  

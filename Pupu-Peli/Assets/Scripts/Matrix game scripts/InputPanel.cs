@@ -36,7 +36,6 @@ public class InputPanel : MonoBehaviour, IDropHandler
 
     public void SetObjectToPosition(GameObject inputObj)
     {
-        // Populate content panel based on given list
 
         float icoObjWidth = inputObj.GetComponent<RectTransform>().rect.width;
         float icoObjHeight = inputObj.GetComponent<RectTransform>().rect.height;
@@ -45,9 +44,11 @@ public class InputPanel : MonoBehaviour, IDropHandler
 
         Vector3 tempPos = firstInputPosition.transform.localPosition;
 
-        tempPos += new Vector3(icoObjWidth * row, icoObjHeight * col, 0);
+        Debug.Log("row: " + row + "\n" + "col: " + col);
 
-        Debug.Log("NEw inputObj localPos: " + inputObj.transform.localPosition);
+        tempPos += new Vector3(icoObjWidth * row * inputObj.GetComponent<RectTransform>().localScale.x, icoObjHeight * col * inputObj.GetComponent<RectTransform>().localScale.y, 0);
+
+        Debug.Log("New inputObj localPos: " + inputObj.transform.localPosition);
 
         //inputObj.transform.localPosition += new Vector3(icoObjWidth * row, icoObjHeight * col, 0);
 
@@ -94,7 +95,7 @@ public class InputPanel : MonoBehaviour, IDropHandler
     }
 
     [ContextMenu("Test Input panel submit")]
-    private void SubmitInput()
+    public void SubmitInput()
     {
 
         if (inputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
