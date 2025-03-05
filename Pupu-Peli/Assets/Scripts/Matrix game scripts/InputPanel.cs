@@ -19,18 +19,16 @@ public class InputPanel : MonoBehaviour, IDropHandler
     {
         Debug.Log("Dropped into input!");
         if (DragManager.Instance.dragObject == null) { return; }
+
         if (DragManager.Instance.dragObject.GetComponent<IcoListObject>() != null)
-        {
-            // Does not contain [!]
-            if (!inputObjects.Contains(DragManager.Instance.dragObject))
+        {            if (!inputObjects.Contains(DragManager.Instance.dragObject)) // Does not contain [!]
             {
                 Debug.Log("Received input: " + DragManager.Instance.dragObject);
 
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().setToNewPosition = true;
-                //DragManager.Instance.dragObject.GetComponent<IcoListObject>().gameObject.transform.SetParent(firstInputPosition);
-                //DragManager.Instance.dragObject.GetComponent<IcoListObject>().newPosition = new Vector3(0, 0, 0);
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().dragging = false;
                 SetObjectToPosition(DragManager.Instance.dragObject);
+                DragManager.Instance.dragObject = null;
             }
         }
     }
@@ -46,20 +44,16 @@ public class InputPanel : MonoBehaviour, IDropHandler
         Vector3 tempPos = firstInputPosition.transform.localPosition;
 
         Debug.Log("row: " + row + "\n" + "col: " + col);
+        Debug.Log("New inputObj localPos: " + inputObj.transform.localPosition);
 
         tempPos += new Vector3(icoObjWidth * row * inputObj.GetComponent<RectTransform>().localScale.x, icoObjHeight * col * inputObj.GetComponent<RectTransform>().localScale.y, 0);
 
-        Debug.Log("New inputObj localPos: " + inputObj.transform.localPosition);
-
-        //inputObj.transform.localPosition += new Vector3(icoObjWidth * row, icoObjHeight * col, 0);
-
         inputObj.GetComponent<IcoListObject>().MoveToPos(tempPos);
-
 
         if (row + 1 == rowMax) // End of the row
         {
             Debug.Log("Adding column!!");
-            col--;
+            //col--;
             row = 0;
         }
         else
@@ -67,16 +61,6 @@ public class InputPanel : MonoBehaviour, IDropHandler
             Debug.Log("Adding row!!");
             row++;
         }
-
-
-        // Set Matrix panel width and height based on the generatex ico objects!
-
-        Debug.Log("matrixPanelRectTransform.rect.size!!");
-        /*
-        this.GetComponent<RectTransform>().sizeDelta = new Vector2(3 * icoObjWidth + 50, this.GetComponent<RectTransform>().sizeDelta.y * icoObjHeight + 50);
-        scrollView.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollView.GetComponent<RectTransform>().sizeDelta.x, scrollView.GetComponent<RectTransform>().sizeDelta.x * icoObjHeight + 50);
-        */
-
 
     }
 
@@ -91,6 +75,11 @@ public class InputPanel : MonoBehaviour, IDropHandler
             if (firstInputPosition.childCount == 0)
             {
                 inputObjects.RemoveAt(i);
+
+                // Set object into the input panel again in correct positions!
+
+                //row--;
+                //col--; ?
             }
         }
     }
@@ -101,5 +90,8 @@ public class InputPanel : MonoBehaviour, IDropHandler
 
         if (inputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
         // Check if given ico objects are correct
+
+        // Have a list of obejctives (ScriptableObjects) where one is chosen randomly and check against it
+
     }
 }
