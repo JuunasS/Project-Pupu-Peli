@@ -17,12 +17,15 @@ public class MatrixPanelManager : MonoBehaviour
     // This list keeps track of already created objects
     public List<GameObject> icoGameObjects;
 
+    public IcoObjMasterList icoMasterList;
     public List<ScriptableObject> icoScriptObjects;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        icoScriptObjects = icoMasterList.getIcoScriptObjects();
+
         // Add function for populating content section
         Debug.Log(firstIcoObjectPosition);
         Debug.Log(icoScriptObjects.Count - 1);

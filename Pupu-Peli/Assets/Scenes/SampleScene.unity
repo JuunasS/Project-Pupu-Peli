@@ -503,6 +503,7 @@ MonoBehaviour:
   icoObjectPrefab: {fileID: 4049593212688246462, guid: c7ab265272b07ce4297b19a83e8fc7fa,
     type: 3}
   icoGameObjects: []
+  icoMasterList: {fileID: 1420258446}
   icoScriptObjects:
   - {fileID: 11400000, guid: c66471c842e2f6b47914dde241b16080, type: 2}
   - {fileID: 11400000, guid: c66471c842e2f6b47914dde241b16080, type: 2}
