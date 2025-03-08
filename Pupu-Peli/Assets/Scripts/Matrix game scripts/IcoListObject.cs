@@ -128,7 +128,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             if (leftClickNum == 2)
             {
                 Debug.Log("Double Click on ico: " + this.gameObject.name);
-                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this.gameObject.name);
+                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(icoData.name);
                 break;
             }
             yield return null;
@@ -136,5 +136,14 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         leftClickNum = 0;
         isTimeCheckAllowed = true;
     }
-    
+
+
+    public IEnumerator SwapIcoObj()
+    {
+        // Add randomized timer that is stopped when object is clicked
+        // No need to generate new prefab, instead replace icodata and put new data into object 
+        // GeneralInfo panel will pull data everytime double click event happens
+        yield return null;
+    }
+
 }

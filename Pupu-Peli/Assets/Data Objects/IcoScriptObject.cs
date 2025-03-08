@@ -7,4 +7,9 @@ public class IcoScriptObject : ScriptableObject
     public string icoName;
     public Sprite icoImg;
     [TextArea] public string icoText;
+
+
+    // Use these values for randomizing 
+    public int minAge;
+    public int maxAge;
 }
