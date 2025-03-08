@@ -16,7 +16,10 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public float returnDuration = 0.5f;
 
     public Vector3 newPosition;
-    public bool setToNewPosition = false; 
+    public bool setToNewPosition = false;
+    
+    // If is active this icoObject will not be swapped (Swap timer will be reset/paused)
+    public bool isActive;
 
     // Double click variables
     private float firstLeftClickTime;
@@ -24,9 +27,11 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     private bool isTimeCheckAllowed = true;
     private int leftClickNum = 0;
 
+
     // Ico Object Data
     public ScriptableObject icoData;
 
+    // Css
     public float padding;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -140,10 +145,15 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public IEnumerator SwapIcoObj()
     {
+
+        if(this.isActive) // TODO: Add timer check!!!
+        {
+            yield return null;
+        }
         // Add randomized timer that is stopped when object is clicked
         // No need to generate new prefab, instead replace icodata and put new data into object 
         // GeneralInfo panel will pull data everytime double click event happens
-        yield return null;
+        
     }
 
 }
