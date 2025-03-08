@@ -27,10 +27,10 @@ public class IcoObjMasterList : MonoBehaviour
         return icoScriptableObjects;
     }
 
-    public ScriptableObject GetRandomIcoScriptObj()
+    public IcoScriptObject GetRandomIcoScriptObj()
     {
         int randomIndex = UnityEngine.Random.Range(0, icoScriptableObjects.Count);
-        ScriptableObject randomObj = icoScriptableObjects[randomIndex];
+        IcoScriptObject randomObj = icoScriptableObjects[randomIndex];
 
         return randomObj;
     }
