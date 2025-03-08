@@ -30,7 +30,7 @@ public class MatrixPanelManager : MonoBehaviour
     public List<GameObject> icoGameObjects;
 
     public IcoObjMasterList icoMasterList;
-    public List<ScriptableObject> icoScriptObjects;
+    public List<IcoScriptObject> icoScriptObjects;
 
     public MatrixGameProgression matrixProgression;
 
@@ -46,7 +46,7 @@ public class MatrixPanelManager : MonoBehaviour
     }
 
 
-    public void PopulateMatrixContent(List<ScriptableObject> sIcoObjectList)
+    public void PopulateMatrixContent(List<IcoScriptObject> sIcoObjectList)
     {
         // Populate content panel based on given list
 
@@ -80,7 +80,8 @@ public class MatrixPanelManager : MonoBehaviour
 
             icoGameObjects.Add(newIcoObj);
 
-            newIcoObj.GetComponent<IcoListObject>().icoData = sIcoObjectList[randomIndex]; //i
+            newIcoObj.GetComponent<IcoListObject>().SetIcoData(sIcoObjectList[randomIndex]); //i
+
 
             // Set ico object position 
             // 1st is up-left and then 2 to the right and then move down a row

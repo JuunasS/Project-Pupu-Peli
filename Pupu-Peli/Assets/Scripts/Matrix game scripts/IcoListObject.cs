@@ -1,7 +1,9 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
 {
@@ -31,7 +33,10 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     // Ico Object Data
     public ScriptableObject icoData;
 
-    // Css
+    // UI variables
+    public TMP_Text icoText;
+    public Image icoImg;
+
     public float padding;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -76,7 +81,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             this.transform.parent = originalParent;
             StartCoroutine(LerpToLocalVector3(returnPos));
             DragManager.Instance.SetDragObject(null);
-            FindAnyObjectByType<InputPanel>().CheckObjectList();
+            FindAnyObjectByType<OutputPanel>().CheckObjectList();
         }
     }
 
@@ -142,6 +147,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         isTimeCheckAllowed = true;
     }
 
+    public void SetIcoData(IcoScriptObject newIcoData)
+    {
+        this.icoData = newIcoData;
+        this.icoText.text = newIcoData.icoName;
+        this.icoImg.sprite = newIcoData.icoImg;
+    }
 
     public IEnumerator SwapIcoObj()
     {
@@ -150,10 +161,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         {
             yield return null;
         }
+
         // Add randomized timer that is stopped when object is clicked
         // No need to generate new prefab, instead replace icodata and put new data into object 
         // GeneralInfo panel will pull data everytime double click event happens
-        
+
+        this.icoData = IcoObjMasterList.Instance.GetRandomIcoScriptObj();
     }
 
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputPanel : MonoBehaviour, IDropHandler
+public class OutputPanel : MonoBehaviour, IDropHandler
 {
     public GameObject scrollView;
     public GameObject scrollViewContent;
