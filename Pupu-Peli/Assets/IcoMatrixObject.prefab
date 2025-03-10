@@ -220,6 +220,8 @@ MonoBehaviour:
   setToNewPosition: 0
   isActive: 0
   icoData: {fileID: 0}
+  swapTimeMax: 7
+  swapTimeMin: 3
   icoText: {fileID: 9003470679887870449}
   icoImg: {fileID: 6891726965133205743}
   padding: 10

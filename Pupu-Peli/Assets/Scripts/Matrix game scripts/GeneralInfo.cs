@@ -6,11 +6,19 @@ public class GeneralInfo : MonoBehaviour
     public GameObject generalInfoPanel;
     public TMP_Text generalInfoText;
 
+    public IcoListObject activeInfoItem;
 
-    public void ActivateInfoPanel(string icoObjName)
+
+    public void ActivateInfoPanel(IcoListObject icoListObj)
     {
         generalInfoPanel.SetActive(true);
 
-        generalInfoText.text = icoObjName;
+        if(activeInfoItem != null ) { activeInfoItem.isActive = false; }
+
+        icoListObj.isActive = true;
+
+        activeInfoItem = icoListObj;
+
+        generalInfoText.text = icoListObj.icoData.name;
     }
 }

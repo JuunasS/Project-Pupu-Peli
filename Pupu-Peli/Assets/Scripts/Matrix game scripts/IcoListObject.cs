@@ -20,7 +20,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public Vector3 newPosition;
     public bool setToNewPosition = false;
-    
+
     // If is active this icoObject will not be swapped (Swap timer will be reset/paused)
     public bool isActive;
 
@@ -60,6 +60,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         transform.position = Input.mousePosition - mouseDragStartPos;
         transform.SetAsLastSibling();
         dragging = true;
+        isActive = true;
         canvasGroup.blocksRaycasts = false;
     }
 
@@ -75,6 +76,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             Debug.Log("Drag back to new position");
             setToNewPosition = false;
             //StartCoroutine(LerpToLocalVector3(newPosition));
+            isActive = true;
         }
         else
         {
@@ -84,6 +86,11 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             StartCoroutine(LerpToLocalVector3(returnPos));
             DragManager.Instance.SetDragObject(null);
             FindAnyObjectByType<OutputPanel>().CheckObjectList();
+
+            if (FindAnyObjectByType<GeneralInfo>().activeInfoItem == null || FindAnyObjectByType<GeneralInfo>().activeInfoItem != this)
+            {
+                isActive = false;
+            }
         }
     }
 
@@ -108,7 +115,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             //Debug.Log("Lerp 2, dragging: " + dragging);
             if (dragging) { break; }
 
-            yield return null;  
+            yield return null;
         }
 
         Debug.Log("Lerp 3");
@@ -117,8 +124,9 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0)) { 
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+
             leftClickNum++;
         }
         if (leftClickNum == 1 && isTimeCheckAllowed)
@@ -140,7 +148,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             if (leftClickNum == 2)
             {
                 Debug.Log("Double Click on ico: " + this.gameObject.name);
-                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(icoData.name);
+                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this);
+                isActive = true;
                 break;
             }
             yield return null;
@@ -156,19 +165,35 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         this.icoImg.sprite = newIcoData.icoImg;
     }
 
+    public void StartSwapLoop()
+    {
+        StartCoroutine(SwapIcoObj());
+    }
+
     public IEnumerator SwapIcoObj()
     {
+        Debug.Log("SwapIcoObjs coroutine started :" + this.icoData.name);
         float swapTime = Random.Range(swapTimeMin, swapTimeMax);
-        
+
         float timeElapsed = 0;
 
-        while(this.isActive == false && timeElapsed < swapTime) // TODO: Check objesct is in Output panel
+
+        while (timeElapsed < swapTime) // TODO: Check objesct is in Output panel
         {
-            float t = timeElapsed / returnDuration;
-            timeElapsed += Time.deltaTime;
+
+            if (isActive)
+            {
+                timeElapsed = 0;
+            }
+            else
+            {
+                float t = timeElapsed / returnDuration;
+                timeElapsed += Time.deltaTime;
+            }
 
 
             yield return null;
+
         }
         // Add randomized timer that is stopped when object is clicked
         // No need to generate new prefab, instead replace icodata and put new data into object 
@@ -176,6 +201,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
         IcoScriptObject newIcoData = IcoObjMasterList.Instance.GetRandomIcoScriptObj();
         this.SetIcoData(newIcoData);
+        StartCoroutine(SwapIcoObj());
     }
 
 }

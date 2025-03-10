@@ -94,8 +94,9 @@ public class MatrixPanelManager : MonoBehaviour
             */
 
             newIcoObj.transform.localPosition = firstIcoObjectPosition.transform.localPosition;
-
             newIcoObj.transform.localPosition += new Vector3(icoObjWidth * row, icoObjHeight * col, 0);
+
+            newIcoObj.GetComponent<IcoListObject>().StartSwapLoop();
 
             Debug.Log(i / icoObjListSqrt);
 
