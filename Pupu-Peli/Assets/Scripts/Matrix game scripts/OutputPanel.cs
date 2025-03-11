@@ -90,8 +90,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
         if (inputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
         // Check if given ico objects are correct
-
-        // Have a list of obejctives (ScriptableObjects) where one is chosen randomly and check against it
+        // Have a list of tasks (ScriptableObjects?) where one is chosen randomly and check against it
 
     }
 }

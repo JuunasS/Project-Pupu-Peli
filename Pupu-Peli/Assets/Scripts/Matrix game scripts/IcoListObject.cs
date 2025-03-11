@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
 {
@@ -21,25 +20,31 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public Vector3 newPosition;
     public bool setToNewPosition = false;
 
-    // If is active this icoObject will not be swapped (Swap timer will be reset/paused)
-    public bool isActive;
-
     // Double click variables
     private float firstLeftClickTime;
     private float timeBetweenClick = 0.5f;
     private bool isTimeCheckAllowed = true;
     private int leftClickNum = 0;
 
+    // UI variables
+    public TMP_Text icoText;
+    public Image icoImg;
+    public float padding;
 
     // Ico Object Data
     public ScriptableObject icoData;
     public float swapTimeMax;
     public float swapTimeMin;
 
-    // UI variables
-    public TMP_Text icoText;
-    public Image icoImg;
-    public float padding;
+    // If is active this icoObject will not be swapped (Swap timer will be reset/paused)
+    public bool isActive;
+
+    // IcoObject values
+    // If value is left null it wont be displayed in general info
+    public int icoAge;
+    public float icoWeight;
+    public float icoHeight;
+    public int icoProductivity; // Needed?
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -150,6 +155,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
                 Debug.Log("Double Click on ico: " + this.gameObject.name);
                 FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this);
                 isActive = true;
+                //TODO: Need to add activation for nearest icoobject to lock them in later stages?
+
                 break;
             }
             yield return null;
@@ -163,6 +170,9 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         this.icoData = newIcoData;
         this.icoText.text = newIcoData.icoName;
         this.icoImg.sprite = newIcoData.icoImg;
+
+        // Generate icoObject values!
+
     }
 
     public void StartSwapLoop()
@@ -178,11 +188,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         float timeElapsed = 0;
 
 
-        while (timeElapsed < swapTime) // TODO: Check objesct is in Output panel
+        while (timeElapsed < swapTime) 
         {
 
             if (isActive)
             {
+                //TODO: Ajoitus jatkuu vai resetoituu?
                 timeElapsed = 0;
             }
             else

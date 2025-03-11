@@ -20,5 +20,9 @@ public class GeneralInfo : MonoBehaviour
         activeInfoItem = icoListObj;
 
         generalInfoText.text = icoListObj.icoData.name;
+
+        // Display other icoObject values in a meter in a 0 to 100 range
+
+
     }
 }
