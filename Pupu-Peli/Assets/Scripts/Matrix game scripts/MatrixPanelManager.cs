@@ -48,6 +48,8 @@ public class MatrixPanelManager : MonoBehaviour
 
     public void PopulateMatrixContent(List<IcoScriptObject> sIcoObjectList)
     {
+        // TODO clear existing objects if there are any!!
+
         // Populate content panel based on given list
 
         float firstPositionX = firstIcoObjectPosition.localPosition.x;

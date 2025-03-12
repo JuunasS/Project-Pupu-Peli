@@ -19,7 +19,7 @@ public class IcoScriptObject : ScriptableObject
     public float maxHeight;
     public float minHeight;
 
-    public int maxPoductivity;
+    public int maxProductivity;
     public int minProductivity;
 
 }

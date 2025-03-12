@@ -27,6 +27,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().setToNewPosition = true;
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().dragging = false;
+                DragManager.Instance.dragObject.GetComponent<IcoListObject>().isActive = true;
                 SetObjectToPosition(DragManager.Instance.dragObject);
                 DragManager.Instance.dragObject = null;
             }
