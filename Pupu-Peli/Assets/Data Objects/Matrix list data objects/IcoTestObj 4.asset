@@ -21,4 +21,10 @@ MonoBehaviour:
     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
     in culpa qui officia deserunt mollit anim id est laborum."'
   minAge: 0
-  maxAge: 0
+  maxAge: 100
+  minWeight: 0
+  maxWeight: 100
+  minHeight: 0
+  maxHeight: 100
+  minProductivity: 0
+  maxProductivity: 100

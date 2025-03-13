@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,17 +11,18 @@ public class IcoScriptObject : ScriptableObject
     [TextArea] public string icoText;
 
 
+
     // Use these values for randomizing 
     public int minAge;
     public int maxAge;
 
-    public float maxWeight;
     public float minWeight;
+    public float maxWeight;
 
-    public float maxHeight;
     public float minHeight;
+    public float maxHeight;
 
-    public int maxProductivity;
     public int minProductivity;
+    public int maxProductivity;
 
 }

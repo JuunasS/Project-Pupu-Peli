@@ -24,28 +24,29 @@ public class MatrixTaskScriptObject : ScriptableObject
 
     public bool CompareAgeVal(int val)
     {
-        if(val >= minAge || val <= maxAge) return true;
+        Debug.Log("minAge: " + minAge + " maxAge: " + maxAge);
+        if (val >= minAge && val <= maxAge) { return true; }
 
         return false;
     }
 
-    public bool CompareWeightVal(int val)
+    public bool CompareWeightVal(float val)
     {
-        if (val >= minWeight || val <= maxWeight) return true;
+        if (val >= minWeight && val <= maxWeight) { return true; }
 
         return false;
     }
 
-    public bool CompareHeightVal(int val)
+    public bool CompareHeightVal(float val)
     {
-        if (val >= minHeight || val <= maxHeight) return true;
+        if (val >= minHeight && val <= maxHeight) { return true; }
 
         return false;
     }
 
     public bool CompareProductivityVal(int val)
     {
-        if (val >= minProductivity || val <= maxProductivity) return true;
+        if (val >= minProductivity && val <= maxProductivity) { return true; }
 
         return false;
     }

@@ -59,13 +59,13 @@ public class MatrixPanelManager : MonoBehaviour
         float icoObjHeight = icoObjectPrefab.GetComponent<RectTransform>().rect.height;
 
 
-        Debug.Log("matrixProgression: " + matrixProgression);
+        //Debug.Log("matrixProgression: " + matrixProgression);
 
         int listCount = (int)matrixProgression; //sIcoObjectList.Count - 1
 
         float icoObjListSqrt = math.round(math.sqrt(listCount));
 
-        Debug.Log("sqrt: " + icoObjListSqrt);
+        //Debug.Log("sqrt: " + icoObjListSqrt);
 
         int row = 0, col = 0;
 

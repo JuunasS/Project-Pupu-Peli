@@ -4,12 +4,14 @@ using UnityEngine.EventSystems;
 
 public class OutputPanel : MonoBehaviour, IDropHandler
 {
+    public TaskManager TaskManager;
+
     public GameObject scrollView;
     public GameObject scrollViewContent;
 
-    public Transform firstInputPosition;
+    public Transform firstOutputPosition;
 
-    public List<GameObject> inputObjects;
+    public List<GameObject> outputObjects;
 
     public int rowMax;
 
@@ -21,9 +23,11 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         if (DragManager.Instance.dragObject == null) { return; }
 
         if (DragManager.Instance.dragObject.GetComponent<IcoListObject>() != null)
-        {            if (!inputObjects.Contains(DragManager.Instance.dragObject)) // Does not contain [!]
+        {
+            if (!outputObjects.Contains(DragManager.Instance.dragObject)) // Does not contain [!]
             {
                 Debug.Log("Received input: " + DragManager.Instance.dragObject);
+                outputObjects.Add(DragManager.Instance.dragObject);
 
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().setToNewPosition = true;
                 DragManager.Instance.dragObject.GetComponent<IcoListObject>().dragging = false;
@@ -42,7 +46,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
         inputObj.transform.SetParent(scrollViewContent.transform, true);
 
-        Vector3 tempPos = firstInputPosition.transform.localPosition;
+        Vector3 tempPos = firstOutputPosition.transform.localPosition;
 
         Debug.Log("row: " + row + "\n" + "col: " + col);
         Debug.Log("New inputObj localPos: " + inputObj.transform.localPosition);
@@ -70,12 +74,12 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     {
         Debug.Log("Checking input objects!");
 
-        for (int i = 0; i < inputObjects.Count; i++)
+        for (int i = 0; i < outputObjects.Count; i++)
         {
-            Debug.Log(firstInputPosition.childCount == 0);
-            if (firstInputPosition.childCount == 0)
+            Debug.Log(firstOutputPosition.childCount == 0);
+            if (firstOutputPosition.childCount == 0)
             {
-                inputObjects.RemoveAt(i);
+                outputObjects.RemoveAt(i);
 
                 // Set object into the input panel again in correct positions!
 
@@ -89,9 +93,27 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     public void SubmitInput()
     {
 
-        if (inputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
+        if (outputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
         // Check if given ico objects are correct
         // Have a list of tasks (ScriptableObjects?) where one is chosen randomly and check against it
+
+        List<IcoListObject> icoListObjects = new List<IcoListObject>();
+
+        for (int i = 0; i < outputObjects.Count; i++)
+
+        {
+            icoListObjects.Add(outputObjects[i].GetComponent<IcoListObject>());
+        }
+
+        if(TaskManager.CompareSumbittedValues(icoListObjects))
+        {
+            Debug.Log("CORRECT OUTPUT!");
+        }
+        else
+        {
+
+            Debug.Log("WRONG OUTPUT!");
+        }
 
     }
 }

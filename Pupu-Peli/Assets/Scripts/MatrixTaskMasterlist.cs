@@ -19,7 +19,7 @@ public class MatrixTaskMasterlist : MonoBehaviour
 
     public List<MatrixTaskScriptObject> matrixTaskScriptableObjects;
 
-    public List<MatrixTaskScriptObject> getIcoScriptObjects()
+    public List<MatrixTaskScriptObject> getTaskoScriptObjects()
     {
         // Add randomization based on wanted list-size paramenter and objectives?
 

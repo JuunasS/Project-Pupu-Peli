@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7feba66c554aec4eb24ac053cda9d4b, type: 3}
   m_Name: Test Task
   m_EditorClassIdentifier: 
-  taskDesc: 
-  checkAge: 0
-  minAge: 0
-  maxAge: 0
+  taskDesc: 'lorem ipsum '
+  checkAge: 1
+  minAge: 70
+  maxAge: 100
   checkWeight: 0
   minWeight: 0
   maxWeight: 0

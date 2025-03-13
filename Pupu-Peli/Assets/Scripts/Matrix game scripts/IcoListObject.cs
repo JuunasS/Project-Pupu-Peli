@@ -32,7 +32,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public float padding;
 
     // Ico Object Data
-    public ScriptableObject icoData;
+    public IcoScriptObject icoData;
     public float swapTimeMax;
     public float swapTimeMin;
 
@@ -173,6 +173,10 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
         // Generate icoObject values!
 
+        icoAge = Random.Range(icoData.minAge, icoData.maxAge);
+        icoWeight = Random.Range(icoData.minWeight, icoData.maxWeight);
+        icoHeight = Random.Range(icoData.minHeight, icoData.maxHeight);
+        icoProductivity = Random.Range(icoData.minProductivity, icoData.maxProductivity);
     }
 
     public void StartSwapLoop()
@@ -182,7 +186,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public IEnumerator SwapIcoObj()
     {
-        Debug.Log("SwapIcoObjs coroutine started :" + this.icoData.name);
+        //Debug.Log("SwapIcoObjs coroutine started :" + this.icoData.name);
         float swapTime = Random.Range(swapTimeMin, swapTimeMax);
 
         float timeElapsed = 0;
