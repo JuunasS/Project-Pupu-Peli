@@ -19,6 +19,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     public int row = 0, col = 0;
 
     public float setToPositionSpeed;
+    public float rePositionSpeed;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -43,6 +44,8 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
     public void SetObjectToPosition(GameObject inputObj)
     {
+        if (row == rowMax) { inputObj.GetComponent<IcoListObject>().MoveToPos(inputObj.GetComponent<IcoListObject>().returnPos, inputObj.GetComponent<IcoListObject>().returnDuration); return; }
+
 
         float icoObjWidth = inputObj.GetComponent<RectTransform>().rect.width;
         float icoObjHeight = inputObj.GetComponent<RectTransform>().rect.height;
@@ -58,16 +61,8 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
         inputObj.GetComponent<IcoListObject>().MoveToPos(tempPos, setToPositionSpeed);
 
-        if (row + 1 == rowMax) // End of the row
-        {
-            Debug.Log("Adding column!!");
-            row = 0;
-        }
-        else
-        {
-            Debug.Log("Adding row!!");
-            row++;
-        }
+        row++;
+
 
     }
 
@@ -75,6 +70,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     {
         outputObjects.Remove(obj);
         row--;
+        if (row < 0) { row = 0; }
 
         // Reposition all objects in outputPanel!
         RepositionOutputListObjects();
@@ -95,7 +91,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
             tempPos += new Vector3(icoObjWidth * tempRow * outputObjects[i].GetComponent<RectTransform>().localScale.x, 0, 0);
 
-            outputObjects[i].GetComponent<IcoListObject>().MoveToPos(tempPos, setToPositionSpeed);
+            outputObjects[i].GetComponent<IcoListObject>().MoveToPos(tempPos, rePositionSpeed);
 
             tempRow++;
         }
@@ -117,7 +113,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             icoListObjects.Add(outputObjects[i].GetComponent<IcoListObject>());
         }
 
-        if(TaskManager.CompareSumbittedValues(icoListObjects))
+        if (TaskManager.CompareSumbittedValues(icoListObjects))
         {
             Debug.Log("CORRECT OUTPUT!");
         }
