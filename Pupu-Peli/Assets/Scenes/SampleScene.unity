@@ -3197,6 +3197,7 @@ MonoBehaviour:
   rowMax: 5
   row: 0
   col: 0
+  setToPositionSpeed: 1
 --- !u!114 &1156120917
 MonoBehaviour:
   m_ObjectHideFlags: 0

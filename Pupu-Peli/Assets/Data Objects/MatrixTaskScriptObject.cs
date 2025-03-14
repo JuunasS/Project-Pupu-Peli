@@ -22,6 +22,8 @@ public class MatrixTaskScriptObject : ScriptableObject
     public int minProductivity;
     public int maxProductivity;
 
+    // The functions below compare given parameter value to the task minimum and maximum values
+    // Returns "true" if the value is within requirments
     public bool CompareAgeVal(int val)
     {
         Debug.Log("minAge: " + minAge + " maxAge: " + maxAge);

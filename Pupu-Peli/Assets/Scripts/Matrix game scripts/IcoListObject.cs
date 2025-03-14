@@ -54,10 +54,11 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    // Update is called once per frame
+    /* Update is called once per frame
     void Update()
     {
     }
+    */
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -75,12 +76,11 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         dragging = false;
         canvasGroup.blocksRaycasts = true;
 
-        // Check if is hovering over input panel and set it there if so
+        // Check if is hovering over output panel and set it there if so
         if (setToNewPosition)
         {
-            Debug.Log("Drag back to new position");
+            Debug.Log("Drag to new position");
             setToNewPosition = false;
-            //StartCoroutine(LerpToLocalVector3(newPosition));
             isActive = true;
         }
         else
@@ -88,9 +88,9 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             // Return to matrix
             Debug.Log("Drag back to original position");
             this.transform.parent = originalParent;
-            StartCoroutine(LerpToLocalVector3(returnPos));
+            StartCoroutine(LerpToLocalVector3(returnPos, returnDuration));
             DragManager.Instance.SetDragObject(null);
-            FindAnyObjectByType<OutputPanel>().CheckObjectList();
+            FindAnyObjectByType<OutputPanel>().RemoveObjectFromList(this.gameObject);
 
             if (FindAnyObjectByType<GeneralInfo>().activeInfoItem == null || FindAnyObjectByType<GeneralInfo>().activeInfoItem != this)
             {
@@ -99,21 +99,21 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         }
     }
 
-    public void MoveToPos(Vector3 pos)
+    public void MoveToPos(Vector3 pos, float duration)
     {
         Debug.Log("MoveToPos: " + pos);
-        StartCoroutine(LerpToLocalVector3(pos));
+        StartCoroutine(LerpToLocalVector3(pos, duration));
     }
 
-    public IEnumerator LerpToLocalVector3(Vector3 pos)
+    public IEnumerator LerpToLocalVector3(Vector3 pos, float duration)
     {
         Debug.Log("Lerping to new position");
         float timeElapsed = 0;
 
-        while (timeElapsed < returnDuration)
+        while (timeElapsed < duration)
         {
             //Debug.Log("Lerp 1: " + timeElapsed);
-            float t = timeElapsed / returnDuration;
+            float t = timeElapsed / duration;
             transform.localPosition = Vector3.Lerp(transform.localPosition, pos, t);
             timeElapsed += Time.deltaTime;
 
@@ -165,6 +165,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         isTimeCheckAllowed = true;
     }
 
+    // Generates random ico values for this object based on given minimum and maximum values
     public void SetIcoData(IcoScriptObject newIcoData)
     {
         this.icoData = newIcoData;
@@ -179,11 +180,13 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         icoProductivity = Random.Range(icoData.minProductivity, icoData.maxProductivity);
     }
 
+    // Starts object data swapping coroutine
     public void StartSwapLoop()
     {
         StartCoroutine(SwapIcoObj());
     }
 
+    // Swaps icoData of this object after randomized swap time and starts the coroutine again
     public IEnumerator SwapIcoObj()
     {
         //Debug.Log("SwapIcoObjs coroutine started :" + this.icoData.name);
@@ -210,9 +213,6 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             yield return null;
 
         }
-        // Add randomized timer that is stopped when object is clicked
-        // No need to generate new prefab, instead replace icodata and put new data into object 
-        // GeneralInfo panel will pull data everytime double click event happens
 
         IcoScriptObject newIcoData = IcoObjMasterList.Instance.GetRandomIcoScriptObj();
         this.SetIcoData(newIcoData);

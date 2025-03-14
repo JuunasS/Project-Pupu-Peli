@@ -14,9 +14,12 @@ public class TaskManager : MonoBehaviour
 
     public void SetTaskToPanel()
     {
-
+        // Todo: set tasks to task panel based on game progression!
     }
 
+    // Compares given icoObjects values to the current task requirements
+    // If check-boolean is true compares the value given value
+    // If all values are withing the requirements returns true
     public bool CompareSumbittedValues(List<IcoListObject> icoObjects) 
     {
         for (int i = 0; i < icoObjects.Count; i++)

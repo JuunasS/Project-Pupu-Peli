@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +17,8 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     public int rowMax;
 
     public int row = 0, col = 0;
+
+    public float setToPositionSpeed;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -53,12 +56,11 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
         tempPos += new Vector3(icoObjWidth * row * inputObj.GetComponent<RectTransform>().localScale.x, icoObjHeight * col * inputObj.GetComponent<RectTransform>().localScale.y, 0);
 
-        inputObj.GetComponent<IcoListObject>().MoveToPos(tempPos);
+        inputObj.GetComponent<IcoListObject>().MoveToPos(tempPos, setToPositionSpeed);
 
         if (row + 1 == rowMax) // End of the row
         {
             Debug.Log("Adding column!!");
-            //col--;
             row = 0;
         }
         else
@@ -69,23 +71,33 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
     }
 
-    // Probably redundant now
-    public void CheckObjectList()
+    public void RemoveObjectFromList(GameObject obj)
     {
-        Debug.Log("Checking input objects!");
+        outputObjects.Remove(obj);
+        row--;
 
+        // Reposition all objects in outputPanel!
+        RepositionOutputListObjects();
+    }
+
+    public void RepositionOutputListObjects()
+    {
+        int tempRow = 0;
         for (int i = 0; i < outputObjects.Count; i++)
         {
-            Debug.Log(firstOutputPosition.childCount == 0);
-            if (firstOutputPosition.childCount == 0)
-            {
-                outputObjects.RemoveAt(i);
+            float icoObjWidth = outputObjects[i].GetComponent<RectTransform>().rect.width;
+            float icoObjHeight = outputObjects[i].GetComponent<RectTransform>().rect.height;
 
-                // Set object into the input panel again in correct positions!
+            Vector3 tempPos = firstOutputPosition.transform.localPosition;
 
-                //row--;
-                //col--; ?
-            }
+            Debug.Log("row: " + row + "\n" + "col: " + col);
+            Debug.Log("New inputObj localPos: " + outputObjects[i].transform.localPosition);
+
+            tempPos += new Vector3(icoObjWidth * tempRow * outputObjects[i].GetComponent<RectTransform>().localScale.x, 0, 0);
+
+            outputObjects[i].GetComponent<IcoListObject>().MoveToPos(tempPos, setToPositionSpeed);
+
+            tempRow++;
         }
     }
 
