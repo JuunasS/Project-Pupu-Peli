@@ -175,9 +175,10 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         // Generate icoObject values!
 
         icoAge = Random.Range(icoData.minAge, icoData.maxAge);
-        icoWeight = Random.Range(icoData.minWeight, icoData.maxWeight);
-        icoHeight = Random.Range(icoData.minHeight, icoData.maxHeight);
+        icoWeight = (float)System.Math.Round(Random.Range(icoData.minWeight, icoData.maxWeight), 1);
+        icoHeight = (float)System.Math.Round(Random.Range(icoData.minHeight, icoData.maxHeight), 1);
         icoProductivity = Random.Range(icoData.minProductivity, icoData.maxProductivity);
+
     }
 
     // Starts object data swapping coroutine
@@ -195,7 +196,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         float timeElapsed = 0;
 
 
-        while (timeElapsed < swapTime) 
+        while (timeElapsed < swapTime)
         {
 
             if (isActive)
