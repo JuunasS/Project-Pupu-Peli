@@ -12,6 +12,13 @@ public class TaskManager : MonoBehaviour
 
     public GameObject TaskValueSliderPrefab;
 
+    public TaskValueSlider taskValueSlider1;
+
+    private void Start()
+    {
+        taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+    }
+
     public void SetTaskToPanel()
     {
         // Todo: set tasks to task panel based on game progression!
