@@ -4754,6 +4754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2632513414328377058}
   - component: {fileID: 8093681038355019355}
+  - component: {fileID: 8093681038355019356}
   m_Layer: 5
   m_Name: TaskValueSlider
   m_TagString: Untagged
@@ -5748,6 +5749,23 @@ MonoBehaviour:
   valueText: {fileID: 4145399507302013768}
   minValueText: {fileID: 2151831441713106224}
   maxValueText: {fileID: 2745925352403979854}
+--- !u!114 &8093681038355019356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157365523266290354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed635d19c8bf280458fb9a36f3c91d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valNameText: {fileID: 0}
+  minValSlider: {fileID: 0}
+  maxValSlider: {fileID: 0}
+  minValueText: {fileID: 0}
+  maxValueText: {fileID: 0}
 --- !u!222 &8664503379412073425
 CanvasRenderer:
   m_ObjectHideFlags: 0
