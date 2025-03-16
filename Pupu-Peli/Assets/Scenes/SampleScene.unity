@@ -524,6 +524,8 @@ MonoBehaviour:
   valueSliderPrefab: {fileID: 7044292182300230351, guid: 8b26c14b1bb129646bb0115db21768fd,
     type: 3}
   valueSliderPos1: {fileID: 2114160802}
+  sliderPaddingBottom: 60
+  valueSliderList: []
 --- !u!1 &257801737
 GameObject:
   m_ObjectHideFlags: 0
