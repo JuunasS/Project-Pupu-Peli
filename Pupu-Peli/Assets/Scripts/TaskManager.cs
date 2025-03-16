@@ -15,6 +15,8 @@ public class TaskManager : MonoBehaviour
     public void SetTaskToPanel()
     {
         // Todo: set tasks to task panel based on game progression!
+
+
     }
 
     // Compares given icoObjects values to the current task requirements
