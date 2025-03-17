@@ -3124,6 +3124,27 @@ RectTransform:
   m_AnchoredPosition: {x: 93, y: -99.722}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1519135618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2649506438832713499, guid: 7bbfbe1fdd98dc6489da4b15babfd5a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1335091582235453377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1519135620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519135618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 0.84, y: 2.83}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1542737436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,7 +3898,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2649506438832713499, guid: 7bbfbe1fdd98dc6489da4b15babfd5a2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1519135620}
   m_SourcePrefab: {fileID: 100100000, guid: 7bbfbe1fdd98dc6489da4b15babfd5a2, type: 3}
 --- !u!224 &2632513414328377058 stripped
 RectTransform:
