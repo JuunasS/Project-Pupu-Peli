@@ -9,6 +9,7 @@ public class PlayerActivatePC : MonoBehaviour
     {
         if (MatrixCanvasObject & Input.GetKeyDown(KeyCode.Escape))
         {
+            //TODO:  Check if player has completed the taks or timer has run out!!!
             MatrixCanvasObject.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.E))

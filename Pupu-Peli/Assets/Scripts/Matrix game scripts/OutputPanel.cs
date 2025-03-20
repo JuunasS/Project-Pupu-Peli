@@ -115,11 +115,15 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         if (TaskManager.CompareSumbittedValues(icoListObjects))
         {
             Debug.Log("CORRECT OUTPUT!");
+            // Give points based on time and amount of correct objects
+            // Replace all matrix icoObjects and player continues game?
+            
         }
         else
         {
 
             Debug.Log("WRONG OUTPUT!");
+            // reset matrix and empty output panel
         }
 
     }
