@@ -15,12 +15,15 @@ public class TaskManager : MonoBehaviour
 
     public TaskValueSlider taskValueSlider1;
 
+    public MatrixGameTimer matrixGameTimer;
+
     private void Start()
     {
         //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
         GenerateTaskSliders();
 
         // Start matrix game timer!!
+        matrixGameTimer.StartMatrixTimer();
     }
 
     public void GenerateTaskSliders()
