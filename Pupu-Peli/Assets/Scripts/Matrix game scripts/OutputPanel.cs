@@ -108,7 +108,6 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         List<IcoListObject> icoListObjects = new List<IcoListObject>();
 
         for (int i = 0; i < outputObjects.Count; i++)
-
         {
             icoListObjects.Add(outputObjects[i].GetComponent<IcoListObject>());
         }

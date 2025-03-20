@@ -37,6 +37,7 @@ public class MatrixPanelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("MatrixPanelManager Start!!");
         icoScriptObjects = icoMasterList.getIcoScriptObjects();
 
         // Add function for populating content section

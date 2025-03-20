@@ -10,13 +10,74 @@ public class TaskManager : MonoBehaviour
     public GameObject taskPanel;
     public TMP_Text taskText;
 
-    public GameObject TaskValueSliderPrefab;
+    public GameObject taskValueSliderPrefab;
+    public Transform firstTaskSliderPos;
 
     public TaskValueSlider taskValueSlider1;
 
     private void Start()
     {
-        taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+        //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+        GenerateTaskSliders();
+    }
+
+    public void GenerateTaskSliders()
+    {
+        int col = 0;
+
+        if(currentTask.checkAge)
+        {
+            // Generate age task slider
+            GameObject tempTaskSlider =  Instantiate(taskValueSliderPrefab);
+
+            tempTaskSlider.transform.SetParent(taskPanel.transform, false);
+
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -25-taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+
+            tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+            col++;
+        }
+
+        if (currentTask.checkWeight)
+        {
+            // Generate weight task slider
+            GameObject tempTaskSlider = Instantiate(taskValueSliderPrefab);
+
+            tempTaskSlider.transform.SetParent(taskPanel.transform, false);
+
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -50 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+
+            tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Weight", (int)currentTask.minWeight, (int)currentTask.maxWeight);
+            col++;
+        }
+
+        if (currentTask.checkHeight)
+        {
+            // Generate height task slider
+            GameObject tempTaskSlider = Instantiate(taskValueSliderPrefab);
+
+            tempTaskSlider.transform.SetParent(taskPanel.transform, false);
+
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -75 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+
+            tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Height", (int)currentTask.minHeight, (int)currentTask.maxHeight);
+            col++;
+        }
+
+        if (currentTask.checkProductivity)
+        {
+            // Generate productivity task slider
+            GameObject tempTaskSlider = Instantiate(taskValueSliderPrefab);
+
+            tempTaskSlider.transform.SetParent(taskPanel.transform, false);
+
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -100 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+
+            tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Productivity", currentTask.minProductivity, currentTask.maxProductivity);
+            col++;
+        }
+
+        taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
     }
 
     public void SetTaskToPanel()
