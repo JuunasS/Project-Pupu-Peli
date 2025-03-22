@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class OutputPanel : MonoBehaviour, IDropHandler
 {
     public TaskManager TaskManager;
-    public MatrixPointsManager PointsManager;
+    public MatrixScoreManager ScoreManager;
 
     public GameObject scrollView;
     public GameObject scrollViewContent;
@@ -77,6 +77,13 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         RepositionOutputListObjects();
     }
 
+    public bool IsObjectInList(GameObject obj)
+    {
+        if (outputObjects.Contains(obj)) { return true; }
+
+        return false;
+    }
+
     public void RepositionOutputListObjects()
     {
         int tempRow = 0;
@@ -119,6 +126,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             // Give points based on time and amount of correct objects
             // Replace all matrix icoObjects and player continues game?
             // Create new points system?
+            ScoreManager.AddScore(icoListObjects.Count * 50);
             
         }
         else

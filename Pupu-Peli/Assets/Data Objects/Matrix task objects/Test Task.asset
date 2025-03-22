@@ -16,12 +16,12 @@ MonoBehaviour:
   checkAge: 1
   minAge: 70
   maxAge: 100
-  checkWeight: 1
+  checkWeight: 0
   minWeight: 11
   maxWeight: 60
-  checkHeight: 1
+  checkHeight: 0
   minHeight: 56
   maxHeight: 77
-  checkProductivity: 1
+  checkProductivity: 0
   minProductivity: 22
   maxProductivity: 40

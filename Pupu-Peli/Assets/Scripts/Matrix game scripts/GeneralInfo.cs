@@ -22,7 +22,7 @@ public class GeneralInfo : MonoBehaviour
     {
         generalInfoPanel.SetActive(true);
 
-        if (activeInfoItem != null) { activeInfoItem.isActive = false; }
+        if (activeInfoItem != null && !FindAnyObjectByType<OutputPanel>().IsObjectInList(activeInfoItem.gameObject)) { activeInfoItem.isActive = false; }
 
         icoListObj.isActive = true;
 

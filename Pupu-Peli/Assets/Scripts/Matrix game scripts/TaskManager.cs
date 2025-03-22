@@ -99,6 +99,7 @@ public class TaskManager : MonoBehaviour
     {
         for (int i = 0; i < icoObjects.Count; i++)
         {
+            // Animations to indicate values check?
             Debug.Log("icoObjects[i].icoAge " + icoObjects[i].icoAge);
             Debug.Log("!currentTask.checkAge: " + currentTask.checkAge);
             Debug.Log("!currentTask.CompareAgeVal(icoObjects[i].icoAge " + !currentTask.CompareAgeVal(icoObjects[i].icoAge));
