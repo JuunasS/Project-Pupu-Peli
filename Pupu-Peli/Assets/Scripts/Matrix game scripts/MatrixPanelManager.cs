@@ -34,16 +34,22 @@ public class MatrixPanelManager : MonoBehaviour
 
     public MatrixGameProgression matrixProgression;
 
+    private void OnEnable()
+    {
+        icoScriptObjects = icoMasterList.getIcoScriptObjects();
+        ResetMatrixIcoObjects();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Debug.Log("MatrixPanelManager Start!!");
-        icoScriptObjects = icoMasterList.getIcoScriptObjects();
+        //icoScriptObjects = icoMasterList.getIcoScriptObjects();
 
         // Add function for populating content section
         Debug.Log(firstIcoObjectPosition);
         Debug.Log(icoScriptObjects.Count - 1);
-        PopulateMatrixContent(icoScriptObjects);
+        //PopulateMatrixContent(icoScriptObjects);
     }
 
 
@@ -126,8 +132,8 @@ public class MatrixPanelManager : MonoBehaviour
 
     public void ResetMatrixIcoObjects()
     {
-        for (int i = 0; i < icoGameObjects.Count; i++) {
-
+        for (int i = 0; i < icoGameObjects.Count; i++)
+        {
             Destroy(icoGameObjects[i]);
         }
         icoGameObjects.Clear();
