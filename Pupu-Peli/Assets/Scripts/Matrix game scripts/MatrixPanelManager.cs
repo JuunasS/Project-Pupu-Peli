@@ -124,4 +124,16 @@ public class MatrixPanelManager : MonoBehaviour
 
     }
 
+    public void ResetMatrixIcoObjects()
+    {
+        for (int i = 0; i < icoGameObjects.Count; i++) {
+
+            Destroy(icoGameObjects[i]);
+        }
+        icoGameObjects.Clear();
+
+        PopulateMatrixContent(icoScriptObjects);
+
+    }
+
 }

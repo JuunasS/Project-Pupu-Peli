@@ -136,5 +136,13 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             // reset matrix and empty output panel
         }
 
+        // Clear panel
+        for (int i = 0; i < outputObjects.Count; i++) {
+        
+            Destroy(outputObjects[i]);
+        }
+        outputObjects.Clear();
+        FindAnyObjectByType<MatrixPanelManager>().ResetMatrixIcoObjects();
+        row = 0;
     }
 }
