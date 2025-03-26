@@ -17,7 +17,7 @@ public class TaskManager : MonoBehaviour
 
     public MatrixGameTimer matrixGameTimer;
 
-    private void Start()
+    private void OnEnable()
     {
         //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
         GenerateTaskSliders();

@@ -1,8 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MatrixGameTimer : MonoBehaviour
 {
+    public TMP_Text timerText;
+
     public float time;
     public float timeElapsed;
 
@@ -23,6 +26,7 @@ public class MatrixGameTimer : MonoBehaviour
             {
                 float t = timeElapsed / time;
                 timeElapsed += Time.deltaTime;
+                timerText.text = System.Math.Round(time - timeElapsed, 0).ToString();
             }
 
             yield return null;
@@ -37,6 +41,7 @@ public class MatrixGameTimer : MonoBehaviour
         Debug.Log("Game failed, Time Ran Out!");
         timerActive = false;
 
+        // Call function to infrom player time ran out / Close matrix game?
     }
 
     public void TimerStop()
