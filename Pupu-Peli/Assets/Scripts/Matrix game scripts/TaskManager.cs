@@ -17,6 +17,8 @@ public class TaskManager : MonoBehaviour
 
     public MatrixGameTimer matrixGameTimer;
 
+    public bool taskSlidersGenerated = false;
+
     private void OnEnable()
     {
         //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
@@ -28,6 +30,7 @@ public class TaskManager : MonoBehaviour
 
     public void GenerateTaskSliders()
     {
+        if(taskSlidersGenerated) { return; }
         int col = 0;
 
         if(currentTask.checkAge)
@@ -83,6 +86,7 @@ public class TaskManager : MonoBehaviour
         }
 
         taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+        taskSlidersGenerated = true;
     }
 
     public void SetTaskToPanel()
