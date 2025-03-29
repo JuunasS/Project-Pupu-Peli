@@ -17,7 +17,6 @@ public enum MatrixGameProgression
 
 public class MatrixPanelManager : MonoBehaviour
 {
-
     public RectTransform matrixPanelRectTransform;
     public GameObject matrixContentPanel;
 
