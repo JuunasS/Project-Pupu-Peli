@@ -15,6 +15,10 @@ public class MatrixScoreManager : MonoBehaviour
         // Add animation for score increase?
     }
 
+    public int GetScore()
+    {
+        return currentScore;
+    }
 
     /* Redundant?
     public void ResetScore()

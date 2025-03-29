@@ -15,7 +15,7 @@ public class TaskManager : MonoBehaviour
 
     public TaskValueSlider taskValueSlider1;
 
-    public MatrixGameTimer matrixGameTimer;
+    public MatrixTimer matrixTimer;
 
     public bool taskSlidersGenerated = false;
 
@@ -25,7 +25,7 @@ public class TaskManager : MonoBehaviour
         GenerateTaskSliders();
 
         // Start matrix game timer!!
-        matrixGameTimer.StartMatrixTimer();
+        matrixTimer.StartMatrixTimer();
     }
 
     public void GenerateTaskSliders()
