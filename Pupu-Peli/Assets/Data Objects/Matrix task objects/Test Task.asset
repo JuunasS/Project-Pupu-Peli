@@ -22,6 +22,6 @@ MonoBehaviour:
   checkHeight: 0
   minHeight: 56
   maxHeight: 77
-  checkProductivity: 0
-  minProductivity: 22
-  maxProductivity: 40
+  checkProductivity: 1
+  minProductivity: 11
+  maxProductivity: 88

@@ -2,8 +2,10 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class MatrixGameTimer : MonoBehaviour
+public class MatrixTimer : MonoBehaviour
 {
+    public MatrixPanelManager matrixPanelManager;
+
     public TMP_Text timerText;
 
     public float time;
@@ -15,10 +17,10 @@ public class MatrixGameTimer : MonoBehaviour
     public void StartMatrixTimer()
     {
         timerActive = true;
-        StartCoroutine(MatrixTimer());
+        StartCoroutine(GameTimer());
     }
 
-    private IEnumerator MatrixTimer()
+    private IEnumerator GameTimer()
     {
         while (timeElapsed < time)
         {

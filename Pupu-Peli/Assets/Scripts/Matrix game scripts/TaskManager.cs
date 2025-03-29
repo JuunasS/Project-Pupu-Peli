@@ -15,7 +15,9 @@ public class TaskManager : MonoBehaviour
 
     public TaskValueSlider taskValueSlider1;
 
-    public MatrixGameTimer matrixGameTimer;
+    public MatrixTimer matrixTimer;
+
+    public bool taskSlidersGenerated = false;
 
     private void OnEnable()
     {
@@ -23,11 +25,12 @@ public class TaskManager : MonoBehaviour
         GenerateTaskSliders();
 
         // Start matrix game timer!!
-        matrixGameTimer.StartMatrixTimer();
+        matrixTimer.StartMatrixTimer();
     }
 
     public void GenerateTaskSliders()
     {
+        if(taskSlidersGenerated) { return; }
         int col = 0;
 
         if(currentTask.checkAge)
@@ -83,6 +86,7 @@ public class TaskManager : MonoBehaviour
         }
 
         taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+        taskSlidersGenerated = true;
     }
 
     public void SetTaskToPanel()

@@ -131,12 +131,10 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         }
         else
         {
-
             Debug.Log("WRONG OUTPUT!");
-            // reset matrix and empty output panel
         }
 
-        // Clear panel
+        // Clear & reset panels
         for (int i = 0; i < outputObjects.Count; i++) {
         
             Destroy(outputObjects[i]);
