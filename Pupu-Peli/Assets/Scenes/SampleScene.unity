@@ -961,6 +961,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Task Info
       objectReference: {fileID: 0}
+    - target: {fileID: 2561097277924717220, guid: ddfdc329189d9984e8a78346360621d8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4870089670406200878, guid: 3a193848c8d389f4c9eb72aa4a07aa1a,
+        type: 3}
     - target: {fileID: 3773373418453972516, guid: ddfdc329189d9984e8a78346360621d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1232,6 +1238,12 @@ PrefabInstance:
       propertyPath: m_text
       value: General Info
       objectReference: {fileID: 0}
+    - target: {fileID: 2561097277924717220, guid: ddfdc329189d9984e8a78346360621d8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5148159522515454886, guid: 3a193848c8d389f4c9eb72aa4a07aa1a,
+        type: 3}
     - target: {fileID: 3773373418453972516, guid: ddfdc329189d9984e8a78346360621d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5860,6 +5872,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Output
       objectReference: {fileID: 0}
+    - target: {fileID: 2561097277924717220, guid: ddfdc329189d9984e8a78346360621d8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22fafc3e4b16258438fb4240603b1949,
+        type: 3}
     - target: {fileID: 3773373418453972516, guid: ddfdc329189d9984e8a78346360621d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6490,6 +6508,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1872617091}
     m_Modifications:
+    - target: {fileID: 2561097277924717220, guid: ddfdc329189d9984e8a78346360621d8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b1d81fd4029ff3f47bbb0da5379cd31d,
+        type: 3}
     - target: {fileID: 3773373418453972516, guid: ddfdc329189d9984e8a78346360621d8,
         type: 3}
       propertyPath: m_Pivot.x
