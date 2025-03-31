@@ -163,4 +163,11 @@ public class MatrixGameManager : MonoBehaviour
         gameEndText.text = "Exiting application!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
     }
+
+    public void DispenseReward()
+    {
+        // Spawn coins for player based on score!
+
+        // Coins should make satisfying sounds when hitting ground and when being collected
+    }
 }
