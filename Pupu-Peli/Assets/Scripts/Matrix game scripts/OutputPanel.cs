@@ -140,7 +140,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             Destroy(outputObjects[i]);
         }
         outputObjects.Clear();
-        FindAnyObjectByType<MatrixPanelManager>().ResetMatrixIcoObjects();
+        FindAnyObjectByType<MatrixGameManager>().ResetMatrixIcoObjects();
         row = 0;
     }
 }

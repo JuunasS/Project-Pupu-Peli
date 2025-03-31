@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MatrixTimer : MonoBehaviour
 {
-    public MatrixPanelManager matrixPanelManager;
+    public MatrixGameManager matrixGameManager;
 
     public TMP_Text timerText;
 

@@ -15,7 +15,7 @@ public enum MatrixGameProgression
     StageFour = 36,
 }
 
-public class MatrixPanelManager : MonoBehaviour
+public class MatrixGameManager : MonoBehaviour
 {
     public RectTransform matrixPanelRectTransform;
     public GameObject matrixContentPanel;
