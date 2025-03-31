@@ -2046,8 +2046,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619694048}
-  - component: {fileID: 619694049}
   - component: {fileID: 619694050}
+  - component: {fileID: 619694049}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -2086,6 +2086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MatrixCanvasObject: {fileID: 1542737436}
+  waitBeforeExit: 3
 --- !u!65 &619694050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2124,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &626463836
 RectTransform:
   m_ObjectHideFlags: 0
