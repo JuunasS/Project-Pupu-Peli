@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b19bd45e2dacd4085c90ccfb7db87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matrixGameManager: {fileID: 0}
+  matrixGameManager: {fileID: 867671888}
   timerText: {fileID: 1542703315}
-  time: 300
+  time: 5
   timeElapsed: 0
   timerActive: 0
 --- !u!1 &49715740
@@ -2035,7 +2035,7 @@ MonoBehaviour:
     type: 3}
   firstTaskSliderPos: {fileID: 1828257074}
   taskValueSlider1: {fileID: 8093681038355019356}
-  matrixTimer: {fileID: 0}
+  matrixTimer: {fileID: 34752740}
   taskSlidersGenerated: 0
 --- !u!1 &619694047
 GameObject:
@@ -2124,7 +2124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &626463836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2902,6 +2902,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c66471c842e2f6b47914dde241b16080, type: 2}
   - {fileID: 11400000, guid: c66471c842e2f6b47914dde241b16080, type: 2}
   matrixProgression: 9
+  scoreManager: {fileID: 1339273798}
+  gameEndScreen: {fileID: 626463835}
+  gameEndText: {fileID: 1353204908}
+  gameEndScoreText: {fileID: 804876977}
 --- !u!1 &871312355
 GameObject:
   m_ObjectHideFlags: 0

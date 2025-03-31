@@ -39,11 +39,11 @@ public class MatrixTimer : MonoBehaviour
 
     public void TimeRanOut()
     {
-        // Game failed
-        Debug.Log("Game failed, Time Ran Out!");
+        Debug.Log("Time Ran Out!");
         timerActive = false;
 
         // Call function to infrom player time ran out / Close matrix game?
+        matrixGameManager.GameEndOnTime();
     }
 
     public void TimerStop()

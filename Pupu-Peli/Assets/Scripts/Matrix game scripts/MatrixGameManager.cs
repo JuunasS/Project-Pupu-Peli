@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -33,10 +34,17 @@ public class MatrixGameManager : MonoBehaviour
 
     public MatrixGameProgression matrixProgression;
 
+    public MatrixScoreManager scoreManager;
+    public GameObject gameEndScreen;
+    public TMP_Text gameEndText;
+    public TMP_Text gameEndScoreText;
+
+
     private void OnEnable()
     {
         icoScriptObjects = icoMasterList.getIcoScriptObjects();
         ResetMatrixIcoObjects();
+        gameEndScreen.SetActive(false);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -141,4 +149,18 @@ public class MatrixGameManager : MonoBehaviour
 
     }
 
+
+    public void GameEndOnTime()
+    {
+        gameEndScreen.SetActive(true);
+        gameEndText.text = "Timer ran out!";
+        gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+    }
+
+    public void GameEndOnExit()
+    {
+        gameEndScreen.SetActive(true);
+        gameEndText.text = "Exiting application!";
+        gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+    }
 }
