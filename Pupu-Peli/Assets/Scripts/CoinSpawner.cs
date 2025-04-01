@@ -15,12 +15,17 @@ public class CoinSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnCoinsTEST());
+       // StartCoroutine(SpawnCoinsTEST());
     }
 
-    public IEnumerator SpawnCoins(int score)
+    public void BeginSpawningCoins(int score)
     {
-        for (int i = 0; i < score / 50; i++)
+        StartCoroutine(SpawnCoins(score));
+    }
+
+    private IEnumerator SpawnCoins(int score)
+    {
+        for (int i = 0; i < score / 2; i++)
         {
                 Vector3 tempSpawnPosition = spawnArea.localPosition;
                 tempSpawnPosition += new Vector3(Random.Range(-0.4f, 0.4f), Random.Range(0, 0.4f), Random.Range(-0.4f, 0.4f));

@@ -3795,6 +3795,7 @@ MonoBehaviour:
   gameEndScreen: {fileID: 626463835}
   gameEndText: {fileID: 1353204908}
   gameEndScoreText: {fileID: 804876977}
+  coinSpawner: {fileID: 1308251947}
 --- !u!1 &871312355
 GameObject:
   m_ObjectHideFlags: 0

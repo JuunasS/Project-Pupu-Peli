@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -38,6 +39,8 @@ public class MatrixGameManager : MonoBehaviour
     public GameObject gameEndScreen;
     public TMP_Text gameEndText;
     public TMP_Text gameEndScoreText;
+
+    public CoinSpawner coinSpawner;
 
 
     private void OnEnable()
@@ -150,24 +153,30 @@ public class MatrixGameManager : MonoBehaviour
     }
 
 
-    public void GameEndOnTime()
+    public async void GameEndOnTime()
     {
         gameEndScreen.SetActive(true);
         gameEndText.text = "Timer ran out!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+        await Task.Delay(3000);
+        DispenseReward();
     }
 
-    public void GameEndOnExit()
+    public async void GameEndOnExit()
     {
         gameEndScreen.SetActive(true);
         gameEndText.text = "Exiting application!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+        await Task.Delay(3000);
+        DispenseReward();
     }
 
     public void DispenseReward()
     {
         // Spawn coins for player based on score!
+        coinSpawner.BeginSpawningCoins(scoreManager.currentScore);
 
         // Coins should make satisfying sounds when hitting ground and when being collected
     }
+
 }
