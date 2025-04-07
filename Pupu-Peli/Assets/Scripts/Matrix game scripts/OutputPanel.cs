@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
     public float setToPositionSpeed;
     public float rePositionSpeed;
+
+    public float scoreDelay;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -106,13 +109,13 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     }
 
     [ContextMenu("Test Input panel submit")]
-    public void SubmitInput()
+    public void SubmitOutput()
     {
+        StartCoroutine(CheckOutput());
+    }
 
-        if (outputObjects.Count == 0) { Debug.LogError("No input given!!!"); return; }
-        // Check if given ico objects are correct
-        // Have a list of tasks (ScriptableObjects?) where one is chosen randomly and check against it
-
+    public IEnumerator CheckOutput()
+    {
         List<IcoListObject> icoListObjects = new List<IcoListObject>();
 
         for (int i = 0; i < outputObjects.Count; i++)
@@ -121,46 +124,57 @@ public class OutputPanel : MonoBehaviour, IDropHandler
         }
 
         int tempScore = 0;
-
         for (int i = 0; i < icoListObjects.Count; i++)
         {
             if (TaskManager.CompareSumbittedValue(icoListObjects[i]))
             {
                 // Scoring animation (Balatro-like scoring?)
+                // Shake and show score addition -> "+50"
+                icoListObjects[i].StartShakeAnim();
                 tempScore += 50;
-            } else
+                yield return new WaitForSeconds(scoreDelay);
+            }
+            else
             {
+                icoListObjects[i].StartShakeAnim();
                 Debug.Log("WRONG OUTPUT!");
+                // Shake and show that output was incorrect and set score to 0
                 tempScore = 0;
+                yield return new WaitForSeconds(scoreDelay);
                 break;
             }
         }
         ScoreManager.AddScore(tempScore);
 
-        /*
-        if (TaskManager.CompareSumbittedValues(icoListObjects))
-        {
-            Debug.Log("CORRECT OUTPUT!");
-            // Give points based on time and amount of correct objects
-            // Replace all matrix icoObjects and player continues game?
-            // Create new points system?
-            ScoreManager.AddScore(icoListObjects.Count * 50);
-
-        }
-        else
-        {
-            Debug.Log("WRONG OUTPUT!");
-        }
-        */
 
         // Clear & reset panels
         for (int i = 0; i < outputObjects.Count; i++)
         {
-
             Destroy(outputObjects[i]);
         }
         outputObjects.Clear();
         FindAnyObjectByType<MatrixGameManager>().ResetMatrixIcoObjects();
         row = 0;
     }
+
+
+    [ContextMenu("TestShakeAnim")]
+    public void TestShakeAnim()
+    {
+
+        List<IcoListObject> icoListObjects = new List<IcoListObject>();
+
+        for (int i = 0; i < outputObjects.Count; i++)
+        {
+            icoListObjects.Add(outputObjects[i].GetComponent<IcoListObject>());
+        }
+
+        for (int i = 0; i < icoListObjects.Count; i++)
+        {
+            icoListObjects[i].StartShakeAnim();
+
+        }
+
+    }
 }
+

@@ -20,6 +20,9 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public Vector3 newPosition;
     public bool setToNewPosition = false;
 
+    // Animation
+    public Animation shakeAnim;
+
     // Double click variables
     private float firstLeftClickTime;
     private float timeBetweenClick = 0.5f;
@@ -218,6 +221,11 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         IcoScriptObject newIcoData = IcoObjMasterList.Instance.GetRandomIcoScriptObj();
         this.SetIcoData(newIcoData);
         StartCoroutine(SwapIcoObj());
+    }
+
+    public void StartShakeAnim()
+    {
+        shakeAnim.Play();
     }
 
 }

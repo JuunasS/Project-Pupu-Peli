@@ -1566,8 +1566,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1156120916}
-        m_TargetAssemblyTypeName: InputPanel, Assembly-CSharp
-        m_MethodName: SubmitInput
+        m_TargetAssemblyTypeName: OutputPanel, Assembly-CSharp
+        m_MethodName: SubmitOutput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4289,6 +4289,7 @@ MonoBehaviour:
   col: 0
   setToPositionSpeed: 2
   rePositionSpeed: 0.3
+  scoreDelay: 0.4
 --- !u!114 &1156120917
 MonoBehaviour:
   m_ObjectHideFlags: 0
