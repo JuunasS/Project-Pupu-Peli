@@ -120,6 +120,24 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             icoListObjects.Add(outputObjects[i].GetComponent<IcoListObject>());
         }
 
+        int tempScore = 0;
+
+        for (int i = 0; i < icoListObjects.Count; i++)
+        {
+            if (TaskManager.CompareSumbittedValue(icoListObjects[i]))
+            {
+                // Scoring animation (Balatro-like scoring?)
+                tempScore += 50;
+            } else
+            {
+                Debug.Log("WRONG OUTPUT!");
+                tempScore = 0;
+                break;
+            }
+        }
+        ScoreManager.AddScore(tempScore);
+
+        /*
         if (TaskManager.CompareSumbittedValues(icoListObjects))
         {
             Debug.Log("CORRECT OUTPUT!");
@@ -127,16 +145,18 @@ public class OutputPanel : MonoBehaviour, IDropHandler
             // Replace all matrix icoObjects and player continues game?
             // Create new points system?
             ScoreManager.AddScore(icoListObjects.Count * 50);
-            
+
         }
         else
         {
             Debug.Log("WRONG OUTPUT!");
         }
+        */
 
         // Clear & reset panels
-        for (int i = 0; i < outputObjects.Count; i++) {
-        
+        for (int i = 0; i < outputObjects.Count; i++)
+        {
+
             Destroy(outputObjects[i]);
         }
         outputObjects.Clear();
