@@ -209,7 +209,6 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             }
             else
             {
-                float t = timeElapsed / returnDuration;
                 timeElapsed += Time.deltaTime;
             }
 
