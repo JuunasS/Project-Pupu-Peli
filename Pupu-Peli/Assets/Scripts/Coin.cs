@@ -34,7 +34,8 @@ public class Coin : MonoBehaviour
 
             audioSource.clip = coinHitAudio;
         }
-        audioSource.Play();
+        //audioSource.Play();
+        SoundManager.Instance.PlaySound(coinHitAudio);
 
     }
 }

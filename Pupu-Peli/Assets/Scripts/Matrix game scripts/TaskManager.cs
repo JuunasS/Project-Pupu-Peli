@@ -30,17 +30,17 @@ public class TaskManager : MonoBehaviour
 
     public void GenerateTaskSliders()
     {
-        if(taskSlidersGenerated) { return; }
+        if (taskSlidersGenerated) { return; }
         int col = 0;
 
-        if(currentTask.checkAge)
+        if (currentTask.checkAge)
         {
             // Generate age task slider
-            GameObject tempTaskSlider =  Instantiate(taskValueSliderPrefab);
+            GameObject tempTaskSlider = Instantiate(taskValueSliderPrefab);
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -25-taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -25 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
             col++;
@@ -99,7 +99,7 @@ public class TaskManager : MonoBehaviour
     // Compares given icoObjects values to the current task requirements
     // If check-boolean is true compares the value given value
     // If all values are withing the requirements returns true
-    public bool CompareSumbittedValues(List<IcoListObject> icoObjects) 
+    public bool CompareSumbittedValues(List<IcoListObject> icoObjects)
     {
         for (int i = 0; i < icoObjects.Count; i++)
         {
@@ -112,6 +112,20 @@ public class TaskManager : MonoBehaviour
             if (currentTask.checkHeight && !currentTask.CompareHeightVal(icoObjects[i].icoHeight)) { return false; }
             if (currentTask.checkProductivity && !currentTask.CompareProductivityVal(icoObjects[i].icoProductivity)) { return false; }
         }
+
+        return true;
+    }
+
+    public bool CompareSumbittedValue(IcoListObject icoObject)
+    {
+        // Animations to indicate values check?
+        Debug.Log("icoObjects[i].icoAge " + icoObject.icoAge);
+        Debug.Log("!currentTask.checkAge: " + currentTask.checkAge);
+        Debug.Log("!currentTask.CompareAgeVal(icoObjects[i].icoAge " + !currentTask.CompareAgeVal(icoObject.icoAge));
+        if (currentTask.checkAge && !currentTask.CompareAgeVal(icoObject.icoAge)) { return false; }
+        if (currentTask.checkWeight && !currentTask.CompareWeightVal(icoObject.icoWeight)) { return false; }
+        if (currentTask.checkHeight && !currentTask.CompareHeightVal(icoObject.icoHeight)) { return false; }
+        if (currentTask.checkProductivity && !currentTask.CompareProductivityVal(icoObject.icoProductivity)) { return false; }
 
         return true;
     }
