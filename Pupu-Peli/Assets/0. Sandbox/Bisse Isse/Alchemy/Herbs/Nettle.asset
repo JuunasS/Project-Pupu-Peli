@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
   m_Name: Nettle
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: cc59fa56314ea454e8d85b71765e7393, type: 3}
-  reverse: {fileID: 21300000, guid: 537cd49029d336742b3a99b3976edc6f, type: 3}
+  name: Nettle
+  image: {fileID: 21300000, guid: 5ee9ec9212f9da34f948a6b61df5aaa5, type: 3}
+  reverse: {fileID: 21300000, guid: 70e98c9e54f634f43ac62d70f78f7ed5, type: 3}
+  isReverse: 0

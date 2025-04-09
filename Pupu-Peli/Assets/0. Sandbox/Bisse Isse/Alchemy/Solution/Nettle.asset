@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
-  m_Name: Thyme
+  m_Name: Nettle
   m_EditorClassIdentifier: 
-  name: Thyme
-  image: {fileID: 21300000, guid: 877467a783bfcc748a61c5536f352982, type: 3}
-  reverse: {fileID: 21300000, guid: a3ec6a90da4b01242b552a2a6406be31, type: 3}
-  isReverse: 0
+  name: 
+  image: {fileID: 21300000, guid: 5ee9ec9212f9da34f948a6b61df5aaa5, type: 3}
+  reverse: {fileID: 21300000, guid: 70e98c9e54f634f43ac62d70f78f7ed5, type: 3}
+  isReverse: 1

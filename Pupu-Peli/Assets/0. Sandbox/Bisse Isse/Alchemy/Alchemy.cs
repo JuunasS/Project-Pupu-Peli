@@ -4,52 +4,70 @@ using UnityEngine.UI;
 
 public class Alchemy : MonoBehaviour
 {
-    public List<Herb> herbs = new();
-    public List<Herb> picks = new();
-    public List<GameObject> target = new();
+    public List<Herb> herbList = new();
+    public List<string> picks = new();
+    public List<string> solution = new();
     public List<Image> playerImage = new();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Restart()
+    public Dictionary<string, Sprite> herbs = new();
+
+    public herbSolution sol;
+
+    private void Start()
     {
-        Extensions.Shuffle(herbs);
+        foreach (var herb in herbList)
+        {
+            herbs.Add(herb.name, herb.image);
+            herbs.Add(herb.name + 'R', herb.reverse);
+        }
     }
 
     public void Check()
     {
-        List<Herb> sorted = new();
+        bool correct = true;
+        Display();
+
+        if (picks.Count == solution.Count)
+        {
+            foreach (string herb in solution)
+            {
+                if (!picks.Contains(herb))
+                    correct = false;
+            }
+        }
+        else
+            correct = false;
+
+        if (correct)
+            Debug.Log("Correct!");
+        else
+            Debug.Log("Incorrect :(");
+    }
+
+    public void Display()
+    {
+        List<string> sorted = new();
 
         foreach (var herb in picks)
         {
-            if (!herb.isReverse)
+            if (!herb.EndsWith("R"))
                 sorted.Add(herb);
         }
         foreach (var herb in picks)
         {
-            if (herb.isReverse)
+            if (herb.EndsWith("R"))
                 sorted.Add(herb);
         }
         for (int i = 0; i < sorted.Count; i++)
         {
-            Debug.Log(sorted[i].image);
-            if (sorted[i].isReverse)
-                playerImage[i].sprite = sorted[i].reverse;
-            else
-                playerImage[i].sprite = sorted[i].image;
+            playerImage[i].sprite = herbs[sorted[i]];
         }
     }
 
-    public void addHerb(Herb herb)
+    public void addHerb(string str)
     {
-        if (!picks.Contains(herb))
-            picks.Add(herb);
-    }
-
-    public void addHerbReverse(Herb herb)
-    {
-        if (!picks.Contains(herb))
-            herb.isReverse = true;
-            picks.Add(herb);
+        if (!picks.Contains(str))
+            picks.Add(str);
     }
 }
 

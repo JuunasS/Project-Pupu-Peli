@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
-  m_Name: Thyme
+  m_Name: Pergamot
   m_EditorClassIdentifier: 
-  name: Thyme
-  image: {fileID: 21300000, guid: 877467a783bfcc748a61c5536f352982, type: 3}
-  reverse: {fileID: 21300000, guid: a3ec6a90da4b01242b552a2a6406be31, type: 3}
+  image: {fileID: 21300000, guid: 89b030120d6c6ca4c80f6ccd4ae00ea8, type: 3}
+  reverse: {fileID: 21300000, guid: 67736868637fdc24ab0157e8e0d0356f, type: 3}
   isReverse: 0
