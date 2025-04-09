@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
-  maxActiveAudioClips: 10
+  maxActiveAudioClips: 6
 --- !u!4 &746029678
 Transform:
   m_ObjectHideFlags: 0
@@ -3645,6 +3645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be11419198c7724599e98587745658f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computerCanvas: {fileID: 1542737436}
   matrixPanelRectTransform: {fileID: 871312356}
   matrixContentPanel: {fileID: 1389100316}
   firstIcoObjectPosition: {fileID: 1474002827}
@@ -4326,14 +4327,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TaskManager: {fileID: 619077871}
   ScoreManager: {fileID: 1339273798}
-  scrollView: {fileID: 0}
   scrollViewContent: {fileID: 944897161}
   firstOutputPosition: {fileID: 303417312}
   outputObjects: []
   rowMax: 5
   row: 0
   col: 0
-  setToPositionSpeed: 2
+  setToPositionSpeed: 0.5
   rePositionSpeed: 0.3
   scoreDelay: 0.4
 --- !u!114 &1156120917
@@ -4410,8 +4410,8 @@ MonoBehaviour:
   coinPrefab: {fileID: 7457278775923498516, guid: e57f554f987b6da46931824c9e774bd1,
     type: 3}
   spawnDelay: 0.1
-  maxSpawnForce: 20
-  minSpawnForce: 6
+  maxSpawnForce: 30
+  minSpawnForce: 15
 --- !u!136 &1308251948
 CapsuleCollider:
   m_ObjectHideFlags: 0

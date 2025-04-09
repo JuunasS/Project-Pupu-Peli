@@ -9,7 +9,6 @@ public class OutputPanel : MonoBehaviour, IDropHandler
     public TaskManager TaskManager;
     public MatrixScoreManager ScoreManager;
 
-    public GameObject scrollView;
     public GameObject scrollViewContent;
 
     public Transform firstOutputPosition;
@@ -72,6 +71,7 @@ public class OutputPanel : MonoBehaviour, IDropHandler
 
     public void RemoveObjectFromList(GameObject obj)
     {
+        if (!outputObjects.Contains(obj)) { return; }
         outputObjects.Remove(obj);
         row--;
         if (row < 0) { row = 0; }

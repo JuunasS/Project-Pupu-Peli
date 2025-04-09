@@ -19,6 +19,7 @@ public enum MatrixGameProgression
 
 public class MatrixGameManager : MonoBehaviour
 {
+    public GameObject computerCanvas;
     public RectTransform matrixPanelRectTransform;
     public GameObject matrixContentPanel;
 
@@ -159,6 +160,7 @@ public class MatrixGameManager : MonoBehaviour
         gameEndText.text = "Timer ran out!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
         await Task.Delay(3000);
+        computerCanvas.SetActive(false);
         DispenseReward();
     }
 
