@@ -3,6 +3,7 @@ using UnityEngine;
 public class DayNightCycle : MonoBehaviour
 {
     public Light sun;
+    public Light moon;
 
     [SerializeField, Range(0, 24)] public float timeOfDay;
 
@@ -18,6 +19,7 @@ public class DayNightCycle : MonoBehaviour
         if(timeOfDay > 24) { timeOfDay = 0; }
 
         UpdateSunRotation();
+        //UpdateMoonRotation();
         UpdateLighting();
     }
 
@@ -31,6 +33,13 @@ public class DayNightCycle : MonoBehaviour
     {
         float rotation = Mathf.Lerp(-90, 270, timeOfDay / 24);
         sun.transform.rotation = Quaternion.Euler(rotation, sun.transform.rotation.y, sun.transform.rotation.z);
+    }
+
+    public void UpdateMoonRotation()
+    {
+
+        float rotation = Mathf.Lerp(-270, 90, timeOfDay / 24);
+        moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
     }
 
     public void UpdateLighting()
