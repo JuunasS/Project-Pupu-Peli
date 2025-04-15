@@ -219,7 +219,10 @@ MonoBehaviour:
   returnDuration: 2
   newPosition: {x: 0, y: 0, z: 0}
   setToNewPosition: 0
-  shakeAnim: {fileID: 691063965393582840}
+  animator: {fileID: 691063965393582840}
+  shakeAnim: {fileID: 7400000, guid: e11fa191d9217b54f8b6ff4c797c7456, type: 2}
+  hoverAnim: {fileID: 7400000, guid: ca51316298ea2d44e839c61c9eea4a81, type: 2}
+  hoverExitAnim: {fileID: 7400000, guid: 10d5a6f57cc32ce4dabb2fb758d31bd8, type: 2}
   icoText: {fileID: 9003470679887870449}
   icoImg: {fileID: 6891726965133205743}
   padding: 10

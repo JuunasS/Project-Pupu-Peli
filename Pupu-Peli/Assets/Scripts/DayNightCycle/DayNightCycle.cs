@@ -70,7 +70,6 @@ public class DayNightCycle : MonoBehaviour
 
     public void UpdateMoonRotation()
     {
-
         float rotation = Mathf.Lerp(-270, 90, timeOfDay / 24);
         moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
     }
