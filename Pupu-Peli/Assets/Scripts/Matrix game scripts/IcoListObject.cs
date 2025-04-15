@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
+public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     // Drag and drop variables
     public CanvasGroup canvasGroup;
@@ -21,7 +21,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public bool setToNewPosition = false;
 
     // Animation
-    public Animation shakeAnim;
+    public Animation animator;
+    public AnimationClip shakeAnim;
 
     // Double click variables
     private float firstLeftClickTime;
@@ -63,9 +64,23 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     }
     */
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Mouse is hovering!");
+
+        this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+    }
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        this.transform.localScale = Vector3.one;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag window");
+        this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         transform.position = Input.mousePosition - mouseDragStartPos;
         transform.SetAsLastSibling();
         dragging = true;
@@ -100,6 +115,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
                 isActive = false;
             }
         }
+
+        //this.transform.localScale = Vector3.one;
     }
 
     public void MoveToPos(Vector3 pos, float duration)
@@ -224,7 +241,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
 
     public void StartShakeAnim()
     {
-        shakeAnim.Play();
+        animator.clip = shakeAnim;
+        animator.Play();
     }
 
 }
