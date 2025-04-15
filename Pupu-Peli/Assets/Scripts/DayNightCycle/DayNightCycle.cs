@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
@@ -13,14 +14,46 @@ public class DayNightCycle : MonoBehaviour
     public Gradient equatorColor;
     public Gradient sunColor;
 
+    public TMP_Text timeText;
+
     private void Update()
     {
         timeOfDay += Time.deltaTime * rotationSpeed;
-        if(timeOfDay > 24) { timeOfDay = 0; }
+        if (timeOfDay > 24) { timeOfDay = 0; }
+
+        SetTimeText();
 
         UpdateSunRotation();
         //UpdateMoonRotation();
         UpdateLighting();
+    }
+
+    private void SetTimeText()
+    {
+        string[] currentTime = System.Math.Round(timeOfDay, 2).ToString().Split(',');
+
+        if (timeOfDay < 10)
+        {
+            if (currentTime.Length == 1)
+            {
+                timeText.text = "Time: 0" + currentTime[0] + ":00";
+            }
+            else
+            {
+                timeText.text = "Time: 0" + currentTime[0] + ":" + currentTime[1];
+            }
+        }
+        else
+        {
+            if (currentTime.Length == 1)
+            {
+                timeText.text = "Time: " + currentTime[0] + ":00";
+            }
+            else
+            {
+                timeText.text = "Time: " + currentTime[0] + ":" + currentTime[1];
+            }
+        }
     }
 
     private void OnValidate()
