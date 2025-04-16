@@ -14,7 +14,11 @@ public class DayNightCycle : MonoBehaviour
     public Gradient equatorColor;
     public Gradient sunColor;
 
+    public Material daySkyBox;
+    public Material nightSkyBox;
+
     public TMP_Text timeText;
+
 
     private void Update()
     {
@@ -24,8 +28,18 @@ public class DayNightCycle : MonoBehaviour
         SetTimeText();
 
         UpdateSunRotation();
-        //UpdateMoonRotation();
+        UpdateMoonRotation();
         UpdateLighting();
+
+        /*
+        if (timeOfDay == 6)
+        {
+            RenderSettings.skybox = daySkyBox;
+        }
+        else if (timeOfDay == 18)
+        {
+            RenderSettings.skybox = nightSkyBox;
+        }*/
     }
 
     private void SetTimeText()
@@ -74,6 +88,7 @@ public class DayNightCycle : MonoBehaviour
         moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
     }
 
+
     public void UpdateLighting()
     {
         float timeFraction = timeOfDay / 24;
@@ -81,4 +96,5 @@ public class DayNightCycle : MonoBehaviour
         RenderSettings.ambientSkyColor = equatorColor.Evaluate(timeFraction);
         sun.color = sunColor.Evaluate(timeFraction);
     }
+
 }
