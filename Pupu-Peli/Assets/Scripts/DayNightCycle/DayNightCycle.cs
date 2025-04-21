@@ -19,6 +19,15 @@ public class DayNightCycle : MonoBehaviour
 
     public TMP_Text timeText;
 
+    private void LateUpdate()
+    {
+        /*
+        Shader.SetGlobalVector("_SunDir", sun.transform.forward);
+        Shader.SetGlobalVector("MoonDir", moon.transform.forward);
+        */
+        Shader.SetGlobalColor("LightColor", sun.color);
+        RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
+    }
 
     private void Update()
     {

@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.028
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.98269314, g: 0.9749867, b: 0.8298629, a: 1}
-  m_AmbientEquatorColor: {r: 0.98269314, g: 0.9749867, b: 0.8298629, a: 1}
+  m_AmbientSkyColor: {r: 0.9835091, g: 0.9757338, b: 0.83062303, a: 1}
+  m_AmbientEquatorColor: {r: 0.9835091, g: 0.9757338, b: 0.83062303, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0.21698111, b: 0.004847164, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
@@ -93,7 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c4972eebda4c28d4ca01aaa91a96e6c3,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -413,7 +414,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -434,6 +435,55 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &356098939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 356098941}
+  - component: {fileID: 356098940}
+  m_Layer: 0
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &356098940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356098939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 7320a70f904b18940a9e3d32dda131b5, type: 2}
+--- !u!4 &356098941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356098939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70.31271, y: 201.7534, z: -137.26286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &398242342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,7 +1187,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.9903779, g: 0.9840252, b: 0.94631875, a: 1}
+  m_Color: {r: 0.31921813, g: 0.31921813, b: 0.31921813, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1200,7 +1250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287972105}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6593458, y: -0, z: -0, w: 0.7518398}
+  m_LocalRotation: {x: 0.83867055, y: -0, z: -0, w: 0.54463905}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2254,8 +2304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 1287972106}
   moon: {fileID: 976912737}
-  timeOfDay: 11.5
-  rotationSpeed: 3
+  timeOfDay: 13.6
+  rotationSpeed: 1.5
   skyColor:
     serializedVersion: 2
     key0: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
@@ -2318,18 +2368,18 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   sunColor:
     serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0.8207547, g: 0.7024134, b: 0, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0.81960785, g: 0.7019608, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 3277
-    ctime1: 7325
+    ctime0: 3662
+    ctime1: 21588
     ctime2: 32768
-    ctime3: 58403
+    ctime3: 46453
     ctime4: 62258
     ctime5: 0
     ctime6: 0
@@ -2600,3 +2650,4 @@ SceneRoots:
   - {fileID: 283259524}
   - {fileID: 577975361}
   - {fileID: 1487411570}
+  - {fileID: 356098941}
