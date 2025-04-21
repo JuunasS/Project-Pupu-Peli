@@ -7,23 +7,28 @@ public class Movement : MonoBehaviour
     private Vector2 heading;
     private Rigidbody rb;
 
+    float turnSmoothVelocity;
+    public float turnSmoothTime = 0.1f;
+    public Transform cam;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        Accelerate();
-        
-        Vector3 lookDirection = Vector3.RotateTowards(transform.forward, transform.right * heading.x, Time.deltaTime * 1.5f, 0);
-        transform.rotation = Quaternion.LookRotation(lookDirection);
-    }
+        Vector3 direction = new Vector3(heading.x, 0, heading.y);
 
-    private void Accelerate()
-    {
-        rb.AddForce(transform.forward * speed * heading.y);
-        Debug.DrawRay(transform.position, heading, Color.cyan);
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            rb.MovePosition(transform.position + moveDir * Time.deltaTime * speed);
+        }
     }
 
     public void DirectionUpdate(InputAction.CallbackContext con)

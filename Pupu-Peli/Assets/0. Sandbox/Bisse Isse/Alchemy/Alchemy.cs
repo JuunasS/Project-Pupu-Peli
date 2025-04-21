@@ -1,73 +1,106 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Alchemy : MonoBehaviour
 {
-    public List<Herb> herbList = new();
-    public List<string> picks = new();
-    public List<string> solution = new();
+    public List<Herb> picks = new();
+    public List<Herb> solution = new();
     public List<Image> playerImage = new();
+    public TextMeshProUGUI text;
 
-    public Dictionary<string, Sprite> herbs = new();
+    public GameObject win;
+    public GameObject lose;
+    
 
-    public herbSolution sol;
-
-    private void Start()
+    public bool Check()
     {
-        foreach (var herb in herbList)
-        {
-            herbs.Add(herb.name, herb.image);
-            herbs.Add(herb.name + 'R', herb.reverse);
-        }
-    }
-
-    public void Check()
-    {
-        bool correct = true;
-        Display();
-
         if (picks.Count == solution.Count)
         {
-            foreach (string herb in solution)
+            foreach (Herb herb in solution)
             {
-                if (!picks.Contains(herb))
-                    correct = false;
+                bool correct = false;
+                foreach (Herb pick in picks)
+                {
+                    if (pick.name == herb.name && pick.isReverse == herb.isReverse)
+                        correct = true;
+                }
+                if (!correct)
+                    return false;
             }
         }
         else
-            correct = false;
-
-        if (correct)
-            Debug.Log("Correct!");
-        else
-            Debug.Log("Incorrect :(");
+            return false;
+        
+        return true;
     }
 
     public void Display()
     {
-        List<string> sorted = new();
+        List<Sprite> sorted = new();
 
         foreach (var herb in picks)
         {
-            if (!herb.EndsWith("R"))
-                sorted.Add(herb);
+            if (!herb.isReverse)
+                sorted.Add(herb.image);
         }
         foreach (var herb in picks)
         {
-            if (herb.EndsWith("R"))
-                sorted.Add(herb);
+            if (herb.isReverse)
+                sorted.Add(herb.reverse);
         }
         for (int i = 0; i < sorted.Count; i++)
         {
-            playerImage[i].sprite = herbs[sorted[i]];
+            playerImage[i].enabled = true;
+            playerImage[i].sprite = sorted[i];
+        }
+
+        if (Check())
+        {
+            win.SetActive(true);
+        }
+        else 
+        {
+            lose.SetActive(true);
         }
     }
 
-    public void addHerb(string str)
+    public void addHerb(Herb herb)
     {
-        if (!picks.Contains(str))
-            picks.Add(str);
+        if (!picks.Contains(herb) && picks.Count < 3)
+        {
+            herb.isReverse = false;
+            picks.Add(herb);
+            text.text += herb.name + "\n";
+        }
+    }
+
+    public void addHerbReverse(Herb herb)
+    {
+        if (!picks.Contains(herb) && picks.Count < 3)
+        {
+            herb.isReverse = true;
+            picks.Add(herb);
+
+            text.text += herb.name + " Reversed\n";
+        }
+    }
+
+    public void Clear()
+    {
+        picks.Clear();
+        text.text = "";
+    }
+
+    public void Reset()
+    {
+        Clear();
+        foreach(Image image in playerImage)
+        {
+            image.sprite = null;
+            image.enabled = false;
+        }
     }
 }
 
