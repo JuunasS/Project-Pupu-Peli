@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.028
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9835091, g: 0.9757338, b: 0.83062303, a: 1}
-  m_AmbientEquatorColor: {r: 0.9835091, g: 0.9757338, b: 0.83062303, a: 1}
+  m_AmbientSkyColor: {r: 0.9842177, g: 0.9763827, b: 0.8312831, a: 1}
+  m_AmbientEquatorColor: {r: 0.9842177, g: 0.9763827, b: 0.8312831, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0.21698111, b: 0.004847164, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
@@ -1187,7 +1187,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.31921813, g: 0.31921813, b: 0.31921813, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1250,7 +1250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287972105}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.83867055, y: -0, z: -0, w: 0.54463905}
+  m_LocalRotation: {x: 0.99580497, y: -0, z: -0, w: 0.09150178}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 1287972106}
   moon: {fileID: 976912737}
-  timeOfDay: 13.6
+  timeOfDay: 17.3
   rotationSpeed: 1.5
   skyColor:
     serializedVersion: 2
@@ -2316,12 +2316,12 @@ MonoBehaviour:
     key5: {r: 0.53333336, g: 0.6509804, b: 0.76862746, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 9059
-    ctime1: 15806
-    ctime2: 20432
-    ctime3: 42791
-    ctime4: 49537
-    ctime5: 54356
+    ctime0: 5590
+    ctime1: 10987
+    ctime2: 16769
+    ctime3: 48188
+    ctime4: 55319
+    ctime5: 58982
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -2346,12 +2346,12 @@ MonoBehaviour:
     key5: {r: 0.53333336, g: 0.6509804, b: 0.76862746, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 9059
-    ctime1: 15806
-    ctime2: 20432
-    ctime3: 42791
-    ctime4: 49537
-    ctime5: 54356
+    ctime0: 5590
+    ctime1: 10987
+    ctime2: 16769
+    ctime3: 48188
+    ctime4: 55319
+    ctime5: 58982
     ctime6: 0
     ctime7: 0
     atime0: 0

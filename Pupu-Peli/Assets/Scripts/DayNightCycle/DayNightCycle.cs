@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -21,13 +22,16 @@ public class DayNightCycle : MonoBehaviour
 
     private void LateUpdate()
     {
-        /*
-        Shader.SetGlobalVector("_SunDir", sun.transform.forward);
-        Shader.SetGlobalVector("MoonDir", moon.transform.forward);
-        */
-        Shader.SetGlobalColor("LightColor", sun.color);
+        RenderSettings.skybox.SetColor("_LightColor", sun.color);
         RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
+
+        int isActive = 1;
+        if (moon.transform.forward.y < 0) {  isActive = 0; }
+        RenderSettings.skybox.SetInteger("_SunActive", isActive);
+
+        RenderSettings.skybox.SetFloat("_TransitionValue", isActive);
     }
+
 
     private void Update()
     {
