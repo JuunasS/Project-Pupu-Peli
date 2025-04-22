@@ -132,6 +132,7 @@ Material:
     - _CutFallOff: 1
     - _CutSize: 6
     - _Cutoff: 0.5
+    - _DayTime: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -142,6 +143,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _MoonRadius: 0.02
+    - _NightTime: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 1
@@ -156,7 +158,9 @@ Material:
     - _SunActive: 1
     - _SunRadius: 0.03
     - _Surface: 0
-    - _TransitionValue: 1
+    - _TImeOfDay: 24
+    - _TimeOfDay: 1.1501799
+    - _TransitionValue: 6.558667
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
@@ -166,9 +170,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutPosition: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 0.20263898, g: 0.20263898, b: 0.20263898, a: 1}
+    - _LightColor: {r: 0.11143673, g: 0.11143673, b: 0.11143673, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MoonDir: {r: 0, g: 0.97651374, b: -0.21545517, a: 0}
+    - _MoonDir: {r: 0, g: 0.98932326, b: 0.14573789, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SunColor: {r: 7.511447, g: 7.511447, b: 7.511447, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}

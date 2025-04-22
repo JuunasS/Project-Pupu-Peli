@@ -8,6 +8,7 @@ public class DayNightCycle : MonoBehaviour
     public Light moon;
 
     [SerializeField, Range(0, 24)] public float timeOfDay;
+    [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 0 -> 12 = day, 12 -> 0 = night
 
     public float rotationSpeed;
 
@@ -19,18 +20,6 @@ public class DayNightCycle : MonoBehaviour
     public Material nightSkyBox;
 
     public TMP_Text timeText;
-
-    private void LateUpdate()
-    {
-        RenderSettings.skybox.SetColor("_LightColor", sun.color);
-        RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
-
-        int isActive = 1;
-        if (moon.transform.forward.y < 0) {  isActive = 0; }
-        RenderSettings.skybox.SetInteger("_SunActive", isActive);
-
-        RenderSettings.skybox.SetFloat("_TransitionValue", isActive);
-    }
 
 
     private void Update()
@@ -44,16 +33,36 @@ public class DayNightCycle : MonoBehaviour
         UpdateMoonRotation();
         UpdateLighting();
 
-        /*
-        if (timeOfDay == 6)
+
+        if (timeOfDay > 6 && timeOfDay < 18)
         {
-            RenderSettings.skybox = daySkyBox;
+            dayNightTransitionValue = timeOfDay - 6;
         }
-        else if (timeOfDay == 18)
+        else
         {
-            RenderSettings.skybox = nightSkyBox;
-        }*/
+            if (timeOfDay < 6)
+            {
+                dayNightTransitionValue = (timeOfDay -6) * -1;
+            }
+            else
+            {
+                dayNightTransitionValue = 30 - timeOfDay;
+            }
+        }
     }
+
+    private void LateUpdate()
+    {
+        RenderSettings.skybox.SetColor("_LightColor", sun.color);
+        RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
+
+        int isActive = 1;
+        if (moon.transform.forward.y < 0) { isActive = 0; }
+        RenderSettings.skybox.SetInt("_SunActive", isActive);
+
+        RenderSettings.skybox.SetFloat("_TransitionValue", dayNightTransitionValue);
+    }
+
 
     private void SetTimeText()
     {
