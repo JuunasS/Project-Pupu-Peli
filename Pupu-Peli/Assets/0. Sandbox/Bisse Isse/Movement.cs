@@ -11,9 +11,12 @@ public class Movement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     public Transform cam;
 
+    private CameraStateMachine camStates;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        camStates = GameObject.Find("Gamemaster").GetComponent<CameraStateMachine>();
     }
 
     void Update()
@@ -35,5 +38,15 @@ public class Movement : MonoBehaviour
     {
         Vector2 dir = con.ReadValue<Vector2>();
         heading = dir;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        camStates.switchState(other);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        camStates.switchState(other, true);
     }
 }
