@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class DayNightCycle : MonoBehaviour
     public Light moon;
 
     [SerializeField, Range(0, 24)] public float timeOfDay;
+    [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 0 -> 12 = day, 12 -> 0 = night
 
     public float rotationSpeed;
 
@@ -16,6 +18,7 @@ public class DayNightCycle : MonoBehaviour
 
     public TMP_Text timeText;
 
+
     private void Update()
     {
         timeOfDay += Time.deltaTime * rotationSpeed;
@@ -24,9 +27,34 @@ public class DayNightCycle : MonoBehaviour
         SetTimeText();
 
         UpdateSunRotation();
-        //UpdateMoonRotation();
+        UpdateMoonRotation();
         UpdateLighting();
+
+        if (timeOfDay > 0 && timeOfDay < 12)
+        {
+            // time of day 0 -> 12 == tValue: 0 -> 12
+            dayNightTransitionValue = timeOfDay;
+        }
+        else // Less than 24 and more than 12
+        {
+            dayNightTransitionValue = 24 - timeOfDay;
+        }
+
     }
+
+    private void LateUpdate()
+    {
+        RenderSettings.skybox.SetColor("_LightColor", sun.color);
+        RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
+        /*
+        int isActive = 1;
+        if (moon.transform.forward.y < 0) { isActive = 0; }
+        RenderSettings.skybox.SetInt("_SunActive", isActive);
+        
+        */
+        RenderSettings.skybox.SetFloat("_TransitionValue", dayNightTransitionValue);
+    }
+
 
     private void SetTimeText()
     {
@@ -74,6 +102,7 @@ public class DayNightCycle : MonoBehaviour
         moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
     }
 
+
     public void UpdateLighting()
     {
         float timeFraction = timeOfDay / 24;
@@ -81,4 +110,5 @@ public class DayNightCycle : MonoBehaviour
         RenderSettings.ambientSkyColor = equatorColor.Evaluate(timeFraction);
         sun.color = sunColor.Evaluate(timeFraction);
     }
+
 }
