@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.MovePosition(transform.position + moveDir * Time.deltaTime * speed);
+            rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
         }
     }
 

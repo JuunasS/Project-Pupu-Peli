@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,11 +9,17 @@ public class Alchemy : MonoBehaviour
     public List<Herb> picks = new();
     public List<Herb> solution = new();
     public List<Image> playerImage = new();
+    public List<Image> solutionImages = new();
     public TextMeshProUGUI text;
+    public TextMeshProUGUI counter;
 
     public GameObject win;
     public GameObject lose;
-    
+
+    private void Start()
+    {
+        drawShape(solution, solutionImages);    
+    }
 
     public bool Check()
     {
@@ -36,33 +43,24 @@ public class Alchemy : MonoBehaviour
         return true;
     }
 
-    public void Display()
+    public void drawShape(List<Herb> toSort, List<Image> images)
     {
         List<Sprite> sorted = new();
 
-        foreach (var herb in picks)
+        foreach (var herb in toSort)
         {
             if (!herb.isReverse)
                 sorted.Add(herb.image);
         }
-        foreach (var herb in picks)
+        foreach (var herb in toSort)
         {
             if (herb.isReverse)
                 sorted.Add(herb.reverse);
         }
         for (int i = 0; i < sorted.Count; i++)
         {
-            playerImage[i].enabled = true;
-            playerImage[i].sprite = sorted[i];
-        }
-
-        if (Check())
-        {
-            win.SetActive(true);
-        }
-        else 
-        {
-            lose.SetActive(true);
+            images[i].enabled = true;
+            images[i].sprite = sorted[i];
         }
     }
 
@@ -100,6 +98,20 @@ public class Alchemy : MonoBehaviour
         {
             image.sprite = null;
             image.enabled = false;
+        }
+        counter.text = (Int32.Parse(counter.text) + 1).ToString();
+    }
+
+    public void playerShape()
+    {
+        drawShape(picks, playerImage);
+        if (Check())
+        {
+            win.SetActive(true);
+        }
+        else
+        {
+            lose.SetActive(true);
         }
     }
 }
