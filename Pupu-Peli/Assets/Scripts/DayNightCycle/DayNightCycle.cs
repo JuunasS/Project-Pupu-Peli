@@ -16,9 +16,6 @@ public class DayNightCycle : MonoBehaviour
     public Gradient equatorColor;
     public Gradient sunColor;
 
-    public Material daySkyBox;
-    public Material nightSkyBox;
-
     public TMP_Text timeText;
 
 
@@ -33,33 +30,28 @@ public class DayNightCycle : MonoBehaviour
         UpdateMoonRotation();
         UpdateLighting();
 
+        if (timeOfDay > 0 && timeOfDay < 12)
+        {
+            // time of day 0 -> 12 == tValue: 0 -> 12
+            dayNightTransitionValue = timeOfDay;
+        }
+        else // Less than 24 and more than 12
+        {
+            dayNightTransitionValue = 24 - timeOfDay;
+        }
 
-        if (timeOfDay > 6 && timeOfDay < 18)
-        {
-            dayNightTransitionValue = timeOfDay - 6;
-        }
-        else
-        {
-            if (timeOfDay < 6)
-            {
-                dayNightTransitionValue = (timeOfDay -6) * -1;
-            }
-            else
-            {
-                dayNightTransitionValue = 30 - timeOfDay;
-            }
-        }
     }
 
     private void LateUpdate()
     {
         RenderSettings.skybox.SetColor("_LightColor", sun.color);
         RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
-
+        /*
         int isActive = 1;
         if (moon.transform.forward.y < 0) { isActive = 0; }
         RenderSettings.skybox.SetInt("_SunActive", isActive);
-
+        
+        */
         RenderSettings.skybox.SetFloat("_TransitionValue", dayNightTransitionValue);
     }
 
