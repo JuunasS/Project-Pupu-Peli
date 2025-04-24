@@ -2848,8 +2848,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c945de7092694d8be315182619af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipArray:
+  - clip: 0
+    audioClip: {fileID: 8300000, guid: 1117d5f41aab9fd4bb7edf12579a2fa9, type: 3}
+  - clip: 1
+    audioClip: {fileID: 8300000, guid: d419044f4528c924c8246806ad0bfb4b, type: 3}
   audioSources: []
-  maxActiveAudioClips: 6
+  maxActiveAudioClips: 5
 --- !u!4 &746029678
 Transform:
   m_ObjectHideFlags: 0
