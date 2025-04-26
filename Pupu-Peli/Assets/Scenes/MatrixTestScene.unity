@@ -2851,8 +2851,16 @@ MonoBehaviour:
   audioClipArray:
   - clip: 0
     audioClip: {fileID: 8300000, guid: 1117d5f41aab9fd4bb7edf12579a2fa9, type: 3}
+    minVolume: 0.5
+    maxVolume: 1
+    minPitch: 0.7
+    maxPitch: 1
   - clip: 1
     audioClip: {fileID: 8300000, guid: d419044f4528c924c8246806ad0bfb4b, type: 3}
+    minVolume: 0.5
+    maxVolume: 1
+    minPitch: 0.7
+    maxPitch: 1
   audioSources: []
   maxActiveAudioClips: 5
 --- !u!4 &746029678

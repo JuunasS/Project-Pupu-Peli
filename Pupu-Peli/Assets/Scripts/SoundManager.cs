@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using System.Threading.Tasks;
 using UnityEngine;
 using System.Collections;
 using System;
-using JetBrains.Annotations;
 
 public class SoundManager : MonoBehaviour
 {
@@ -61,20 +59,24 @@ public class SoundManager : MonoBehaviour
             AudioSource tempSource = this.AddComponent<AudioSource>();
 
             audioSources.Add(tempSource);
-            AudioClip audioClip = GetAudioClip(clip);
-            tempSource.PlayOneShot(audioClip);
+            SoundAudioClip audioClip = GetAudioClip(clip);
 
-            StartCoroutine(WaitToDestroy(tempSource, audioClip.length + 0.2f));
+            tempSource.volume = UnityEngine.Random.Range(audioClip.minVolume, audioClip.maxVolume);
+            tempSource.pitch = UnityEngine.Random.Range(audioClip.minPitch, audioClip.maxPitch);
+
+            tempSource.PlayOneShot(audioClip.audioClip);
+
+            StartCoroutine(WaitToDestroy(tempSource, audioClip.audioClip.length + 0.2f));
         }
     }
 
-    private AudioClip GetAudioClip(Clip clip)
+    private SoundAudioClip GetAudioClip(Clip clip)
     {
         for (int i = 0; i < audioClipArray.Length; i++)
         {
             if (audioClipArray[i].clip == clip)
             {
-                return audioClipArray[i].audioClip;
+                return audioClipArray[i];
             }
         }
         Debug.LogError("Clip " + clip + " not found!");
@@ -134,4 +136,9 @@ public class SoundAudioClip
 {
     public SoundManager.Clip clip;
     public AudioClip audioClip;
+
+    public float minVolume = 1;
+    public float maxVolume = 1;
+    public float minPitch = 1;
+    public float maxPitch = 1;
 }
