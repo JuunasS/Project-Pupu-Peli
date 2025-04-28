@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientSkyColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
+  m_AmbientEquatorColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -2850,19 +2850,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipArray:
   - clip: 0
-    audioClip: {fileID: 8300000, guid: 1117d5f41aab9fd4bb7edf12579a2fa9, type: 3}
+    audioClip: {fileID: 8300000, guid: bd705319bed28d7419cf09b2fe76f3ed, type: 3}
     minVolume: 0.5
-    maxVolume: 1
-    minPitch: 0.7
-    maxPitch: 1
+    maxVolume: 0.7
+    minPitch: 0.8
+    maxPitch: 1.2
   - clip: 1
     audioClip: {fileID: 8300000, guid: d419044f4528c924c8246806ad0bfb4b, type: 3}
     minVolume: 0.5
-    maxVolume: 1
-    minPitch: 0.7
-    maxPitch: 1
+    maxVolume: 0.7
+    minPitch: 0.8
+    maxPitch: 1.2
   audioSources: []
-  maxActiveAudioClips: 5
+  maxActiveAudioClips: 30
 --- !u!4 &746029678
 Transform:
   m_ObjectHideFlags: 0

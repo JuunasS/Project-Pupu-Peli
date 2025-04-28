@@ -3,10 +3,15 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public int value;
+    public int maxSoundPlayed;
 
     private void OnCollisionEnter(Collision collision)
     {
         // Add player the money, sfx and delete this object
+        if(maxSoundPlayed > 2) { return; }
+
+        maxSoundPlayed++;
+
         Debug.Log("Coin collision!");
         if (collision.transform.tag == "Player")
         {

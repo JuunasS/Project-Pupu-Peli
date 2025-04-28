@@ -91,7 +91,7 @@ public class SoundManager : MonoBehaviour
                 if (clipTimerDictionary.ContainsKey(clip))
                 {
                     float lastTimePlayed = clipTimerDictionary[clip];
-                    float coinCollideTimerMax = .1f;
+                    float coinCollideTimerMax = .05f;
                     if (lastTimePlayed + coinCollideTimerMax < Time.time)
                     {
                         Debug.Log("Can play sound!");
