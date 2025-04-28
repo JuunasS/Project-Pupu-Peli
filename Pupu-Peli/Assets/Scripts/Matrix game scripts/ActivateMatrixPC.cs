@@ -2,7 +2,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class PlayerActivatePC : MonoBehaviour
+public class ActivateMatrixPC : MonoBehaviour
 {
 
     public GameObject MatrixCanvasObject;

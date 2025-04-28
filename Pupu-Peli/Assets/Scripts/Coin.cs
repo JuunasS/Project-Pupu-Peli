@@ -3,39 +3,25 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public int value;
-
-    public AudioSource audioSource;
-    public AudioClip coinHitAudio;
-    public AudioClip coinCollectAudio;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        audioSource.clip = coinHitAudio;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public int maxSoundPlayed;
 
     private void OnCollisionEnter(Collision collision)
     {
         // Add player the money, sfx and delete this object
+        if(maxSoundPlayed > 2) { return; }
+
+        maxSoundPlayed++;
+
         Debug.Log("Coin collision!");
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("Player collided with coin!");
-            audioSource.clip = coinCollectAudio;
+            Debug.Log("Collect Coin!");
+            SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollect);
         }
         else
         {
-
-            audioSource.clip = coinHitAudio;
+            SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollide);
         }
-        //audioSource.Play();
-        SoundManager.Instance.PlaySound(coinHitAudio);
 
     }
 }
