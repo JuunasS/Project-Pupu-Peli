@@ -8,7 +8,7 @@ public class DayNightCycle : MonoBehaviour
     public Light moon;
 
     [SerializeField, Range(0, 24)] public float timeOfDay;
-    [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 0 -> 12 = day, 12 -> 0 = night
+    [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 12 = peak daylight, 0 = midnight
 
     public float rotationSpeed;
 

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskDesc: 'lorem ipsum '
   checkAge: 1
-  minAge: 70
+  minAge: 11
   maxAge: 100
   checkWeight: 0
   minWeight: 11
-  maxWeight: 60
+  maxWeight: 100
   checkHeight: 0
   minHeight: 56
   maxHeight: 77
   checkProductivity: 1
   minProductivity: 11
-  maxProductivity: 88
+  maxProductivity: 100
