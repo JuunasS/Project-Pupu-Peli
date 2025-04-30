@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class ShopItem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject shopGameObject;
 
-    // Update is called once per frame
-    void Update()
+    public bool isBought;
+
+
+    public void Buy()
     {
-        
+        shopGameObject.SetActive(true);
+
+        isBought = true;
     }
 }
