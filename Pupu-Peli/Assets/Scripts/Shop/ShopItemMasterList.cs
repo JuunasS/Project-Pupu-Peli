@@ -14,7 +14,7 @@ public class ShopItemMasterList : MonoBehaviour
     // Filepath to image?
     // boolean value for item availability (isBought?)
 
-    public void SetShopData(List<ShopItemScriptObject> newData)
+    public void SetNewShopItemData(List<ShopItemScriptObject> newData)
     {
 
     }

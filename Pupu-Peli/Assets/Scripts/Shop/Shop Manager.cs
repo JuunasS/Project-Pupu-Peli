@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +13,26 @@ public class ShopManager : MonoBehaviour
 
     public int row, col, maxRow;
 
-
     public GameObject shopItemPrefab;
-    public List<GameObject> shopItems;
+
+    // For keeping track of which gameobject belongs to which shop item
+    [SerializeField]
+    private ShopItemID[] shopItemIDArray;
+    public Dictionary<string, GameObject> shopItemObjects = new Dictionary<string, GameObject>();
+
+    private void Awake()
+    {
+        shopItemObjects.Clear();    
+        for(int i = 0; i < shopItemIDArray.Length; i++)
+        {
+            shopItemObjects.Add(shopItemIDArray[i].ID, shopItemIDArray[i].obj);
+        }
+    }
+
+    public void Start()
+    {
+        GenerateShopItems();
+    }
 
     public void GenerateShopItems()
     {
@@ -28,17 +46,14 @@ public class ShopManager : MonoBehaviour
 
             newShopItem.transform.SetParent(shopPanel.transform, false);
 
-            shopItems.Add(newShopItem);
-
             // Set new shop item data
-            newShopItem.GetComponent<ShopItem>().SetShopItemData(shopItemData[i]);
+            newShopItem.GetComponent<ShopItem>().SetShopItemData(shopItemData[i], shopItemObjects[shopItemData[i].ID]);
 
             newShopItem.transform.localPosition = shopItemPositionZero.transform.localPosition;
-            newShopItem.transform.localPosition += new Vector3(shopObjWidth * row, shopObjHeight * col, 0);
 
-
-            /*
-            if (i != 0 && row + 1 == icoObjListSqrt) // End of the row
+            newShopItem.transform.localPosition += new Vector3(shopObjWidth * row + (100 * row), shopObjHeight * col + (100 * col), 0);
+            
+            if (i != 0 && row + 1 == 4) // End of the row
             {
                 Debug.Log("Adding column!!");
                 col--;
@@ -48,7 +63,16 @@ public class ShopManager : MonoBehaviour
             {
                 Debug.Log("Adding row!!");
                 row++;
-            }*/
+            }
         }
     }
 }
+
+
+[Serializable]
+public class ShopItemID
+{
+    public string ID;
+    public GameObject obj;
+}
+
