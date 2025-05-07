@@ -993,6 +993,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7051430712973633942, guid: d4e40c1d94583ad42b9f2be21def58f5,
+        type: 3}
+      propertyPath: maxSpawnForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051430712973633942, guid: d4e40c1d94583ad42b9f2be21def58f5,
+        type: 3}
+      propertyPath: minSpawnForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7131629251588939847, guid: d4e40c1d94583ad42b9f2be21def58f5,
         type: 3}
       propertyPath: m_LocalPosition.x
