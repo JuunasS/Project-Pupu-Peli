@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7131629251588939847}
   - component: {fileID: 3587354695090654524}
   - component: {fileID: 860815614280715868}
-  - component: {fileID: 9056949319003423052}
   - component: {fileID: 7051430712973633942}
+  - component: {fileID: 6997505256408258948}
   m_Layer: 0
   m_Name: Coin Spawner
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786225124360315760}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.24701715, w: 0.9690112}
+  m_LocalRotation: {x: 0, y: 0, z: 0.24701595, w: 0.9690114}
   m_LocalPosition: {x: 7.133, y: 0.182, z: -1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -89,29 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &9056949319003423052
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786225124360315760}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &7051430712973633942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +105,29 @@ MonoBehaviour:
   coinPrefab: {fileID: 7457278775923498516, guid: e57f554f987b6da46931824c9e774bd1,
     type: 3}
   spawnDelay: 0.1
-  maxSpawnForce: 30
-  minSpawnForce: 15
+  maxSpawnForce: 35
+  minSpawnForce: 20
+--- !u!65 &6997505256408258948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786225124360315760}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000002}
+  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940697}
 --- !u!1 &7899621301573704545
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +155,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.965, z: 0}
-  m_LocalScale: {x: 0.95406, y: 0.26846, z: 0.9624379}
+  m_LocalScale: {x: 1, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6153477956524204831}
