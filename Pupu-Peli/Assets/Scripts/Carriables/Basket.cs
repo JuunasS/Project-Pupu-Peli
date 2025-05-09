@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Basket : MonoBehaviour
+public class Basket : BigItem
 {
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -3,11 +3,16 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    // Big item hold position
-    Transform bigItem;
+    // Big item data and positions
+    public Transform bigItemHolder;
+    public BigItem bigItem;
 
-    // Small item hold positions
-    Transform[] smallItems = new Transform[2];
+    // Small item data and positions
+    public Transform rightHand;
+    public Transform leftHand;
+    public SmallItem[] smallItems;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
