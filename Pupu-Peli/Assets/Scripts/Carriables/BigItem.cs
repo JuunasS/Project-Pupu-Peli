@@ -12,7 +12,7 @@ public class BigItem : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             popupText.SetActive(true);
-            
+            // Pickup function?
         }
     }
 
