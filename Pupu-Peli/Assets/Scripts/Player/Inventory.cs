@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -13,16 +14,23 @@ public class Inventory : MonoBehaviour
     public SmallItem[] smallItems;
 
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetBigItem(BigItem obj)
     {
-        
+        // ckeck if player has room for item
+        obj.transform.position = bigItemHolder.position;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetSmallItem(SmallItem obj)
     {
-        
+        // ckeck if player has room for item
+        if (rightHand.childCount == 0)
+        {
+            obj.transform.position = rightHand.position;
+        }
+        else if (leftHand.childCount == 0)
+        {
+            obj.transform.position = leftHand.position;
+        }
     }
 }
