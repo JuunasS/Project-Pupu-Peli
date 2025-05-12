@@ -8,22 +8,28 @@ public class SmallItem : MonoBehaviour
 
     public bool inRange;
 
-    // Pickup popup
-    public virtual void OnTriggerEnter(Collider other)
-    {
-        if (pickedUp) { return; }
-        if (other.transform.tag == "Player")
-        {
-            popupText.SetActive(true);
-            inRange = true;
-        }
-    }
 
     public virtual void OnTriggerStay(Collider other)
     {
-        Debug.Log("inRange: " + inRange + " pickedUp: " + pickedUp);
-        if (other.transform.tag == "Player" && inRange && !pickedUp)
+        //Debug.Log("inRange: " + inRange + " pickedUp: " + pickedUp);
+        if (pickedUp) { return; }
+
+        if (other.transform.tag == "Player")
         {
+            if (other.GetComponent<Inventory>().activeInteraction != null)
+            {
+                other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
+                if (other.GetComponent<Inventory>().activeInteraction != gameObject)
+                {
+                    popupText.SetActive(false);
+                    inRange = false;
+                    return;
+                }
+            }
+
+            other.GetComponent<Inventory>().activeInteraction = this.gameObject;
+            popupText.SetActive(true);
+            inRange = true;
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
@@ -41,7 +47,13 @@ public class SmallItem : MonoBehaviour
         {
             popupText.SetActive(false);
             inRange = false;
+            other.GetComponent<Inventory>().activeInteraction = null;
         }
+    }
+
+    public virtual void PickUpFailed()
+    {
+        pickedUp = false;
     }
 }
 

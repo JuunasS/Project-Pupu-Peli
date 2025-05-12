@@ -7,7 +7,7 @@ public class ActivateShopPC : MonoBehaviour
 
     public GameObject ShopCanvasObject;
 
-    private async void Update()
+    private void Update()
     {
         if (ShopCanvasObject & Input.GetKeyDown(KeyCode.Escape))
         {
