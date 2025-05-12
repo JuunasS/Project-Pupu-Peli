@@ -14,7 +14,7 @@ public class MovementTemp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Player movement update");
+        //Debug.Log("Player movement update");
         Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         // TODO: Add sprint speed?
         // float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
