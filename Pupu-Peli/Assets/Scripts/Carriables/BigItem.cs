@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class BigItem : MonoBehaviour
     public bool pickedUp;
 
     public bool inRange;
+    public Collider collider;
+    public Rigidbody rigidBody;
 
     public virtual void OnTriggerStay(Collider other)
     {
@@ -27,15 +30,14 @@ public class BigItem : MonoBehaviour
                 }
             }
 
-
+            other.GetComponent<Inventory>().activeInteraction = this.gameObject;
             popupText.SetActive(true);
             inRange = true;
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
                 other.GetComponent<Inventory>().SetBigItem(this);
-                popupText.SetActive(false);
-                pickedUp = true;
+                
             }
         }
     }
@@ -47,12 +49,35 @@ public class BigItem : MonoBehaviour
         {
             popupText.SetActive(false);
             inRange = false;
-            other.GetComponent<Inventory>().activeInteraction = null;
+            if (other.GetComponent<Inventory>().activeInteraction == this.gameObject)
+            {
+                other.GetComponent<Inventory>().activeInteraction = null;
+            }
         }
+    }
+
+
+    public virtual void PickUpSuccess()
+    {
+        popupText.SetActive(false);
+        pickedUp = true;
+
+        rigidBody.useGravity = false;
+        rigidBody.isKinematic = true;
+        collider.enabled = false;
     }
 
     public virtual void PickUpFailed()
     {
+        pickedUp = false;
+    }
+
+    public virtual void DropItem()
+    {
+        this.transform.SetParent(null);
+        rigidBody.useGravity = true;
+        rigidBody.isKinematic = false;
+        collider.enabled = true;
         pickedUp = false;
     }
 }
