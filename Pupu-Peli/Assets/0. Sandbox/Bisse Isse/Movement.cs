@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        camStates = GameObject.Find("Gamemaster").GetComponent<CameraStateMachine>();
+        //camStates = GameObject.Find("Gamemaster").GetComponent<CameraStateMachine>();
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
         heading = dir;
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         camStates.switchState(other);
     }
@@ -48,5 +48,5 @@ public class Movement : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         camStates.switchState(other, true);
-    }
+    }*/
 }
