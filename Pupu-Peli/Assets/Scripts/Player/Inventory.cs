@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     public List<Carriable> smallItems;
 
     public GameObject activeInteraction = null;
+    public float interactionCD; // Cooldown for interacting with objects
 
     private void Update()
     {
@@ -40,6 +41,7 @@ public class Inventory : MonoBehaviour
         obj.transform.SetParent(bigItemHolder);
         obj.transform.position = bigItemHolder.position;
         obj.transform.rotation = bigItemHolder.rotation;
+        activeInteraction = null;
         StartCoroutine(WaitForNextActive());
     }
 
@@ -94,7 +96,7 @@ public class Inventory : MonoBehaviour
 
     IEnumerator WaitForNextActive()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(interactionCD);
         activeInteraction = null;
     }
 }

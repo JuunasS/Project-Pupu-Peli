@@ -2183,6 +2183,7 @@ MonoBehaviour:
   leftHand: {fileID: 1123967915}
   smallItems: []
   activeInteraction: {fileID: 0}
+  interactionCD: 0.2
 --- !u!1 &1674699860
 GameObject:
   m_ObjectHideFlags: 0
