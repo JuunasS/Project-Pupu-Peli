@@ -371,14 +371,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 397981201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d28d15954daab94c801474e1240b813, type: 3}
+  m_Script: {fileID: 11500000, guid: 04bad72ac60d4e541b76d9a795b95774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   popupText: {fileID: 1603612807}
   pickedUp: 0
   inRange: 0
-  collider: {fileID: 397981208}
+  col: {fileID: 397981208}
   rigidBody: {fileID: 397981207}
+  bigItem: 0
 --- !u!135 &397981203
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2333,8 +2334,9 @@ MonoBehaviour:
   popupText: {fileID: 1416350711}
   pickedUp: 0
   inRange: 0
-  collider: {fileID: 200209826}
+  col: {fileID: 200209826}
   rigidBody: {fileID: 1721042915}
+  bigItem: 1
 --- !u!135 &1721042914
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2414,14 +2416,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767823543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d28d15954daab94c801474e1240b813, type: 3}
+  m_Script: {fileID: 11500000, guid: 04bad72ac60d4e541b76d9a795b95774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   popupText: {fileID: 1798254147}
   pickedUp: 0
   inRange: 0
-  collider: {fileID: 1767823550}
+  col: {fileID: 1767823550}
   rigidBody: {fileID: 1767823549}
+  bigItem: 0
 --- !u!135 &1767823545
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ public class Inventory : MonoBehaviour
 
     // Big item data and positions
     public Transform bigItemHolder;
-    public BigItem bigItem;
+    public Carriable bigItem;
 
     // Small item data and positions
     public Transform rightHand;
     public Transform leftHand;
-    public List<SmallItem> smallItems;
+    public List<Carriable> smallItems;
 
     public GameObject activeInteraction = null;
 
@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void SetBigItem(BigItem obj)
+    public void SetBigItem(Carriable obj)
     {
         Debug.Log(smallItems.Count);
         if (smallItems.Count > 0) { obj.PickUpFailed(); return; }
@@ -44,7 +44,7 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void SetSmallItem(SmallItem obj)
+    public void SetSmallItem(Carriable obj)
     {
         // ckeck if player has room for item
         if (bigItem != null && smallItems.Count <= 2) { obj.PickUpFailed(); return; }

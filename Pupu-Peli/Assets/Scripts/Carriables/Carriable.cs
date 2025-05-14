@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class SmallItem : MonoBehaviour
+public class Carriable : MonoBehaviour
 {
-    // Parent class for small items
+    // Parent class for big items
     public GameObject popupText;
     public bool pickedUp;
 
     public bool inRange;
-    public Collider collider;
+    public Collider col;
     public Rigidbody rigidBody;
 
+    public bool bigItem; // True if object is a big item. Otherwise object is considered a small item.
 
     public virtual void OnTriggerStay(Collider other)
     {
@@ -35,10 +36,18 @@ public class SmallItem : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
-                other.GetComponent<Inventory>().SetSmallItem(this);
+                if (bigItem)
+                {
+                    other.GetComponent<Inventory>().SetBigItem(this);
+                }
+                else
+                {
+                    other.GetComponent<Inventory>().SetSmallItem(this);
+                }
             }
         }
     }
+
 
     public virtual void OnTriggerExit(Collider other)
     {
@@ -54,6 +63,7 @@ public class SmallItem : MonoBehaviour
         }
     }
 
+
     public virtual void PickUpSuccess()
     {
         popupText.SetActive(false);
@@ -61,7 +71,7 @@ public class SmallItem : MonoBehaviour
 
         rigidBody.useGravity = false;
         rigidBody.isKinematic = true;
-        collider.enabled = false;
+        col.enabled = false;
     }
 
     public virtual void PickUpFailed()
@@ -71,12 +81,10 @@ public class SmallItem : MonoBehaviour
 
     public virtual void DropItem()
     {
-
         this.transform.SetParent(null);
         rigidBody.useGravity = true;
         rigidBody.isKinematic = false;
-        collider.enabled = true;
+        col.enabled = true;
         pickedUp = false;
     }
 }
-
