@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
         //camStates = GameObject.Find("Gamemaster").GetComponent<CameraStateMachine>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 direction = new Vector3(heading.x, 0, heading.y);
 
@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
