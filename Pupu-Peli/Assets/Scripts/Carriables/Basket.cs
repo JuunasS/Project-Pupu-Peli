@@ -9,6 +9,12 @@ public class Basket : Carriable
     public List<Carriable> basketContent;
     public int basketMax;
 
+    public override void Start()
+    {
+        _renderer = GetComponentInChildren<Renderer>();
+        mats = _renderer.materials;
+    }
+
     public void AddItem(Carriable item)
     {
         if (basketMax <= basketContent.Count) { item.PickUpFailed(); return; }

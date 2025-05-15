@@ -262,6 +262,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f7277f50565329c4aa9f6d84e25398ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,6 +381,9 @@ MonoBehaviour:
   col: {fileID: 397981208}
   rigidBody: {fileID: 397981207}
   bigItem: 0
+  _renderer: {fileID: 0}
+  mats: []
+  outlineThickness: 1.13
 --- !u!135 &397981203
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -425,6 +429,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f7277f50565329c4aa9f6d84e25398ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2370,6 +2375,9 @@ MonoBehaviour:
   col: {fileID: 200209826}
   rigidBody: {fileID: 1721042915}
   bigItem: 1
+  _renderer: {fileID: 200209827}
+  mats: []
+  outlineThickness: 2
   basketContent: []
   basketMax: 1
 --- !u!135 &1721042914
@@ -2460,6 +2468,9 @@ MonoBehaviour:
   col: {fileID: 1767823550}
   rigidBody: {fileID: 1767823549}
   bigItem: 0
+  _renderer: {fileID: 0}
+  mats: []
+  outlineThickness: 1.13
 --- !u!135 &1767823545
 SphereCollider:
   m_ObjectHideFlags: 0
