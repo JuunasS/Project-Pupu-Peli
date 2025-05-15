@@ -19,20 +19,19 @@ public class Carriable : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
-            if (other.GetComponent<Inventory>().activeInteraction != null)
+            other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
+
+            if (other.GetComponent<Inventory>().activeInteraction != gameObject)
             {
-                other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
-                if (other.GetComponent<Inventory>().activeInteraction != gameObject)
-                {
-                    popupText.SetActive(false);
-                    inRange = false;
-                    return;
-                }
+                popupText.SetActive(false);
+                inRange = false;
+                return;
             }
 
             other.GetComponent<Inventory>().activeInteraction = this.gameObject;
             popupText.SetActive(true);
             inRange = true;
+
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
