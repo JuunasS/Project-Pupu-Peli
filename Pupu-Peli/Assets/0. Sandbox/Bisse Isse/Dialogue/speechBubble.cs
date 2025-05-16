@@ -23,11 +23,12 @@ public class speechBubble : MonoBehaviour
 
     void Setup(string _text)
     {
+        // Set the text and update mesh just in case
         text.SetText( _text );
         text.ForceMeshUpdate();
-        Vector2 textSize = text.GetRenderedValues(false);
+        Vector2 textSize = text.GetRenderedValues(false); //Check how big the text box is
 
         Vector2 padding = new Vector2(2f, 2f);
-        sr.size = textSize + padding;
+        sr.size = textSize + padding; //Set the speech bubble size plus some padding
     }
 }
