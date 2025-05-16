@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Carriable : MonoBehaviour
@@ -12,6 +13,17 @@ public class Carriable : MonoBehaviour
 
     public bool bigItem; // True if object is a big item. Otherwise object is considered a small item.
 
+    public Renderer _renderer;
+    //public Material outline; 
+    public Material[] mats;
+    public float outlineThickness = 1.13f;
+
+    public virtual void Start()
+    {
+        _renderer = GetComponent<Renderer>();
+        mats = _renderer.materials;
+    }
+
     public virtual void OnTriggerStay(Collider other)
     {
         //Debug.Log("inRange: " + inRange + " pickedUp: " + pickedUp);
@@ -19,20 +31,22 @@ public class Carriable : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
-            if (other.GetComponent<Inventory>().activeInteraction != null)
+            other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
+
+            if (other.GetComponent<Inventory>().activeInteraction != gameObject)
             {
-                other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
-                if (other.GetComponent<Inventory>().activeInteraction != gameObject)
-                {
-                    popupText.SetActive(false);
-                    inRange = false;
-                    return;
-                }
+                popupText.SetActive(false);
+                inRange = false;
+                mats[1].SetFloat("_Outline_Thickness", 0);
+                return;
             }
 
+
+            mats[1].SetFloat("_Outline_Thickness", outlineThickness);
             other.GetComponent<Inventory>().activeInteraction = this.gameObject;
             popupText.SetActive(true);
             inRange = true;
+
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
@@ -59,6 +73,7 @@ public class Carriable : MonoBehaviour
             if (other.GetComponent<Inventory>().activeInteraction == this.gameObject)
             {
                 other.GetComponent<Inventory>().activeInteraction = null;
+                mats[1].SetFloat("_Outline_Thickness", 0);
             }
         }
     }
@@ -72,6 +87,7 @@ public class Carriable : MonoBehaviour
         rigidBody.useGravity = false;
         rigidBody.isKinematic = true;
         col.enabled = false;
+        mats[1].SetFloat("_Outline_Thickness", 0);
     }
 
     public virtual void PickUpFailed()
@@ -87,4 +103,5 @@ public class Carriable : MonoBehaviour
         col.enabled = true;
         pickedUp = false;
     }
+
 }
