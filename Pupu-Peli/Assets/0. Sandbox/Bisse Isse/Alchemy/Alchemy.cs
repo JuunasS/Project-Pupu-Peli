@@ -1,55 +1,118 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Alchemy : MonoBehaviour
 {
-    public List<Herb> herbs = new();
     public List<Herb> picks = new();
-    public List<GameObject> target = new();
+    public List<Herb> solution = new();
     public List<Image> playerImage = new();
+    public List<Image> solutionImages = new();
+    public TextMeshProUGUI text;
+    public TextMeshProUGUI counter;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Restart()
+    public GameObject win;
+    public GameObject lose;
+
+    private void Start()
     {
-        Extensions.Shuffle(herbs);
+        drawShape(solution, solutionImages);    
     }
 
-    public void Check()
+    public bool Check()
     {
-        List<Herb> sorted = new();
+        if (picks.Count == solution.Count)
+        {
+            foreach (Herb herb in solution)
+            {
+                bool correct = false;
+                foreach (Herb pick in picks)
+                {
+                    if (pick.name == herb.name && pick.isReverse == herb.isReverse)
+                        correct = true;
+                }
+                if (!correct)
+                    return false;
+            }
+        }
+        else
+            return false;
+        
+        return true;
+    }
 
-        foreach (var herb in picks)
+    public void drawShape(List<Herb> toSort, List<Image> images)
+    {
+        List<Sprite> sorted = new();
+
+        foreach (var herb in toSort)
         {
             if (!herb.isReverse)
-                sorted.Add(herb);
+                sorted.Add(herb.image);
         }
-        foreach (var herb in picks)
+        foreach (var herb in toSort)
         {
             if (herb.isReverse)
-                sorted.Add(herb);
+                sorted.Add(herb.reverse);
         }
         for (int i = 0; i < sorted.Count; i++)
         {
-            Debug.Log(sorted[i].image);
-            if (sorted[i].isReverse)
-                playerImage[i].sprite = sorted[i].reverse;
-            else
-                playerImage[i].sprite = sorted[i].image;
+            images[i].enabled = true;
+            images[i].sprite = sorted[i];
         }
     }
 
     public void addHerb(Herb herb)
     {
-        if (!picks.Contains(herb))
+        if (!picks.Contains(herb) && picks.Count < 3)
+        {
+            herb.isReverse = false;
             picks.Add(herb);
+            text.text += herb.name + "\n";
+        }
     }
 
     public void addHerbReverse(Herb herb)
     {
-        if (!picks.Contains(herb))
+        if (!picks.Contains(herb) && picks.Count < 3)
+        {
             herb.isReverse = true;
             picks.Add(herb);
+
+            text.text += herb.name + " Reversed\n";
+        }
+    }
+
+    public void Clear()
+    {
+        picks.Clear();
+        text.text = "";
+    }
+
+    public void Reset()
+    {
+        Clear();
+        foreach(Image image in playerImage)
+        {
+            image.sprite = null;
+            image.enabled = false;
+        }
+        counter.text = (Int32.Parse(counter.text) + 1).ToString();
+    }
+
+    public void playerShape()
+    {
+        drawShape(picks, playerImage);
+        if (Check())
+        {
+            win.SetActive(true);
+        }
+        else
+        {
+            lose.SetActive(true);
+        }
     }
 }
 

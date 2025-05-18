@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
+  m_Name: sPergamot
+  m_EditorClassIdentifier: 
+  name: Pergamot
+  image: {fileID: 21300000, guid: 89b030120d6c6ca4c80f6ccd4ae00ea8, type: 3}
+  reverse: {fileID: 21300000, guid: 67736868637fdc24ab0157e8e0d0356f, type: 3}
+  isReverse: 0

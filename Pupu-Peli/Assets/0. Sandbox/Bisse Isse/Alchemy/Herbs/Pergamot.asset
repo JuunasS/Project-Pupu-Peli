@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
   m_Name: Pergamot
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: c5cfcfdcf4195654f801fb31e9ffbfbd, type: 3}
-  reverse: {fileID: 21300000, guid: e988c6624e7438a4fa2bb2410a0a69dc, type: 3}
+  name: Pergamot
+  image: {fileID: 21300000, guid: 89b030120d6c6ca4c80f6ccd4ae00ea8, type: 3}
+  reverse: {fileID: 21300000, guid: 67736868637fdc24ab0157e8e0d0356f, type: 3}
+  isReverse: 0

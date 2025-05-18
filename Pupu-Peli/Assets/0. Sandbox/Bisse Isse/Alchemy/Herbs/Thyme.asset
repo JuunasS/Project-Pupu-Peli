@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831936a639ca9904da41d9c72bf103ae, type: 3}
   m_Name: Thyme
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 68a1893abb114284f8ff0191a08bb5ab, type: 3}
-  reverse: {fileID: 21300000, guid: 9260fe0e29884d143b27e7a539b67797, type: 3}
+  name: Thyme
+  image: {fileID: 21300000, guid: 877467a783bfcc748a61c5536f352982, type: 3}
+  reverse: {fileID: 21300000, guid: a3ec6a90da4b01242b552a2a6406be31, type: 3}
+  isReverse: 0

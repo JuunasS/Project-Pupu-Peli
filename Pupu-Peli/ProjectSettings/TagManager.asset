@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Camera Switch
   - WorldSpaceCanvas
   layers:
   - Default
