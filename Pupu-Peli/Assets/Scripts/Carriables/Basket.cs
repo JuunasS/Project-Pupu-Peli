@@ -13,6 +13,15 @@ public class Basket : Carriable
     {
         _renderer = GetComponentInChildren<Renderer>();
         mats = _renderer.materials;
+        for (int i = 0; i < mats.Length; i++)
+        {
+            Debug.Log(mats[i].name);
+            if (mats[i].name == outlineAssetName)
+            {
+                outline = mats[i];
+                break;
+            }
+        }
     }
 
     public void AddItem(Carriable item)

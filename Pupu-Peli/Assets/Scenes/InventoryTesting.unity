@@ -269,6 +269,8 @@ MonoBehaviour:
   bigItem: 0
   _renderer: {fileID: 0}
   mats: []
+  outline: {fileID: 0}
+  outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
 --- !u!135 &397981203
 SphereCollider:
@@ -2133,6 +2135,8 @@ MonoBehaviour:
   bigItem: 1
   _renderer: {fileID: 1928011500}
   mats: []
+  outline: {fileID: 0}
+  outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
   basketContent: []
   basketMax: 1
@@ -2226,6 +2230,8 @@ MonoBehaviour:
   bigItem: 0
   _renderer: {fileID: 0}
   mats: []
+  outline: {fileID: 0}
+  outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
 --- !u!135 &1767823545
 SphereCollider:
@@ -2571,6 +2577,8 @@ MonoBehaviour:
   bigItem: 1
   _renderer: {fileID: 1806537012}
   mats: []
+  outline: {fileID: 0}
+  outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
 --- !u!1 &1928011497
 GameObject:
