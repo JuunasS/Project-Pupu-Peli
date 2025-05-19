@@ -2687,7 +2687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea43861a49b4274c942da664aafe2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateWhenNear: 1
+  activateWhenNear: 0
   speechBubble: {fileID: 269520693}
   dialogueShown: 0
   dialogueDuration: 4
