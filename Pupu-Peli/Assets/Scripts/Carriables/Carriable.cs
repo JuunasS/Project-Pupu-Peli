@@ -4,7 +4,7 @@ using UnityEngine;
 public class Carriable : MonoBehaviour
 {
     // Parent class for big items
-    public GameObject popupText;
+    public GameObject interactText;
     public bool pickedUp;
 
     public bool inRange;
@@ -19,6 +19,9 @@ public class Carriable : MonoBehaviour
     public string outlineAssetName = "OutlineMaterial (Instance)";
     public float outlineThickness = 1.13f;
 
+    public DialoguePopup popup;
+    public bool hasDialoguePopUp;
+
     public virtual void Start()
     {
 
@@ -27,7 +30,7 @@ public class Carriable : MonoBehaviour
         for (int i = 0; i < mats.Length; i++)
         {
             Debug.Log(mats[i].name);
-            if(mats[i].name == outlineAssetName)
+            if (mats[i].name == outlineAssetName)
             {
                 outline = mats[i];
                 break;
@@ -37,6 +40,11 @@ public class Carriable : MonoBehaviour
 
     public virtual void OnTriggerStay(Collider other)
     {
+        // If object has dialogue popup show it before letting player pick it up
+        if (hasDialoguePopUp)
+        {
+            if(!popup.dialogueShown) { return; }
+        }
         //Debug.Log("inRange: " + inRange + " pickedUp: " + pickedUp);
         if (pickedUp) { return; }
 
@@ -46,7 +54,7 @@ public class Carriable : MonoBehaviour
 
             if (other.GetComponent<Inventory>().activeInteraction != gameObject)
             {
-                popupText.SetActive(false);
+                interactText.SetActive(false);
                 inRange = false;
                 outline.SetFloat("_Outline_Thickness", 0);
                 return;
@@ -55,7 +63,7 @@ public class Carriable : MonoBehaviour
 
             outline.SetFloat("_Outline_Thickness", outlineThickness);
             other.GetComponent<Inventory>().activeInteraction = this.gameObject;
-            popupText.SetActive(true);
+            interactText.SetActive(true);
             inRange = true;
 
             if (Input.GetKey(KeyCode.E))
@@ -79,7 +87,7 @@ public class Carriable : MonoBehaviour
         if (pickedUp) { return; }
         if (other.transform.tag == "Player")
         {
-            popupText.SetActive(false);
+            interactText.SetActive(false);
             inRange = false;
             if (other.GetComponent<Inventory>().activeInteraction == this.gameObject)
             {
@@ -92,7 +100,7 @@ public class Carriable : MonoBehaviour
 
     public virtual void PickUpSuccess()
     {
-        popupText.SetActive(false);
+        interactText.SetActive(false);
         pickedUp = true;
 
         rigidBody.useGravity = false;

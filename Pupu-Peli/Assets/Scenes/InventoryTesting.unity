@@ -227,6 +227,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &269520692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1806537014}
+    m_Modifications:
+    - target: {fileID: 1205837684966555725, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Speech Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205837684966555725, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.881
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abc41743f3c7e394394cf51d2ec5e1d7, type: 3}
+--- !u!1 &269520693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1205837684966555725, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 269520692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &269520694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6518319975472735260, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 269520692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &397981201
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bad72ac60d4e541b76d9a795b95774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupText: {fileID: 1603612807}
+  interactText: {fileID: 1603612807}
   pickedUp: 0
   inRange: 0
   col: {fileID: 397981208}
@@ -272,6 +357,8 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  popup: {fileID: 0}
+  hasDialoguePopUp: 0
 --- !u!135 &397981203
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2127,7 +2214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284b2b404625dec4c9806d62d3ad1d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupText: {fileID: 1416350711}
+  interactText: {fileID: 1416350711}
   pickedUp: 0
   inRange: 0
   col: {fileID: 1928011499}
@@ -2138,6 +2225,8 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  popup: {fileID: 0}
+  hasDialoguePopUp: 0
   basketContent: []
   basketMax: 1
 --- !u!135 &1721042914
@@ -2222,7 +2311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bad72ac60d4e541b76d9a795b95774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupText: {fileID: 1798254147}
+  interactText: {fileID: 1798254147}
   pickedUp: 0
   inRange: 0
   col: {fileID: 1767823550}
@@ -2233,6 +2322,8 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  popup: {fileID: 0}
+  hasDialoguePopUp: 0
 --- !u!135 &1767823545
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2408,6 +2499,7 @@ GameObject:
   - component: {fileID: 1806537013}
   - component: {fileID: 1806537012}
   - component: {fileID: 1806537017}
+  - component: {fileID: 1806537018}
   - component: {fileID: 1806537011}
   - component: {fileID: 1806537016}
   - component: {fileID: 1806537015}
@@ -2502,11 +2594,12 @@ Transform:
   m_GameObject: {fileID: 1806537010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.605, y: 2.281, z: 0.721}
+  m_LocalPosition: {x: 3.089, y: 2.281, z: -5.786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1284614985}
+  - {fileID: 269520694}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1806537015
@@ -2569,7 +2662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bad72ac60d4e541b76d9a795b95774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupText: {fileID: 567952671}
+  interactText: {fileID: 567952671}
   pickedUp: 0
   inRange: 0
   col: {fileID: 1806537011}
@@ -2580,6 +2673,24 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  popup: {fileID: 1806537018}
+  hasDialoguePopUp: 1
+--- !u!114 &1806537018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806537010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea43861a49b4274c942da664aafe2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateWhenNear: 1
+  speechBubble: {fileID: 269520693}
+  dialogueShown: 0
+  dialogueDuration: 4
 --- !u!1 &1928011497
 GameObject:
   m_ObjectHideFlags: 0
