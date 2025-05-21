@@ -11,5 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0. Sandbox/Bisse Isse/Alchemy/Alkemia.unity
     guid: 1f426dc7d22e1a14ba94d9b4065068b4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 0de9a1b3e2d346348bbc97028428d4f9,
+      type: 3}
   m_UseUCBPForAssetBundles: 0
