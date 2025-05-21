@@ -48,6 +48,7 @@ public class DialoguePopup : MonoBehaviour
 
         if ((other.transform.tag == "Player"))
         {
+            outline.SetFloat("_Outline_Thickness", outlineThickness);
             // Activate popup if is based on trigger
             ActivateDialogue();
         }

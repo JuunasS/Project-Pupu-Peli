@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Carriable : MonoBehaviour
 {
-    // Parent class for big items
     public GameObject interactText;
     public bool pickedUp;
+
+    public DialoguePopup popup;
+    public bool hasDialoguePopUp;
 
     public bool inRange;
     public Collider col;
@@ -19,8 +21,6 @@ public class Carriable : MonoBehaviour
     public string outlineAssetName = "OutlineMaterial (Instance)";
     public float outlineThickness = 1.13f;
 
-    public DialoguePopup popup;
-    public bool hasDialoguePopUp;
 
     public virtual void Start()
     {
