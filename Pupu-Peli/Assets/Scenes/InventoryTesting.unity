@@ -247,6 +247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3709106508617774208, guid: abc41743f3c7e394394cf51d2ec5e1d7,
         type: 3}
+      propertyPath: str
+      value: Hello World!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709106508617774208, guid: abc41743f3c7e394394cf51d2ec5e1d7,
+        type: 3}
       propertyPath: offset.x
       value: -0.5
       objectReference: {fileID: 0}
@@ -1436,17 +1441,17 @@ PrefabInstance:
     - target: {fileID: 4219478440417169198, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5148997
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4219478440417169198, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5148997
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4219478440417169198, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2435681
+      value: 0.48303318
       objectReference: {fileID: 0}
     - target: {fileID: 4219478440417169198, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
