@@ -18,10 +18,16 @@ public class Inventory : MonoBehaviour
     public Transform leftHand;
     public List<Carriable> smallItems;
 
+    public InteractionManager interactionManager;
     public GameObject activeInteraction = null;
     public float interactionCD; // Cooldown for interacting with objects
     public float interactionTImer;
 
+    private void Start()
+    {
+        interactionManager = this.gameObject.GetComponent<InteractionManager>();
+    }
+    /*
     private void Update()
     {
         // Move keyboard press stuff into the input system?
@@ -30,13 +36,13 @@ public class Inventory : MonoBehaviour
             DropItem();
         }
     }
-
+    */
     public void SetBigItem(Carriable obj)
     {
         if (Time.time < interactionTImer) { return; }
         interactionTImer = Time.time + interactionCD;
         Debug.Log("Setting big item!");
-        if (obj.gameObject != activeInteraction) { return; }
+        if (obj != interactionManager.currentInteraction) { return; }
 
         Debug.Log(smallItems.Count);
         if (smallItems.Count > 0) { obj.PickUpFailed(); return; }
@@ -57,7 +63,7 @@ public class Inventory : MonoBehaviour
         if (Time.time < interactionTImer) { return; }
         interactionTImer = Time.time + interactionCD;
         Debug.Log("Setting small item!");
-        if (obj.gameObject != activeInteraction) { return; }
+        if (obj != interactionManager.currentInteraction) { return; }
 
         if (bigItem?.GetComponent<Basket>())
         {
@@ -93,7 +99,7 @@ public class Inventory : MonoBehaviour
         }
 
     }
-
+    /*
     public void CheckInteractionDistance(GameObject newObj)
     {
         if (activeInteraction == null) { activeInteraction = newObj; return; }
@@ -101,7 +107,7 @@ public class Inventory : MonoBehaviour
         float distance2 = Vector3.Distance(this.transform.position, activeInteraction.transform.position);
         if (distance1 < distance2) { activeInteraction = newObj; }
     }
-
+    */
     public void DropItem()
     {
         if (bigItem != null)
@@ -119,6 +125,6 @@ public class Inventory : MonoBehaviour
     IEnumerator WaitForNextActive()
     {
         yield return new WaitForSeconds(interactionCD);
-        activeInteraction = null;
+        interactionManager.currentInteraction = null;
     }
 }

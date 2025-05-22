@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Carriable : MonoBehaviour
+public class Carriable : Interactable
 {
     public GameObject interactText;
     public bool pickedUp;
@@ -38,7 +38,20 @@ public class Carriable : MonoBehaviour
         }
     }
 
-    public virtual void OnTriggerStay(Collider other)
+    public override void Interact(GameObject player)
+    {
+        Debug.Log("Set item for player!");
+        if (bigItem)
+        {
+            player.GetComponent<Inventory>().SetBigItem(this);
+        }
+        else
+        {
+            player.GetComponent<Inventory>().SetSmallItem(this);
+        }
+    }
+
+    public override void OnTriggerStay(Collider other)
     {
         // If object has dialogue popup show it before letting player pick it up
         if (hasDialoguePopUp)
@@ -50,9 +63,9 @@ public class Carriable : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
-            other.GetComponent<Inventory>().CheckInteractionDistance(this.gameObject);
+            other.GetComponent<InteractionManager>().CheckInteractionDistance(this);
 
-            if (other.GetComponent<Inventory>().activeInteraction != gameObject)
+            if (other.GetComponent<InteractionManager>().currentInteraction != this)
             {
                 interactText.SetActive(false);
                 inRange = false;
@@ -62,10 +75,10 @@ public class Carriable : MonoBehaviour
 
 
             outline.SetFloat("_Outline_Thickness", outlineThickness);
-            other.GetComponent<Inventory>().activeInteraction = this.gameObject;
             interactText.SetActive(true);
             inRange = true;
 
+            /*
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Set item for player!");
@@ -77,7 +90,7 @@ public class Carriable : MonoBehaviour
                 {
                     other.GetComponent<Inventory>().SetSmallItem(this);
                 }
-            }
+            }*/
         }
     }
 
@@ -89,9 +102,9 @@ public class Carriable : MonoBehaviour
         {
             interactText.SetActive(false);
             inRange = false;
-            if (other.GetComponent<Inventory>().activeInteraction == this.gameObject)
+            if (other.GetComponent<InteractionManager>().currentInteraction == this)
             {
-                other.GetComponent<Inventory>().activeInteraction = null;
+                other.GetComponent<InteractionManager>().currentInteraction = null;
                 outline.SetFloat("_Outline_Thickness", 0);
             }
         }

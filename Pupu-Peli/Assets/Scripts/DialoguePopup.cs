@@ -3,22 +3,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class DialoguePopup : MonoBehaviour
+public class DialoguePopup : Interactable
 {
     public bool activateWhenNear; // If not true considered to be activetad by interacting
 
     public GameObject speechBubble;
+    public bool dialogueActive = false;
     public bool dialogueShown = false;
     public float dialogueDuration;
 
-    
+
     public Renderer _renderer;
     public Material[] mats;
     public Material outline; // The outline material to use in code
     public string outlineAssetName = "OutlineMaterial (Instance)";
     public float outlineThickness = 1.13f;
 
-    public  void Start()
+    public void Start()
     {
 
         _renderer = GetComponent<Renderer>();
@@ -34,15 +35,30 @@ public class DialoguePopup : MonoBehaviour
         }
     }
 
+    public override void Interact(GameObject player)
+    {
+        if (dialogueActive) { return; }
+
+        if (dialogueShown) { return; };
+
+        if (activateWhenNear) { return; }
+
+        Debug.Log("Dialogue interaction successfull");
+        ActivateDialogue();
+
+    }
+
 
     public void ActivateDialogue()
     {
+        dialogueActive = true;
         speechBubble.SetActive(true);
         StartCoroutine(DialogueTimer(dialogueDuration));
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (dialogueActive) { return; }
         if (dialogueShown) { return; }
         if (!activateWhenNear) { return; }
 
@@ -54,19 +70,22 @@ public class DialoguePopup : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    public override void OnTriggerStay(Collider other)
     {
+        if (dialogueActive) { return; }
         if (dialogueShown) { return; };
-
         if (activateWhenNear) { return; }
 
         if ((other.transform.tag == "Player"))
         {
             outline.SetFloat("_Outline_Thickness", outlineThickness);
-            if (Input.GetKey(KeyCode.E))
-            {
-                ActivateDialogue();
-            }
+            other.GetComponent<InteractionManager>().CheckInteractionDistance(this);
+            /*
+             if (Input.GetKey(KeyCode.E))
+                {
+                    ActivateDialogue();
+                }
+            */
         }
     }
 
@@ -78,5 +97,4 @@ public class DialoguePopup : MonoBehaviour
         outline.SetFloat("_Outline_Thickness", 0);
         speechBubble?.SetActive(false);
     }
-
 }
