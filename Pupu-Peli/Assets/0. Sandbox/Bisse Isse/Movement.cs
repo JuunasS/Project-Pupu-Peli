@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;
+    public AnimationCurve acceleration;
+    public float accelerationMultiplier;
+    public float maxSpeed;
     private Vector2 heading;
     private Rigidbody rb;
 
@@ -30,7 +32,11 @@ public class Movement : MonoBehaviour
             rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
+            //rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
+            float dot = Vector3.Dot(rb.linearVelocity.normalized, moveDir.normalized);
+            float velocityInDirection = rb.linearVelocity.magnitude * dot;
+            float force = acceleration.Evaluate(maxSpeed / velocityInDirection);
+            rb.AddForce(moveDir.normalized * Time.deltaTime * accelerationMultiplier);
         }
     }
 
