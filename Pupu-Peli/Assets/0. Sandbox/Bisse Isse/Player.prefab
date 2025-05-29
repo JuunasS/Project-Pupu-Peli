@@ -103,7 +103,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e43b4b6122b1b7408edd55a0d82aa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  acceleration:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0017089844
+      value: 0.0014190674
+      inSlope: 10.402317
+      outSlope: 10.402317
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.07074857
+      value: 0.7195907
+      inSlope: 2.617022
+      outSlope: 2.617022
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09274616
+    - serializedVersion: 3
+      time: 0.4166924
+      value: 0.99386996
+      inSlope: 0.010217973
+      outSlope: 0.010217973
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.15239097
+    - serializedVersion: 3
+      time: 0.89057845
+      value: 0.9299817
+      inSlope: -0.5797295
+      outSlope: -0.5797295
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16007249
+      outWeight: 0.60886896
+    - serializedVersion: 3
+      time: 1.001709
+      value: -0.0007019043
+      inSlope: -8.374688
+      outSlope: -8.374688
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerationMultiplier: 1000
+  maxSpeed: 52
+  linearFriction: 0.1
+  slipNegation: 0.1
   turnSmoothTime: 0.1
   cam: {fileID: 0}
 --- !u!114 &5579178328047008226
@@ -196,6 +250,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2cb013e3-8058-47e5-b819-6873c455cc49
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14b9559b-8a43-4744-a557-87744d5a4218
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06ba05d0-2230-4177-9257-5e3e0863b3f6
+    m_ActionName: 'Player/Drop Item[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbcacd9d-dcb3-402f-86a4-2d3e8966a651
+    m_ActionName: 'Player/ExitCanvas[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
