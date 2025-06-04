@@ -20,7 +20,7 @@ public class InteractionManager : MonoBehaviour
     public void InteractEvent(InputAction.CallbackContext con)
     {
         Debug.Log("Interaction Event Called!");
-        if (currentInteraction != null)
+        if (currentInteraction != null && con.performed)
         {
             currentInteraction.Interact(this.gameObject);
             StartCoroutine(InteractionCooldown());
