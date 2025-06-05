@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Teapot : Interactable
@@ -34,12 +33,6 @@ public class Teapot : Interactable
 
     public override void Interact(GameObject player)
     {
-<<<<<<< Updated upstream
 
-=======
-        Object obj = player.GetComponentInChildren(typeof(thoughtBubble));
-        thoughtBubble tb = (thoughtBubble)obj.GetComponent<thoughtBubble>();
-        tb.drawShape(brewAndDrink());
->>>>>>> Stashed changes
     }
 }
