@@ -111,4 +111,8 @@ public class DayNightCycle : MonoBehaviour
         sun.color = sunColor.Evaluate(timeFraction);
     }
 
+    public void SetTime(float newTime)
+    {
+        timeOfDay = newTime;
+    }
 }
