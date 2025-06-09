@@ -7,6 +7,7 @@ public class herbsToBrew : Interactable
     public List<Herb> herbs;
     GameObject floatingText;
     public Teapot teapot;
+    public Basket basket;
 
     void Start()
     {
@@ -30,21 +31,20 @@ public class herbsToBrew : Interactable
     public override void Interact(GameObject player)
     {
         Inventory inv = player.GetComponent<Inventory>();
-        foreach (Carriable car in inv.smallItems)
+        
+        if (inv.bigItem != null)
         {
-            if (car.GetComponent<carriableHerb>())
+            basket = inv.bigItem.GetComponent<Basket>();
+            basket.transform.parent = this.transform;
+            basket.transform.position = this.transform.position;
+            inv.bigItem = null;
+
+            foreach (Carriable item in basket.basketContent)
             {
-                herbs.Add(car.GetComponent<carriableHerb>().herb);
-                car.DropItem();
-                //inv.smallItems.Remove(car);
-                car.transform.parent = this.transform;
-                car.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-                car.enabled = false;
+                herbs.Add(item.GetComponent<carriableHerb>().herb);
             }
-        }
-        foreach (Herb herb in herbs)
-        {
-            teapot.addHerb(herb);
+
+            transform.root.GetComponent<AlchemyMaster>().enterPuzzle(player, herbs);
         }
     }
 }

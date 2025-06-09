@@ -2,20 +2,28 @@ using UnityEngine;
 
 public class CameraStateMachine : MonoBehaviour
 {
-    private Animator states;
+    public Animator states;
+    public Camera cam;
 
-    void Start()
-    {
-        states = GetComponent<Animator>();
-    }
-    public void switchState(Collider other, bool walk = false)
+    public void switchState(Collider other, bool exit = false)
     {
         Debug.Log(other.tag);
-        if (walk)
-            states.SetTrigger("Walk");
+        if (exit)
+            states.Play("Walking");
         else if (other.tag == "Camera Switch")
         {
-            states.SetTrigger(other.name);
+            states.Play(other.name);
         }
+    }
+
+    public void changeSettings(CameraSettings settings)
+    {
+        cam.cullingMask &= ~(1 << settings.cullMask);
+    }
+
+    public void resetSettings()
+    {
+        Debug.Log("Resetting culling mask");
+        cam.cullingMask = -1;
     }
 }
