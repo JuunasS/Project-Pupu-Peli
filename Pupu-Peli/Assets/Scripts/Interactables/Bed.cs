@@ -8,6 +8,25 @@ public class Bed : Interactable
     // This is the time which is set when the bed is used
     public float morningTime;
 
+    private void Awake()
+    {
+        DayNightCycle.OnDayTimeChanged += TimeChangeEvent;
+    }
+
+    private void OnDestroy()
+    {
+        DayNightCycle.OnDayTimeChanged -= TimeChangeEvent;
+    }
+
+    private void TimeChangeEvent(TimeOfDay state)
+    {
+        Debug.Log("Time change event! " + state);
+        if (state == TimeOfDay.Morning)
+        {
+            Debug.Log("Morning state event triggered!!");
+        }
+    }
+
     public override void OnTriggerStay(Collider other)
     {
         
@@ -41,4 +60,6 @@ public class Bed : Interactable
     {
         dayNightCycle.SetTime(morningTime);
     }
+
+   
 }
