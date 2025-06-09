@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Bed : Interactable
 {
-    public DayNightCycle dayNightCycle;
     public GameObject interactText;
 
     // This is the time which is set when the bed is used
@@ -58,7 +57,7 @@ public class Bed : Interactable
 
     public override void Interact(GameObject player)
     {
-        dayNightCycle.SetTime(morningTime);
+        DayNightCycle.manager.SetTime(morningTime);
     }
 
    
