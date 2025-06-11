@@ -5,8 +5,12 @@ using UnityEngine;
 public class herbsToBrew : Interactable
 {
     public List<Herb> herbs;
+
     GameObject floatingText;
-    public Teapot teapot;
+    Inventory inv;
+    Transform invTrans;
+
+    [HideInInspector]
     public Basket basket;
 
     void Start()
@@ -30,11 +34,12 @@ public class herbsToBrew : Interactable
 
     public override void Interact(GameObject player)
     {
-        Inventory inv = player.GetComponent<Inventory>();
+        inv = player.GetComponent<Inventory>();
         
         if (inv.bigItem != null)
         {
             basket = inv.bigItem.GetComponent<Basket>();
+            invTrans = basket.transform.parent;
             basket.transform.parent = this.transform;
             basket.transform.position = this.transform.position;
             inv.bigItem = null;
@@ -46,5 +51,12 @@ public class herbsToBrew : Interactable
 
             transform.root.GetComponent<AlchemyMaster>().enterPuzzle(player, herbs);
         }
+    }
+
+    public void basketExit()
+    {
+        basket.transform.parent = invTrans;
+        basket.transform.position = inv.bigItemHolder.position;
+        inv.bigItem = basket;
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AlchemyMaster : MonoBehaviour
 {
     public GameObject alchemyUI;
+    public herbsToBrew htb;
     public List<Image> basketButtons;
     public List<Image> potButtons;
 
@@ -26,6 +27,13 @@ public class AlchemyMaster : MonoBehaviour
     public void brew()
     {
         player.GetComponentInChildren<thoughtBubble>().drawShape(herbs);
+
+        foreach (var herb in htb.basket.basketContent)
+            Object.Destroy(herb.gameObject);
+
+        htb.basket.basketContent.Clear();
+
+        exitPuzzle();
     }
 
     public void herbReverse(int button)
@@ -44,6 +52,7 @@ public class AlchemyMaster : MonoBehaviour
         player = _player;
 
         alchemyUI.SetActive(true);
+        player.GetComponent<PlayerInput>().DeactivateInput();
 
         int i = 0;
         foreach (Herb herb in herbs)
@@ -52,7 +61,7 @@ public class AlchemyMaster : MonoBehaviour
             basketButtons[i].sprite = herb.image;
         }
 
-        EventSystem.current.SetSelectedGameObject(basketButtons[0].transform.parent.gameObject);
+        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
     }
 
     public void exitPuzzle()
@@ -60,8 +69,13 @@ public class AlchemyMaster : MonoBehaviour
         foreach (Image img in basketButtons)
         {
             img.sprite = null;
+            img.transform.parent.gameObject.SetActive(false);
         }
 
         alchemyUI.SetActive(false);
+        player.GetComponent<PlayerInput>().ActivateInput();
+        herbs.Clear();
+
+        htb.basketExit();
     }
 }

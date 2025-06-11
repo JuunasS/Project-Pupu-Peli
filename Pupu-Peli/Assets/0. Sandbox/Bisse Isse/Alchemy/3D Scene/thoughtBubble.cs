@@ -5,8 +5,6 @@ using UnityEngine.Rendering.Universal;
 
 public class thoughtBubble : MonoBehaviour
 {
-
-    IEnumerator coroutine;
     SpriteRenderer[] renders;
 
     void Awake()
@@ -31,17 +29,17 @@ public class thoughtBubble : MonoBehaviour
             if (herb.isReverse)
                 sorted.Add(herb.reverse);
         }
-        coroutine = showShape(sorted);
-        StartCoroutine(coroutine);
+        StartCoroutine(showShape(sorted));
     }
 
     IEnumerator showShape(List<Sprite> sorted)
     {
         GetComponent<SpriteRenderer>().enabled = true;
-        for (int i = 1; i < sorted.Count; i++)
+        for (int i = 0; i < sorted.Count; i++)
         {
-            renders[i].enabled = true;
-            renders[i].sprite = sorted[i];
+            Debug.Log("Putting herb image in: " + renders[i]);
+            renders[i + 1].enabled = true;
+            renders[i + 1].sprite = sorted[i];
         }
 
         yield return new WaitForSeconds(5);

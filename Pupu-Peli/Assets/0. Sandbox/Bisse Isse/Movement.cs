@@ -44,13 +44,14 @@ public class Movement : MonoBehaviour
             rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            //rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
-            float dot = Vector3.Dot(rb.linearVelocity.normalized, moveDir.normalized);
-            float velocityInDirection = rb.linearVelocity.magnitude * dot;
-            float force = acceleration.Evaluate(maxSpeed / velocityInDirection);
-            rb.AddForce(moveDir.normalized * Time.deltaTime * accelerationMultiplier);
 
-            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), moveDir.normalized * Time.deltaTime * accelerationMultiplier, Color.green);
+            //float dot = Vector3.Dot(rb.linearVelocity.normalized, moveDir.normalized);
+            //float velocityInDirection = rb.linearVelocity.magnitude * dot;
+            float force = acceleration.Evaluate(Mathf.Clamp01(rb.linearVelocity.magnitude / maxSpeed));
+
+            rb.AddForce(moveDir.normalized * Time.deltaTime * force * accelerationMultiplier);
+
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), moveDir.normalized * Time.deltaTime * force * accelerationMultiplier, Color.green);
         }
     }
 
