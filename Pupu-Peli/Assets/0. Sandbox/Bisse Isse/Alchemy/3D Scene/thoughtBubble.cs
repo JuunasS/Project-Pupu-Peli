@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class thoughtBubble : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class thoughtBubble : MonoBehaviour
 
     public void drawShape(List<Herb> toSort)
     {
+        Debug.Log("Drawing herbs of amount: " + toSort.Count);
         List<Sprite> sorted = new();
 
         foreach (var herb in toSort)
