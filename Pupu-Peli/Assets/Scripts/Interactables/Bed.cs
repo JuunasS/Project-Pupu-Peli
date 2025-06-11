@@ -2,11 +2,29 @@ using UnityEngine;
 
 public class Bed : Interactable
 {
-    public DayNightCycle dayNightCycle;
     public GameObject interactText;
 
     // This is the time which is set when the bed is used
     public float morningTime;
+
+    private void Awake()
+    {
+        DayNightCycle.OnDayTimeChanged += TimeChangeEvent;
+    }
+
+    private void OnDestroy()
+    {
+        DayNightCycle.OnDayTimeChanged -= TimeChangeEvent;
+    }
+
+    private void TimeChangeEvent(TimeOfDay state)
+    {
+        Debug.Log("Time change event! " + state);
+        if (state == TimeOfDay.Morning)
+        {
+            Debug.Log("Morning state event triggered!!");
+        }
+    }
 
     public override void OnTriggerStay(Collider other)
     {
@@ -39,6 +57,8 @@ public class Bed : Interactable
 
     public override void Interact(GameObject player)
     {
-        dayNightCycle.SetTime(morningTime);
+        DayNightCycle.manager.SetTime(morningTime);
     }
+
+   
 }

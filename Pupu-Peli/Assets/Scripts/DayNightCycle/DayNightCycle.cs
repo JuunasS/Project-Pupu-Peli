@@ -1,13 +1,23 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
+public enum TimeOfDay
+{
+    Morning = 6,
+    Afternoon = 12,
+    Evening = 18,
+    Night = 24,
+}
+
 public class DayNightCycle : MonoBehaviour
 {
+
     public Light sun;
     public Light moon;
 
-    [SerializeField, Range(0, 24)] public float timeOfDay;
+    [SerializeField, Range(0, 24)] public float time;
     [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 12 = peak daylight, 0 = midnight
 
     public float rotationSpeed;
@@ -18,11 +28,28 @@ public class DayNightCycle : MonoBehaviour
 
     public TMP_Text timeText;
 
+    // Day time variables
+    public static event Action<TimeOfDay> OnDayTimeChanged;
+    public TimeOfDay timeOfDay;
+
+    private static DayNightCycle _manager;
+    public static DayNightCycle manager
+    {
+        get
+        {
+            if (_manager == null)
+            {
+                Debug.Log("Day Night Cycle manager is null!");
+            }
+            return _manager;
+        }
+    }
+
 
     private void Update()
     {
-        timeOfDay += Time.deltaTime * rotationSpeed;
-        if (timeOfDay > 24) { timeOfDay = 0; }
+        time += Time.deltaTime * rotationSpeed;
+        if (time > 24) { time = 0; }
 
         SetTimeText();
 
@@ -30,16 +57,46 @@ public class DayNightCycle : MonoBehaviour
         UpdateMoonRotation();
         UpdateLighting();
 
-        if (timeOfDay > 0 && timeOfDay < 12)
+        if (time > 0 && time < 12)
         {
             // time of day 0 -> 12 == tValue: 0 -> 12
-            dayNightTransitionValue = timeOfDay;
+            dayNightTransitionValue = time;
         }
         else // Less than 24 and more than 12
         {
-            dayNightTransitionValue = 24 - timeOfDay;
+            dayNightTransitionValue = 24 - time;
         }
 
+        // TODO: Add events for times of day!
+        CheckDayTime();
+
+    }
+
+    public void CheckDayTime()
+    {
+        // Invoke daytime change when a new day time starts (Should trigger once)
+        if (time > 6 && time < 12 && timeOfDay != TimeOfDay.Morning)
+        {
+            timeOfDay = TimeOfDay.Morning;
+        }
+        else if (time > 12 && time < 18 && timeOfDay != TimeOfDay.Afternoon)
+        {
+            timeOfDay = TimeOfDay.Afternoon;
+        }
+        else if (time > 18 && time < 24 && timeOfDay != TimeOfDay.Evening)
+        {
+            timeOfDay = TimeOfDay.Evening;
+        }
+        else if (time > 0 && time < 6 && timeOfDay != TimeOfDay.Night)
+        {
+            timeOfDay = TimeOfDay.Night;
+        }
+        else
+        {
+            return;
+        }
+        Debug.Log("Day time changed to: " + timeOfDay);
+        OnDayTimeChanged?.Invoke(timeOfDay);
     }
 
     private void LateUpdate()
@@ -58,9 +115,9 @@ public class DayNightCycle : MonoBehaviour
 
     private void SetTimeText()
     {
-        string[] currentTime = System.Math.Round(timeOfDay, 2).ToString().Split(',');
+        string[] currentTime = System.Math.Round(time, 2).ToString().Split(',');
 
-        if (timeOfDay < 10)
+        if (time < 10)
         {
             if (currentTime.Length == 1)
             {
@@ -92,20 +149,20 @@ public class DayNightCycle : MonoBehaviour
 
     public void UpdateSunRotation()
     {
-        float rotation = Mathf.Lerp(-90, 270, timeOfDay / 24);
+        float rotation = Mathf.Lerp(-90, 270, time / 24);
         sun.transform.rotation = Quaternion.Euler(rotation, sun.transform.rotation.y, sun.transform.rotation.z);
     }
 
     public void UpdateMoonRotation()
     {
-        float rotation = Mathf.Lerp(-270, 90, timeOfDay / 24);
+        float rotation = Mathf.Lerp(-270, 90, time / 24);
         moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
     }
 
 
     public void UpdateLighting()
     {
-        float timeFraction = timeOfDay / 24;
+        float timeFraction = time / 24;
         RenderSettings.ambientEquatorColor = equatorColor.Evaluate(timeFraction);
         RenderSettings.ambientSkyColor = equatorColor.Evaluate(timeFraction);
         sun.color = sunColor.Evaluate(timeFraction);
@@ -113,6 +170,6 @@ public class DayNightCycle : MonoBehaviour
 
     public void SetTime(float newTime)
     {
-        timeOfDay = newTime;
+        time = newTime;
     }
 }
