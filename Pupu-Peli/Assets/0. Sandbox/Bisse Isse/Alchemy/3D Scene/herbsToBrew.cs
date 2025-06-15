@@ -40,7 +40,8 @@ public class herbsToBrew : Interactable
         {
             basket = inv.bigItem.GetComponent<Basket>();
             invTrans = basket.transform.parent;
-            basket.transform.parent = this.transform;
+            basket.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+            basket.transform.SetParent(this.transform, true);
             basket.transform.position = this.transform.position;
             inv.bigItem = null;
 

@@ -59,6 +59,7 @@ public class AlchemyMaster : MonoBehaviour
         {
             basketButtons[i].transform.parent.gameObject.SetActive(true);
             basketButtons[i].sprite = herb.image;
+            i++;
         }
 
         EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
