@@ -2203,7 +2203,7 @@ PrefabInstance:
     - target: {fileID: 1219288365279768919, guid: ad9e827ec3d555544b96858e3779b607,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219288365279768919, guid: ad9e827ec3d555544b96858e3779b607,
         type: 3}
@@ -2552,8 +2552,10 @@ MonoBehaviour:
   - index: 0
     missionData:
     - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
-  missions:
-  - {fileID: -5683867860532440161, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
+  - index: 0
+    missionData:
+    - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
+  ActiveMissions: []
 --- !u!1001 &1791310297
 PrefabInstance:
   m_ObjectHideFlags: 0

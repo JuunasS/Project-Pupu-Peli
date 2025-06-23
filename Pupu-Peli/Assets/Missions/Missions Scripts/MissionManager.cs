@@ -11,9 +11,24 @@ public class MissionManager : MonoBehaviour
     [SerializeField]
     private MissionListObject[] missionArray;
     private Dictionary<int, List<GameObject>> missionList = new Dictionary<int, List<GameObject>>(); // List of every mission for current missionProgression state 
+    public List<GameObject> ActiveMissions = new List<GameObject>();
 
 
-    public List<Mission> missions;
+    //public List<Mission> missions;
+
+    public static MissionManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,7 +38,7 @@ public class MissionManager : MonoBehaviour
         missionList.Clear();
         for (int i = 0; i < missionArray.Length; i++)
         {
-            missionList.Add(missionArray[i].index, missionArray[i].missionData);
+            missionList.Add(i, missionArray[i].missionData);
         }
         // Set current mission active
         GenerateCurrentMissions();
@@ -35,10 +50,33 @@ public class MissionManager : MonoBehaviour
         {
             // Initialize current mission prefabs!
             GameObject tempMissionObj = Instantiate(missionList[missionProgression][i], this.transform);
+            ActiveMissions.Add(tempMissionObj);
         }
     }
 
     // Function for checking current mission state
+    public void CheckMissionState()
+    {
+        for (int i = 0; ActiveMissions.Count > i; i++)
+        {
+            Debug.Log("missionList[missionProgression].Count " + missionList[missionProgression].Count);
+            Debug.Log("!missionList[missionProgression][i].GetComponent<Mission>().complete " + !missionList[missionProgression][i].GetComponent<Mission>().complete);
+            if (!ActiveMissions[i].GetComponent<Mission>().complete)
+            {
+                return;
+            }
+        }
+        Debug.Log("ALL MISSIONS COMPLETE!");
+
+        for (int i = 0; ActiveMissions.Count > i; i++)
+        {
+            ActiveMissions.Remove(ActiveMissions[i]);
+        }
+        // Move to next mission progress state
+        missionProgression++;
+        // Instantiate new missions
+        GenerateCurrentMissions();
+    }
 
     // Function for updating current mission state
 
@@ -69,6 +107,7 @@ public abstract class Mission : MonoBehaviour
     MissionDataSO data;
 
     public bool complete;
+    /*
     public virtual void CheckMissionProgress()
     {
         if (complete)
@@ -86,7 +125,7 @@ public abstract class Mission : MonoBehaviour
     public bool RequirementsMet()
     {
         return requirement.Invoke(null);
-    }
+    }*/
 }
 
 
@@ -94,6 +133,6 @@ public abstract class Mission : MonoBehaviour
 [Serializable]
 public class MissionListObject
 {
-    public int index;
+    //public int index;
     public List<GameObject> missionData;
 }
