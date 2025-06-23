@@ -45,13 +45,12 @@ public class MissionManager : MonoBehaviour
     {
         for (int i = 0; i < missionArray[missionProgression].missionDataList.Count; i++)
         {
-            for (int j = 0; j < missionArray[missionProgression].missionDataList[i].missionPrefabs.Length; j++)
-            {
-                // Initialize current mission prefabs!
-                GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefabs[j], this.transform);
+            // Initialize current mission prefabs!
+            GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefab, this.transform);
+            missionArray[missionProgression].missionDataList[i].SetMissionDataSO(tempMissionObj);
 
-                activeMissions.Add(tempMissionObj);
-            }
+            activeMissions.Add(tempMissionObj);
+
         }
     }
 
@@ -69,7 +68,7 @@ public class MissionManager : MonoBehaviour
         }
         Debug.Log("ALL MISSIONS COMPLETE!");
 
-        for (int i = 0; activeMissions.Count > i; i++)
+        for (int i = activeMissions.Count-1; 0 <= i; i--)
         {
             GameObject tempRef = activeMissions[i];
             activeMissions.Remove(tempRef);
@@ -97,38 +96,11 @@ public abstract class Mission : MonoBehaviour
 {
     // This is a parent class for missions
     // Every mission must contain parameters for completion and a fucntion to check it's completion.
-
-    public Mission(string title, Predicate<object> requirement, MissionDataSO data)
-    {
-        missionTitle = title;
-        this.requirement = requirement;
-        this.data = data;
-    }
-
     public string missionTitle;
-    public Predicate<object> requirement;
     MissionDataSO data;
 
     public bool complete;
-    /*
-    public virtual void CheckMissionProgress()
-    {
-        if (complete)
-        {
-            return;
-        }
 
-        if (RequirementsMet())
-        {
-            Debug.Log("Mission " + missionTitle + " complete!");
-            complete = true;
-        }
-    }
-
-    public bool RequirementsMet()
-    {
-        return requirement.Invoke(null);
-    }*/
 }
 
 

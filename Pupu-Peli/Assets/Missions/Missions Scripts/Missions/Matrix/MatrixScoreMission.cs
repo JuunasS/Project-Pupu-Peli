@@ -8,10 +8,6 @@ public class MatrixScoreMission : Mission
     public int desiredScore;
     public MatrixScoreManager scoreManager;
 
-    public MatrixScoreMission(string title, Predicate<object> requirement, MissionDataSO data) : base(title, requirement, data)
-    {
-    }
-
     void Start()
     {
         //scoreManager = FindAnyObjectByType<MatrixScoreManager>();

@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class AlchemyCompletionMission : Mission
 {
-    public AlchemyCompletionMission(string title, Predicate<object> requirement, MissionDataSO data) : base(title, requirement, data)
-    {
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

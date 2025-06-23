@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d6245c246c0cc46a54645b6486a6dd, type: 3}
-  m_Name: Mission-1
+  m_Script: {fileID: 11500000, guid: fdc1ea798a705dc469d88ff0523eae79, type: 3}
+  m_Name: MatrixScoreMission2
   m_EditorClassIdentifier: 
-  missionPrefabs:
-  - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
+  missionPrefab: {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82,
+    type: 3}
+  title: Get 50 score
+  desiredScore: 50

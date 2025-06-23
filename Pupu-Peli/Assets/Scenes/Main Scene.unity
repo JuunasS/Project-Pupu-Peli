@@ -2550,9 +2550,10 @@ MonoBehaviour:
   missionProgression: 0
   missionArray:
   - missionDataList:
-    - {fileID: 11400000, guid: cd3f24dc55e1a124093e09135e8886e7, type: 2}
+    - {fileID: 11400000, guid: 371f4465cf2577246823c66e0090b459, type: 2}
+    - {fileID: 11400000, guid: 5045aaee0da452e4aadac66c04281f14, type: 2}
   - missionDataList:
-    - {fileID: 11400000, guid: c119089e24763594ab72f0641803811d, type: 2}
+    - {fileID: 11400000, guid: f78a6ecc8ef102b4ab62ff41fcab59fb, type: 2}
   activeMissions: []
 --- !u!1001 &1791310297
 PrefabInstance:
