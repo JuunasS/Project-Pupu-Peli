@@ -2549,13 +2549,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionProgression: 0
   missionArray:
-  - index: 0
-    missionData:
-    - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
-  - index: 0
-    missionData:
-    - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
-  ActiveMissions: []
+  - missionDataList:
+    - {fileID: 11400000, guid: cd3f24dc55e1a124093e09135e8886e7, type: 2}
+  - missionDataList:
+    - {fileID: 11400000, guid: c119089e24763594ab72f0641803811d, type: 2}
+  activeMissions: []
 --- !u!1001 &1791310297
 PrefabInstance:
   m_ObjectHideFlags: 0

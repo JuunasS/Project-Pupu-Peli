@@ -5,10 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MissionDataSO", menuName = "Scriptable Objects/MissionData")]
 public  class MissionDataSO : ScriptableObject
 {
-    public  void CheckMissionState()
-    {
 
-    }
+    public GameObject[] missionPrefabs;
 }
 /*
 public class MatrixMission : MissionData

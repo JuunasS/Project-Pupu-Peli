@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MissionManager : MonoBehaviour
@@ -10,8 +11,7 @@ public class MissionManager : MonoBehaviour
     // List of mission objects (In order of mission appearance)
     [SerializeField]
     private MissionListObject[] missionArray;
-    private Dictionary<int, List<GameObject>> missionList = new Dictionary<int, List<GameObject>>(); // List of every mission for current missionProgression state 
-    public List<GameObject> ActiveMissions = new List<GameObject>();
+    public List<GameObject> activeMissions = new List<GameObject>();
 
 
     //public List<Mission> missions;
@@ -35,42 +35,45 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
 
-        missionList.Clear();
-        for (int i = 0; i < missionArray.Length; i++)
-        {
-            missionList.Add(i, missionArray[i].missionData);
-        }
+        activeMissions.Clear();
+
         // Set current mission active
         GenerateCurrentMissions();
     }
 
     public void GenerateCurrentMissions()
     {
-        for (int i = 0; i < missionList[missionProgression].Count; i++)
+        for (int i = 0; i < missionArray[missionProgression].missionDataList.Count; i++)
         {
-            // Initialize current mission prefabs!
-            GameObject tempMissionObj = Instantiate(missionList[missionProgression][i], this.transform);
-            ActiveMissions.Add(tempMissionObj);
+            for (int j = 0; j < missionArray[missionProgression].missionDataList[i].missionPrefabs.Length; j++)
+            {
+                // Initialize current mission prefabs!
+                GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefabs[j], this.transform);
+
+                activeMissions.Add(tempMissionObj);
+            }
         }
     }
 
     // Function for checking current mission state
     public void CheckMissionState()
     {
-        for (int i = 0; ActiveMissions.Count > i; i++)
+        for (int i = 0; activeMissions.Count > i; i++)
         {
-            Debug.Log("missionList[missionProgression].Count " + missionList[missionProgression].Count);
-            Debug.Log("!missionList[missionProgression][i].GetComponent<Mission>().complete " + !missionList[missionProgression][i].GetComponent<Mission>().complete);
-            if (!ActiveMissions[i].GetComponent<Mission>().complete)
+            Debug.Log("activeMissions.Count " + activeMissions.Count);
+            Debug.Log("!activeMissions[i].GetComponent<Mission>().complete " + !activeMissions[i].GetComponent<Mission>().complete);
+            if (!activeMissions[i].GetComponent<Mission>().complete)
             {
                 return;
             }
         }
         Debug.Log("ALL MISSIONS COMPLETE!");
 
-        for (int i = 0; ActiveMissions.Count > i; i++)
+        for (int i = 0; activeMissions.Count > i; i++)
         {
-            ActiveMissions.Remove(ActiveMissions[i]);
+            GameObject tempRef = activeMissions[i];
+            activeMissions.Remove(tempRef);
+            Destroy(tempRef);
         }
         // Move to next mission progress state
         missionProgression++;
@@ -134,5 +137,5 @@ public abstract class Mission : MonoBehaviour
 public class MissionListObject
 {
     //public int index;
-    public List<GameObject> missionData;
+    public List<MissionDataSO> missionDataList;
 }

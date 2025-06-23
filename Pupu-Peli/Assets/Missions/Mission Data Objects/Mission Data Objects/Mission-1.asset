@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1d6245c246c0cc46a54645b6486a6dd, type: 3}
-  m_Name: MeatrixScoreMission
+  m_Name: Mission-1
   m_EditorClassIdentifier: 
-  mission: {fileID: 0}
+  missionPrefabs:
+  - {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82, type: 3}
