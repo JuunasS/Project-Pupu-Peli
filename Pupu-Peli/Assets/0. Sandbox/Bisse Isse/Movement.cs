@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
     public AnimationCurve acceleration;
     public float accelerationMultiplier;
     public float maxSpeed;
+    public float linearFriction;
+    public float slipNegation;
     private Vector2 heading;
     private Rigidbody rb;
 
@@ -23,6 +25,16 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        movingPlayer();
+
+        if (Mathf.Abs(heading.y) + Mathf.Abs(heading.x) < 0.1f)
+            linearFrictionForce();
+
+        slipNegatingForce();
+    }
+
+    void movingPlayer()
+    {
         Vector3 direction = new Vector3(heading.x, 0, heading.y);
 
         if (direction.magnitude >= 0.1f)
@@ -37,7 +49,38 @@ public class Movement : MonoBehaviour
             float velocityInDirection = rb.linearVelocity.magnitude * dot;
             float force = acceleration.Evaluate(maxSpeed / velocityInDirection);
             rb.AddForce(moveDir.normalized * Time.deltaTime * accelerationMultiplier);
+
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), moveDir.normalized * Time.deltaTime * accelerationMultiplier, Color.green);
         }
+    }
+
+    void linearFrictionForce()
+    {
+        //Get current velocity
+        float worldVel = rb.linearVelocity.magnitude;
+
+        float desiredVelChange = -worldVel * linearFriction;
+
+        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+
+        rb.AddForce(rb.linearVelocity.normalized * desiredAccel);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), rb.linearVelocity.normalized * desiredAccel, Color.cyan);
+    }
+
+    void slipNegatingForce()
+    {
+        Vector3 slipDir = transform.right;
+
+        Vector3 worldVel = rb.linearVelocity;
+
+        float slipVel = Vector3.Dot(slipDir, worldVel);
+
+        float desiredVelChange = -slipVel * slipNegation;
+
+        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+
+        rb.AddForce(slipDir * desiredAccel);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), slipDir * desiredAccel, Color.red);
     }
 
     public void DirectionUpdate(InputAction.CallbackContext con)
