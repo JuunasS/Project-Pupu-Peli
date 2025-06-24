@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Nettle
   image: {fileID: 21300000, guid: 5ee9ec9212f9da34f948a6b61df5aaa5, type: 3}
   reverse: {fileID: 21300000, guid: 70e98c9e54f634f43ac62d70f78f7ed5, type: 3}
-  isReverse: 0
+  isReverse: 1
