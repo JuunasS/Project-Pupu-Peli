@@ -1463,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 3502224805962432016, guid: 05feb41a8a23f504ca4573cca3720e09,
         type: 3}
       propertyPath: basketMax
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5053118399767098818, guid: 05feb41a8a23f504ca4573cca3720e09,
         type: 3}

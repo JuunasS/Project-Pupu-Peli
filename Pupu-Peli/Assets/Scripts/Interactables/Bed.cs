@@ -10,11 +10,13 @@ public class Bed : Interactable
     private void Awake()
     {
         DayNightCycle.OnDayTimeChanged += TimeChangeEvent;
+        MissionManager.OnMissionProgressionChanged += ProgressionChangeEvent;
     }
 
     private void OnDestroy()
     {
         DayNightCycle.OnDayTimeChanged -= TimeChangeEvent;
+        MissionManager.OnMissionProgressionChanged -= ProgressionChangeEvent;
     }
 
     private void TimeChangeEvent(TimeOfDay state)
@@ -23,6 +25,15 @@ public class Bed : Interactable
         if (state == TimeOfDay.Morning)
         {
             Debug.Log("Morning state event triggered!!");
+        }
+    }
+
+    private void ProgressionChangeEvent(int progression)
+    {
+        Debug.Log("Progression change event! " + progression);
+        if (progression == 1)
+        {
+            Debug.Log("Progression state event triggered!!");
         }
     }
 

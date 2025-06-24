@@ -14,7 +14,7 @@ public class MissionManager : MonoBehaviour
     public List<GameObject> activeMissions = new List<GameObject>();
 
 
-    //public List<Mission> missions;
+    public static event Action<int> OnMissionProgressionChanged;
 
     public static MissionManager Instance { get; private set; }
 
@@ -76,6 +76,8 @@ public class MissionManager : MonoBehaviour
         }
         // Move to next mission progress state
         missionProgression++;
+        OnMissionProgressionChanged.Invoke(missionProgression);
+
         // Instantiate new missions
         GenerateCurrentMissions();
     }
@@ -83,6 +85,10 @@ public class MissionManager : MonoBehaviour
     // Function for updating current mission state
 
     // Event changed function for calling in other scripts
+    public void MissionProgressStateChanged()
+    {
+
+    }
 
 
     // Function for saving mission state to file
