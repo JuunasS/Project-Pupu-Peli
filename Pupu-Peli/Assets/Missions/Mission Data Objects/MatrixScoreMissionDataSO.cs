@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MatrixMissionDataSO", menuName = "Scriptable Objects/MissionData/MatrixMissionData")]
+[CreateAssetMenu(fileName = "MatrixScoreMissionDataSO", menuName = "Scriptable Objects/MissionData/MatrixScoreMissionData")]
 public class MatrixScoreMissionSO : MissionDataSO
 {
     public string title;

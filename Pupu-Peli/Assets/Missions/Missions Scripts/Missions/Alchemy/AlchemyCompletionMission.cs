@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "AlchemyCompletionMissionDataSO", menuName = "Scriptable Objects/MissionData/AlchemyCompletionMissionData")]
 public class AlchemyCompletionMission : Mission
 {
 
