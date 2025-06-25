@@ -57,7 +57,7 @@ public class DayNightCycle : MonoBehaviour
         UpdateMoonRotation();
         UpdateLighting();
 
-        if (time > 0 && time < 12)
+        if (time >= 0 && time <= 12)
         {
             // time of day 0 -> 12 == tValue: 0 -> 12
             dayNightTransitionValue = time;
