@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using NaughtyAttributes;
+using UnityEngine.InputSystem;
 
 public class thoughtBubble : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class thoughtBubble : MonoBehaviour
             renders[i + 1].sprite = sorted[i];
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         foreach (var ren in renders)
             ren.enabled = false;
@@ -62,5 +63,6 @@ public class thoughtBubble : MonoBehaviour
     public void endCutscene()
     {
         stateDrivenCamera.Play("Gazebo");
+        transform.GetComponentInParent<PlayerInput>().ActivateInput();
     }
 }

@@ -23,7 +23,6 @@ public class CameraStateMachine : MonoBehaviour
 
     public void resetSettings()
     {
-        Debug.Log("Resetting culling mask");
         cam.cullingMask = -1;
     }
 }

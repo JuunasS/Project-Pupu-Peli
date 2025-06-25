@@ -9,6 +9,7 @@ public class herbsToBrew : Interactable
     GameObject floatingText;
     Inventory inv;
     Transform invTrans;
+    bool inPuzzle;
 
     [HideInInspector]
     public Basket basket;
@@ -18,12 +19,18 @@ public class herbsToBrew : Interactable
         floatingText = transform.Find("FloatingText").gameObject;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Player")
+            inPuzzle = false;
+    }
+
     public override void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player")
         {
             other.GetComponent<InteractionManager>().CheckInteractionDistance(this);
-            floatingText.SetActive(true);
+            floatingText.SetActive(!inPuzzle);
         }
     }
 
@@ -35,6 +42,7 @@ public class herbsToBrew : Interactable
     public override void Interact(GameObject player)
     {
         inv = player.GetComponent<Inventory>();
+        inPuzzle = true;
         
         if (inv.bigItem != null)
         {

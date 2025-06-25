@@ -74,7 +74,10 @@ public class AlchemyMaster : MonoBehaviour
         }
 
         alchemyUI.SetActive(false);
-        player.GetComponent<PlayerInput>().ActivateInput();
+
+        //player.GetComponent<PlayerInput>().ActivateInput();
+        // Player Input is resumed in the thought bubble script, which is called by the thought bubble animation
+
         herbs.Clear();
 
         htb.basketExit();
