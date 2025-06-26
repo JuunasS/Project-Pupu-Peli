@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9839412, g: 0.9761295, b: 0.83102554, a: 1}
-  m_AmbientEquatorColor: {r: 0.9839412, g: 0.9761295, b: 0.83102554, a: 1}
+  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -634,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 2135339818547302970, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: time
-      value: 16.3
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 2135339818547302970, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
@@ -789,17 +789,17 @@ PrefabInstance:
     - target: {fileID: 2726978132097306818, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.87211
+      value: 0.6784582
       objectReference: {fileID: 0}
     - target: {fileID: 2726978132097306818, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9821549
+      value: 0.92059803
       objectReference: {fileID: 0}
     - target: {fileID: 2726978132097306818, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9881033
+      value: 0.9490258
       objectReference: {fileID: 0}
     - target: {fileID: 3273730225417575293, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
@@ -859,12 +859,12 @@ PrefabInstance:
     - target: {fileID: 4501991514102304538, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.22069755
+      value: -0.03925976
       objectReference: {fileID: 0}
     - target: {fileID: 4501991514102304538, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.9753423
+      value: 0.9992291
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
