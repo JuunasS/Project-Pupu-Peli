@@ -68,7 +68,7 @@ public class Bed : Interactable
 
     public override void Interact(GameObject player)
     {
-        DayNightCycle.manager.SetTime(morningTime);
+        DayNightCycle.Instance.SetTime(morningTime);
     }
 
    

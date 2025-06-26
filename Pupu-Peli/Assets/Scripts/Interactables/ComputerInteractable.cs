@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComputerInteractable : Interactable
 {
@@ -21,6 +22,10 @@ public class ComputerInteractable : Interactable
     private void OnTriggerExit(Collider other)
     {
         floatingText.SetActive(false);
+        if (other.GetComponent<InteractionManager>().currentInteraction == this)
+        {
+            other.GetComponent<InteractionManager>().currentInteraction = null;
+        }
     }
 
     public override void Interact(GameObject player)

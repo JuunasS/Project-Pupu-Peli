@@ -32,16 +32,18 @@ public class DayNightCycle : MonoBehaviour
     public static event Action<TimeOfDay> OnDayTimeChanged;
     public TimeOfDay timeOfDay;
 
-    private static DayNightCycle _manager;
-    public static DayNightCycle manager
+    public static DayNightCycle Instance { get; private set; }
+
+    private void Awake()
     {
-        get
+        if (Instance != null && Instance != this)
         {
-            if (_manager == null)
-            {
-                Debug.Log("Day Night Cycle manager is null!");
-            }
-            return _manager;
+            Destroy(this);
+        }
+        else
+        {
+            Debug.Log("Day Night Cycle manager is null!");
+            Instance = this;
         }
     }
 
