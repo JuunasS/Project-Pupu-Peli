@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -42,6 +43,9 @@ public class MatrixGameManager : MonoBehaviour
     public TMP_Text gameEndScoreText;
 
     public CoinSpawner coinSpawner;
+
+
+    public static event Action MatrixGameEnd;
 
 
     private void OnEnable()
@@ -159,6 +163,9 @@ public class MatrixGameManager : MonoBehaviour
         gameEndScreen.SetActive(true);
         gameEndText.text = "Timer ran out!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+
+        MatrixGameEnd?.Invoke();
+
         await Task.Delay(3000);
         computerCanvas.SetActive(false);
         DispenseReward();
@@ -169,12 +176,16 @@ public class MatrixGameManager : MonoBehaviour
         gameEndScreen.SetActive(true);
         gameEndText.text = "Exiting application!";
         gameEndScoreText.text = "Score: " + scoreManager.GetScore().ToString();
+
+        MatrixGameEnd?.Invoke();
+
         await Task.Delay(3000);
         DispenseReward();
     }
 
     public void DispenseReward()
     {
+
         // Spawn coins for player based on score!
         coinSpawner.BeginSpawningCoins(scoreManager.currentScore);
 

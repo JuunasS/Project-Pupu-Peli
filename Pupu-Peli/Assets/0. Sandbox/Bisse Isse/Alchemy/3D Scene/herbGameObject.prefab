@@ -117,7 +117,7 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
-  herb: {fileID: 11400000, guid: b74409c1a31e5a94d9452e9a4e4fb9c1, type: 2}
+  herb: {fileID: 11400000, guid: 0cb5b050e8f5b4542b504bed2ac3ed57, type: 2}
 --- !u!135 &2937433344280272897
 SphereCollider:
   m_ObjectHideFlags: 0

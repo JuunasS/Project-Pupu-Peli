@@ -94,13 +94,13 @@ public class SoundManager : MonoBehaviour
                     float coinCollideTimerMax = .05f;
                     if (lastTimePlayed + coinCollideTimerMax < Time.time)
                     {
-                        Debug.Log("Can play sound!");
+                        //Debug.Log("Can play sound!");
                         clipTimerDictionary[clip] = Time.time;
                         return true;
                     }
                     else
                     {
-                        Debug.Log("Time interval");
+                        //Debug.Log("Time interval");
                         return false;
                     }
                 }
