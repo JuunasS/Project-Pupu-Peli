@@ -9,6 +9,7 @@ public class Carriable : Interactable
     public DialoguePopup popup;
     public bool hasDialoguePopUp;
 
+    public bool inRange;
     public Collider col;
     public Rigidbody rigidBody;
 
@@ -67,6 +68,7 @@ public class Carriable : Interactable
             if (other.GetComponent<InteractionManager>().currentInteraction != this)
             {
                 interactText.SetActive(false);
+                inRange = false;
                 outline.SetFloat("_Outline_Thickness", 0);
                 return;
             }
@@ -74,6 +76,21 @@ public class Carriable : Interactable
 
             outline.SetFloat("_Outline_Thickness", outlineThickness);
             interactText.SetActive(true);
+            inRange = true;
+
+            /*
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Set item for player!");
+                if (bigItem)
+                {
+                    other.GetComponent<Inventory>().SetBigItem(this);
+                }
+                else
+                {
+                    other.GetComponent<Inventory>().SetSmallItem(this);
+                }
+            }*/
         }
     }
 
@@ -84,6 +101,7 @@ public class Carriable : Interactable
         if (other.transform.tag == "Player")
         {
             interactText.SetActive(false);
+            inRange = false;
             if (other.GetComponent<InteractionManager>().currentInteraction == this)
             {
                 other.GetComponent<InteractionManager>().currentInteraction = null;
