@@ -60,8 +60,8 @@ public class MissionManager : MonoBehaviour
         for (int i = 0; activeMissions.Count > i; i++)
         {
             Debug.Log("activeMissions.Count " + activeMissions.Count);
-            Debug.Log("!activeMissions[i].GetComponent<Mission>().complete " + !activeMissions[i].GetComponent<Mission>().complete);
-            if (!activeMissions[i].GetComponent<Mission>().complete)
+            Debug.Log("!activeMissions[i].GetComponent<Mission>().complete " + !activeMissions[i].GetComponent<Mission>().isComplete);
+            if (!activeMissions[i].GetComponent<Mission>().isComplete)
             {
                 return;
             }
@@ -105,7 +105,7 @@ public abstract class Mission : MonoBehaviour
     public string missionTitle;
     MissionDataSO data;
 
-    public bool complete;
+    public bool isComplete;
 
 }
 
