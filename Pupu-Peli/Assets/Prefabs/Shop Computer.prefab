@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  m_Color: {r: 0.9339623, g: 0.92804635, b: 0.09251513, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -483,7 +483,6 @@ GameObject:
   - component: {fileID: 8934243889672916137}
   - component: {fileID: 6812582989885213251}
   - component: {fileID: 7449118093140136177}
-  - component: {fileID: 4665845875648677971}
   m_Layer: 5
   m_Name: Shop Canvas
   m_TagString: Untagged
@@ -577,37 +576,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4665845875648677971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3713926927677015866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4bf2e848da0ba42b6188adb86226c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopItemData:
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
-  shopPanel: {fileID: 7723394845474951366}
-  shopItemPositionZero: {fileID: 1832308772989657245}
-  row: 0
-  col: 0
-  maxRow: 0
-  shopItemPrefab: {fileID: 8567332393066310435, guid: 145bd62f6d577064184151050fb31d30,
-    type: 3}
-  shopItemIDArray:
-  - ID: cylinderShopTest
-    obj: {fileID: 0}
 --- !u!1 &3966866778887348693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1171,7 @@ GameObject:
   - component: {fileID: 8319493251548865193}
   - component: {fileID: 6549976218988287767}
   - component: {fileID: 2996093427488632232}
+  - component: {fileID: 2464445642570910204}
   m_Layer: 0
   m_Name: Shop Computer
   m_TagString: Untagged
@@ -1218,7 +1187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499890215422124288}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.56, y: 0.648, z: -1.2}
   m_LocalScale: {x: 3.0033, y: 1, z: 1.7289}
   m_ConstrainProportionsScale: 0
@@ -1266,6 +1235,33 @@ MonoBehaviour:
   canvasObject: {fileID: 3713926927677015866}
   floatingText: {fileID: 299372915405624867}
   isActive: 0
+--- !u!114 &2464445642570910204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499890215422124288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4bf2e848da0ba42b6188adb86226c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItemData:
+  - {fileID: 11400000, guid: 1be221918f3d34f47ab04c9e1b46ea48, type: 2}
+  - {fileID: 11400000, guid: 4e6b9c45e17175940adf460e866008d1, type: 2}
+  shopPanel: {fileID: 7723394845474951366}
+  shopItemPositionZero: {fileID: 1832308772989657245}
+  row: 0
+  col: 0
+  maxRow: 0
+  shopItemPrefab: {fileID: 8567332393066310435, guid: 145bd62f6d577064184151050fb31d30,
+    type: 3}
+  shopItemIDArray:
+  - ID: basketShopItem
+    obj: {fileID: 0}
+  - ID: ballShopTest
+    obj: {fileID: 0}
 --- !u!1 &6952786472026229672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1442,21 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Open Shop [E]'
       objectReference: {fileID: 0}
+    - target: {fileID: 408903775791865141, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 408903775791865141, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 408903775791865141, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 44
+      objectReference: {fileID: 0}
     - target: {fileID: 4219478440417169198, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1558,14 +1569,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6581202528083380176, guid: 6a3e676bfde7b6a458c531d7abdc0135,
         type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 8319493251548865193}
+    - target: {fileID: 6581202528083380176, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+        type: 3}
       propertyPath: offset.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6581202528083380176, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+        type: 3}
+      propertyPath: textComponent
+      value: 
+      objectReference: {fileID: 111591554455302512}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3e676bfde7b6a458c531d7abdc0135, type: 3}
+--- !u!114 &111591554455302512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 408903775791865141, guid: 6a3e676bfde7b6a458c531d7abdc0135,
+    type: 3}
+  m_PrefabInstance: {fileID: 297453338396339269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299372915405624867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &299372915405624867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2060659449543270, guid: 6a3e676bfde7b6a458c531d7abdc0135,
@@ -1586,11 +1619,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1948132971961469230}
     m_Modifications:
-    - target: {fileID: 2775975555153001748, guid: 145bd62f6d577064184151050fb31d30,
-        type: 3}
-      propertyPath: shopManager
-      value: 
-      objectReference: {fileID: 4665845875648677971}
     - target: {fileID: 4656592842017195280, guid: 145bd62f6d577064184151050fb31d30,
         type: 3}
       propertyPath: m_Pivot.x
