@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Teapot : MonoBehaviour
+public class Teapot : Interactable
 {
     SpriteRenderer[] renders;
     List<Herb> addedHerbs = new();
+    public herbsToBrew herbsToBrew;
 
     void Awake()
     {
@@ -28,5 +29,10 @@ public class Teapot : MonoBehaviour
             Vector2 size = new Vector2(2.5f, 2.5f + 2.25f * (addedHerbs.Count - 1));
             renders[0].size = size;
         }
+    }
+
+    public override void Interact(GameObject player)
+    {
+
     }
 }

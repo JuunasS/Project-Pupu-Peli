@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Rose
   image: {fileID: 21300000, guid: bbe0e6e6fc8b2fe40bead602a7ddee70, type: 3}
   reverse: {fileID: 21300000, guid: e1b03467ebeabcf45bfff64ab318cc2f, type: 3}
-  isReverse: 0
+  isReverse: 1
