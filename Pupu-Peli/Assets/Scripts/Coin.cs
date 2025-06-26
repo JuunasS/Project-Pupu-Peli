@@ -12,10 +12,10 @@ public class Coin : MonoBehaviour
 
         maxSoundPlayed++;
 
-        //Debug.Log("Coin collision!");
+        Debug.Log("Coin collision!");
         if (collision.transform.tag == "Player")
         {
-            //Debug.Log("Collect Coin!");
+            Debug.Log("Collect Coin!");
             SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollect);
         }
         else
