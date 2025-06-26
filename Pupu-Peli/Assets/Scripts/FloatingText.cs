@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class FloatingText : MonoBehaviour
@@ -17,7 +18,8 @@ public class FloatingText : MonoBehaviour
     {
         mainCamera = Camera.main.transform;
         obj = transform.parent;
-        //worldSpaceCanvas = GameObject.FindWithTag("WorldSpaceCanvas").transform;
+        worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas").transform;
+        textComponent = this.GetComponent<TMP_Text>();
 
         transform.SetParent(worldSpaceCanvas);
     }
@@ -25,7 +27,7 @@ public class FloatingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.position.y, transform.position.z) - new Vector3(0, mainCamera.transform.position.y, mainCamera.transform.position.z));
-        transform.position = obj.position + offset;
+        this.transform.rotation = Quaternion.LookRotation(transform.position - mainCamera.position);
+        this.transform.position = obj.position + offset;
     }
 }
