@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 2726978132097306818}
   moon: {fileID: 7817408697130771139}
-  time: 0
+  timeOfDay: 12
   dayNightTransitionValue: 0
   rotationSpeed: 1.5
   skyColor:
@@ -329,7 +329,6 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   timeText: {fileID: 5937903280869056308}
-  timeOfDay: 12
 --- !u!1 &4815077083931066199
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4815077083931066199}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -373,7 +372,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.000044703484, g: 0.000044703484, b: 0.000044703484, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
