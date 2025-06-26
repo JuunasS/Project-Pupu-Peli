@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 18f348779f4feae45a6195ae06cbc32e, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -221,6 +221,8 @@ MonoBehaviour:
   setToNewPosition: 0
   animator: {fileID: 691063965393582840}
   shakeAnim: {fileID: 7400000, guid: e11fa191d9217b54f8b6ff4c797c7456, type: 2}
+  hoverAnim: {fileID: 7400000, guid: ca51316298ea2d44e839c61c9eea4a81, type: 2}
+  hoverExitAnim: {fileID: 7400000, guid: 10d5a6f57cc32ce4dabb2fb758d31bd8, type: 2}
   icoText: {fileID: 9003470679887870449}
   icoImg: {fileID: 6891726965133205743}
   padding: 10

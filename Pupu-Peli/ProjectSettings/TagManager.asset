@@ -43,9 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: WorldSpaceCanvas
-    uniqueID: 3847792943
-    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

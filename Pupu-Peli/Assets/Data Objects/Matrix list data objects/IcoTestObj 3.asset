@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50480fd8f1dee64b8d8ab23ccb5d1d1, type: 3}
   m_Name: IcoTestObj 3
   m_EditorClassIdentifier: 
-  icoName: FIsh
-  icoImg: {fileID: 21300000, guid: 96481b76a6fa9c6428e4e4b1522e9378, type: 3}
+  icoName: Test Name 3
+  icoImg: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   icoText: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
