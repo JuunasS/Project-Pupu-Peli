@@ -11,6 +11,8 @@ public class AlchemyMaster : MonoBehaviour
     public List<Image> basketButtons;
     public List<Image> potButtons;
 
+    public herbSolution solution;
+
     List<Herb> herbs = new();
     GameObject lastSelected;
 
@@ -27,6 +29,7 @@ public class AlchemyMaster : MonoBehaviour
     public void brew()
     {
         player.GetComponentInChildren<thoughtBubble>().drawShape(herbs);
+        Debug.Log("Solution check: " + Check(herbs));
 
         foreach (var herb in htb.basket.basketContent)
             Object.Destroy(herb.gameObject);
@@ -34,6 +37,28 @@ public class AlchemyMaster : MonoBehaviour
         htb.basket.basketContent.Clear();
 
         exitPuzzle();
+    }
+
+    public bool Check(List<Herb> herbs)
+    {
+        if (herbs.Count == solution.herbs.Count)
+        {
+            foreach (Herb herb in solution.herbs)
+            {
+                bool correct = false;
+                foreach (Herb pick in herbs)
+                {
+                    if (pick.name == herb.name && pick.isReverse == herb.isReverse)
+                        correct = true;
+                }
+                if (!correct)
+                    return false;
+            }
+        }
+        else
+            return false;
+
+        return true;
     }
 
     public void herbReverse(int button)
