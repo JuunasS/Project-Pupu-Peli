@@ -2419,6 +2419,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7761451254024035150, guid: f6b7f308cd1fbdc47bf0ebd12fa860da,
+        type: 3}
+      propertyPath: herb
+      value: 
+      objectReference: {fileID: 11400000, guid: b74409c1a31e5a94d9452e9a4e4fb9c1,
+        type: 2}
     - target: {fileID: 7943866145485699978, guid: f6b7f308cd1fbdc47bf0ebd12fa860da,
         type: 3}
       propertyPath: m_Name
@@ -2442,6 +2448,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alchemy Puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 1361508692232224242, guid: 8e532969ea7c440499b9610aab5c1e03,
+        type: 3}
+      propertyPath: solution
+      value: 
+      objectReference: {fileID: 11400000, guid: 9859e09764f506d42b5e424514bbb32f,
+        type: 2}
     - target: {fileID: 3558673896271334897, guid: 8e532969ea7c440499b9610aab5c1e03,
         type: 3}
       propertyPath: m_MoveAction
