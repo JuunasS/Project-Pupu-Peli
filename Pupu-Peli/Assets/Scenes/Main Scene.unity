@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
-  m_AmbientEquatorColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
+  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -269,7 +269,7 @@ PrefabInstance:
         type: 3}
       propertyPath: herb
       value: 
-      objectReference: {fileID: 11400000, guid: b4ebfa4f8ed5f7a428c17e7d054b7ab6,
+      objectReference: {fileID: 11400000, guid: 9bf795c363229de4cb38ee6911f39531,
         type: 2}
     - target: {fileID: 7943866145485699978, guid: f6b7f308cd1fbdc47bf0ebd12fa860da,
         type: 3}
@@ -367,6 +367,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[1].missionDataList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cbf23b268b51ba2419cd22e01d8b5658,
+        type: 2}
     - target: {fileID: 6000472931961197331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: m_Name
@@ -1780,7 +1786,7 @@ PrefabInstance:
         type: 3}
       propertyPath: herb
       value: 
-      objectReference: {fileID: 11400000, guid: fbfcb17718630c646b6936ca9a570725,
+      objectReference: {fileID: 11400000, guid: 67e29f7bf08e3f642bf61276529c0e46,
         type: 2}
     - target: {fileID: 7943866145485699978, guid: f6b7f308cd1fbdc47bf0ebd12fa860da,
         type: 3}
@@ -2423,7 +2429,7 @@ PrefabInstance:
         type: 3}
       propertyPath: herb
       value: 
-      objectReference: {fileID: 11400000, guid: b74409c1a31e5a94d9452e9a4e4fb9c1,
+      objectReference: {fileID: 11400000, guid: e0b1d44ef5b725c4891a9c4118a969c1,
         type: 2}
     - target: {fileID: 7943866145485699978, guid: f6b7f308cd1fbdc47bf0ebd12fa860da,
         type: 3}

@@ -18,6 +18,8 @@ public class AlchemyMaster : MonoBehaviour
 
     GameObject player;
 
+    public static event System.Action AlchemyGameSuccess;
+
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject != null && alchemyUI.activeSelf)
@@ -58,6 +60,7 @@ public class AlchemyMaster : MonoBehaviour
         else
             return false;
 
+        AlchemyGameSuccess?.Invoke();
         return true;
     }
 

@@ -188,6 +188,7 @@ public class MatrixGameManager : MonoBehaviour
 
         // Spawn coins for player based on score!
         coinSpawner.BeginSpawningCoins(scoreManager.currentScore);
+        scoreManager.currentScore = 0;
 
         // Coins should make satisfying sounds when hitting ground and when being collected
     }

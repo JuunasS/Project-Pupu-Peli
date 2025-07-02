@@ -43,14 +43,13 @@ public class MissionManager : MonoBehaviour
 
     public void GenerateCurrentMissions()
     {
-        for (int i = 0; i < missionArray[missionProgression].missionDataList.Count; i++)
+        for (int i = 0; i < missionArray[missionProgression].missionDataList.Count-1; i++)
         {
             // Initialize current mission prefabs!
             GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefab, this.transform);
             missionArray[missionProgression].missionDataList[i].SetMissionDataSO(tempMissionObj);
 
             activeMissions.Add(tempMissionObj);
-
         }
     }
 

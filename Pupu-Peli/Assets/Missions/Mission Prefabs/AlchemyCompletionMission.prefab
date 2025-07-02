@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8212ed380a6b8464c9ee76bad2e96932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionTitle: Successfully complete a brewing
+  isComplete: 0

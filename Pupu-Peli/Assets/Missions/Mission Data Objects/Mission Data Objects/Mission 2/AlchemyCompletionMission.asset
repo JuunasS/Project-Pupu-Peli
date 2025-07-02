@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdc1ea798a705dc469d88ff0523eae79, type: 3}
-  m_Name: MatrixScoreMission1
+  m_Script: {fileID: 11500000, guid: 04c537fddc2578f4881030f283402abc, type: 3}
+  m_Name: AlchemyCompletionMission
   m_EditorClassIdentifier: 
-  missionPrefab: {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82,
+  missionPrefab: {fileID: 3860274419450550560, guid: 268675230e1d7e64e96c245adf0d069c,
     type: 3}
-  title: Get 150 score
-  desiredScore: 150
+  title: Complete brewing in the alchemy game

@@ -11,7 +11,7 @@ public class ComputerInteractable : Interactable
 
     public override void OnTriggerStay(Collider other)
     {
-        if(isActive) { return; }
+        if (isActive) { return; }
 
         if (other.transform.tag == "Player")
         {
@@ -21,10 +21,14 @@ public class ComputerInteractable : Interactable
     }
     private void OnTriggerExit(Collider other)
     {
-        floatingText.SetActive(false);
-        if (other.GetComponent<InteractionManager>().currentInteraction == this)
+
+        if (other.transform.tag == "Player")
         {
-            other.GetComponent<InteractionManager>().currentInteraction = null;
+            floatingText.SetActive(false);
+            if (other.GetComponent<InteractionManager>().currentInteraction != null && other.GetComponent<InteractionManager>().currentInteraction == this)
+            {
+                other.GetComponent<InteractionManager>().currentInteraction = null;
+            }
         }
     }
 
