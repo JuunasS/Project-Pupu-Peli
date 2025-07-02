@@ -25,7 +25,7 @@ public class MatrixScoreMission : Mission
     }
 
 
-    public void CheckMissionState()
+    public override void CheckMissionState()
     {
         scoreManager = FindAnyObjectByType<MatrixScoreManager>();
 

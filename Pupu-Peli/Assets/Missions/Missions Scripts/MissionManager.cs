@@ -84,11 +84,11 @@ public class MissionManager : MonoBehaviour
 
     // Function for updating current mission state
 
-    // Event changed function for calling in other scripts
+    /* Event changed function for calling in other scripts
     public void MissionProgressStateChanged()
     {
 
-    }
+    }*/
 
 
     // Function for saving mission state to file
@@ -103,10 +103,9 @@ public abstract class Mission : MonoBehaviour
     // This is a parent class for missions
     // Every mission must contain parameters for completion and a fucntion to check it's completion.
     public string missionTitle;
-    MissionDataSO data;
-
     public bool isComplete;
 
+    public abstract void CheckMissionState();
 }
 
 
