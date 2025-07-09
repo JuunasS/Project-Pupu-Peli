@@ -19,7 +19,7 @@ public class MatrixTaskMasterlist : MonoBehaviour
 
     public List<MatrixTaskScriptObject> matrixTaskScriptableObjects;
 
-    public List<MatrixTaskScriptObject> getTaskoScriptObjects()
+    public List<MatrixTaskScriptObject> GetTaskScriptObjects()
     {
         // Add randomization based on wanted list-size paramenter and objectives?
 
@@ -28,7 +28,7 @@ public class MatrixTaskMasterlist : MonoBehaviour
 
     public MatrixTaskScriptObject GetRandomMatrixTaskScriptObj()
     {
-        int randomIndex = UnityEngine.Random.Range(0, matrixTaskScriptableObjects.Count);
+        int randomIndex = Random.Range(0, matrixTaskScriptableObjects.Count);
         MatrixTaskScriptObject randomObj = matrixTaskScriptableObjects[randomIndex];
 
         return randomObj;

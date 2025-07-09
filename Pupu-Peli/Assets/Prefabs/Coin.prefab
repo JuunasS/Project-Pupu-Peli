@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72468300ace24f4eaa00dd7463f5b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  value: 10
   maxSoundPlayed: 0
 --- !u!33 &2946795992717225505
 MeshFilter:

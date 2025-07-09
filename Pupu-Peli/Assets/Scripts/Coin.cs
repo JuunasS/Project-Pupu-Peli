@@ -8,20 +8,22 @@ public class Coin : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Add player the money, sfx and delete this object
-        if(maxSoundPlayed > 2) { return; }
-
-        maxSoundPlayed++;
 
         //Debug.Log("Coin collision!");
         if (collision.transform.tag == "Player")
         {
             //Debug.Log("Collect Coin!");
             SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollect);
+            collision.gameObject?.GetComponent<CoinPurse>().AddMoney(this.value);
+            Destroy(this.gameObject, .1f);
         }
-        else
+        else if (maxSoundPlayed < 2)
         {
+            maxSoundPlayed++;
             SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollide);
         }
 
     }
+
+    // Float to player after having made contact with ground?
 }
