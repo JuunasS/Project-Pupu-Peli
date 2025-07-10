@@ -137,6 +137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 10
   maxSoundPlayed: 0
+  collected: 0
+  moveToTargetActive: 0
+  moveDuration: 1
+  playerPositionOffset: {x: 0, y: 1, z: 0}
 --- !u!33 &2946795992717225505
 MeshFilter:
   m_ObjectHideFlags: 0
