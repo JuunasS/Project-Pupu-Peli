@@ -30,6 +30,19 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
         originalSize = generalInfoPanel.GetComponent<RectTransform>().sizeDelta;
     }
 
+    private void OnEnable()
+    {
+        ResetInfoPanel();
+    }
+
+    private void OnDisable()
+    {
+        // Remove activeInfoItem
+        activeInfoItem.setToNewPosition = false;
+        activeInfoItem.OnEndDrag(null);
+        ResetInfoPanel();
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Dropped into input!");
