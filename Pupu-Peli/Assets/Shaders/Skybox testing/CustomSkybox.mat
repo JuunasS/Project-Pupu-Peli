@@ -160,7 +160,7 @@ Material:
     - _Surface: 0
     - _TImeOfDay: 24
     - _TimeOfDay: 1.1501799
-    - _TransitionValue: 8.993675
+    - _TransitionValue: 3.9768822
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
@@ -170,9 +170,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutPosition: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 0.9917421, g: 0.98761314, b: 0.9112276, a: 1}
+    - _LightColor: {r: 0.83581114, g: 0.75053006, b: 0.23259085, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MoonDir: {r: 0, g: 0.70593506, b: 0.7082765, a: 0}
+    - _MoonDir: {r: 0, g: -0.5052322, b: -0.86298347, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SunColor: {r: 10.028372, g: 10.028372, b: 10.028372, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
