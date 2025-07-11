@@ -38,8 +38,11 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
     private void OnDisable()
     {
         // Remove activeInfoItem
-        activeInfoItem.setToNewPosition = false;
-        activeInfoItem.OnEndDrag(null);
+        if(activeInfoItem != null)
+        {
+            activeInfoItem.setToNewPosition = false;
+            activeInfoItem.OnEndDrag(null);
+        }
         ResetInfoPanel();
     }
 
@@ -68,27 +71,9 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
 
     public void SetObjectToPosition(GameObject inputObj)
     {
-
         inputObj.transform.SetParent(infoItemPosition, true);
         inputObj.GetComponent<IcoListObject>().MoveToPos(infoItemPosition.localPosition, itemSetSpeed);
-        /*
         
-
-        float icoObjWidth = inputObj.GetComponent<RectTransform>().rect.width;
-        float icoObjHeight = inputObj.GetComponent<RectTransform>().rect.height;
-
-
-        Vector3 tempPos = firstOutputPosition.transform.localPosition;
-
-        Debug.Log("row: " + row + "\n" + "col: " + col);
-        Debug.Log("New inputObj localPos: " + inputObj.transform.localPosition);
-
-        tempPos += new Vector3(icoObjWidth * row * inputObj.GetComponent<RectTransform>().localScale.x, icoObjHeight * col * inputObj.GetComponent<RectTransform>().localScale.y, 0);
-
-
-        row++;
-        */
-
     }
 
     public void RemoveActiveInfoItem(IcoListObject obj)
@@ -165,7 +150,7 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
 
     public void ResetInfoPanel()
     {
-        for (int i = valueSliderList.Count-1; i >= 0; i--)
+        for (int i = valueSliderList.Count - 1; i >= 0; i--)
         {
             IcoValueSlider temp = valueSliderList[i];
             valueSliderList.Remove(temp);
