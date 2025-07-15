@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
 
     public Animator model;
 
+    private Vector3 debugLastLoc = Vector3.zero;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -54,7 +56,7 @@ public class Movement : MonoBehaviour
             //float velocityInDirection = rb.linearVelocity.magnitude * dot;
             float force = acceleration.Evaluate(Mathf.Clamp01(rb.linearVelocity.magnitude / maxSpeed));
 
-            rb.AddForce(moveDir.normalized * Time.deltaTime * force * accelerationMultiplier);
+            rb.AddForce(moveDir.normalized * Time.deltaTime * force * accelerationMultiplier * rb.mass);
 
             Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), moveDir.normalized * Time.deltaTime * force * accelerationMultiplier, Color.green);
         }
@@ -74,7 +76,7 @@ public class Movement : MonoBehaviour
 
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
-        rb.AddForce(rb.linearVelocity.normalized * desiredAccel);
+        rb.AddForce(rb.linearVelocity.normalized * desiredAccel * rb.mass);
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), rb.linearVelocity.normalized * desiredAccel, Color.cyan);
     }
 
@@ -90,7 +92,7 @@ public class Movement : MonoBehaviour
 
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
-        rb.AddForce(slipDir * desiredAccel);
+        rb.AddForce(slipDir * desiredAccel * rb.mass);
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), slipDir * desiredAccel, Color.red);
     }
 
@@ -99,14 +101,4 @@ public class Movement : MonoBehaviour
         Vector2 dir = con.ReadValue<Vector2>();
         heading = dir;
     }
-
-    /*void OnTriggerEnter(Collider other)
-    {
-        camStates.switchState(other);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        camStates.switchState(other, true);
-    }*/
 }
