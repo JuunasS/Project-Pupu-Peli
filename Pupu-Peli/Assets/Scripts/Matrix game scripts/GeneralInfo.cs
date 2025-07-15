@@ -1,22 +1,92 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GeneralInfo : MonoBehaviour
+public class GeneralInfo : MonoBehaviour, IDropHandler
 {
     public GameObject generalInfoPanel;
     public TMP_Text generalInfoText;
 
     public IcoListObject activeInfoItem;
+    public Transform infoItemPosition;
+    public float itemSetSpeed = 1f;
 
     public GameObject valueSliderPrefab;
     public Transform valueSliderPos1;
 
     public int sliderPaddingBottom;
+    public int PanelSizeOffsetY = 50;
 
     public List<IcoValueSlider> valueSliderList;
+
+    private Vector2 originalSize;
+
+    private void Awake()
+    {
+        originalSize = generalInfoPanel.GetComponent<RectTransform>().sizeDelta;
+    }
+
+    private void OnEnable()
+    {
+        ResetInfoPanel();
+    }
+
+    private void OnDisable()
+    {
+        // Remove activeInfoItem
+        if(activeInfoItem != null)
+        {
+            activeInfoItem.setToNewPosition = false;
+            activeInfoItem.OnEndDrag(null);
+        }
+        ResetInfoPanel();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Dropped into input!");
+        if (DragManager.Instance.dragObject == null) { return; }
+
+        if (DragManager.Instance.dragObject.GetComponent<IcoListObject>() != null)
+        {
+            if (activeInfoItem == null)
+            {
+                Debug.Log("Received input: " + DragManager.Instance.dragObject);
+                activeInfoItem = DragManager.Instance.dragObject.GetComponent<IcoListObject>();
+
+                activeInfoItem.setToNewPosition = true;
+                activeInfoItem.dragging = false;
+                activeInfoItem.isActive = true;
+                activeInfoItem.currentParentApp = this.gameObject;
+                SetObjectToPosition(activeInfoItem.gameObject);
+                ActivateInfoPanel(activeInfoItem);
+                DragManager.Instance.dragObject = null;
+            }
+        }
+    }
+
+    public void SetObjectToPosition(GameObject inputObj)
+    {
+        inputObj.transform.SetParent(infoItemPosition, true);
+        inputObj.GetComponent<IcoListObject>().MoveToPos(infoItemPosition.localPosition, itemSetSpeed);
+        
+    }
+
+    public void RemoveActiveInfoItem(IcoListObject obj)
+    {
+        if (activeInfoItem != null)
+        {
+            if (activeInfoItem == obj)
+            {
+                activeInfoItem = null;
+                ResetInfoPanel();
+            }
+        }
+    }
 
     public void ActivateInfoPanel(IcoListObject icoListObj)
     {
@@ -28,6 +98,7 @@ public class GeneralInfo : MonoBehaviour
 
         activeInfoItem = icoListObj;
 
+        generalInfoText.gameObject.SetActive(true);
         generalInfoText.text = icoListObj.icoData.name;
 
         // Display other icoObject values in a meter in a 0 to 100 range
@@ -71,5 +142,21 @@ public class GeneralInfo : MonoBehaviour
             valueSliderList[2].SetSliderValues("Height", (int)icoObj.icoData.minHeight, (int)icoObj.icoData.maxHeight, (int)icoObj.icoHeight);
             valueSliderList[3].SetSliderValues("Productivity", icoObj.icoData.minProductivity, icoObj.icoData.maxProductivity, icoObj.icoProductivity);
         }
+        infoItemPosition.transform.parent.SetAsLastSibling();
+
+        RectTransform temp = generalInfoPanel.GetComponent<RectTransform>();
+        temp.sizeDelta = new Vector2(temp.sizeDelta.x, temp.sizeDelta.y + 4 * valueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y + PanelSizeOffsetY);
+    }
+
+    public void ResetInfoPanel()
+    {
+        for (int i = valueSliderList.Count - 1; i >= 0; i--)
+        {
+            IcoValueSlider temp = valueSliderList[i];
+            valueSliderList.Remove(temp);
+            Destroy(temp.gameObject);
+        }
+        generalInfoText.gameObject.SetActive(false);
+        generalInfoPanel.GetComponent<RectTransform>().sizeDelta = originalSize;
     }
 }

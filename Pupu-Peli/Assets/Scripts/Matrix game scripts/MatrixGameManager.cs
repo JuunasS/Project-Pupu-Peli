@@ -28,6 +28,8 @@ public class MatrixGameManager : MonoBehaviour
     public Transform firstIcoObjectPosition;
 
     public GameObject icoObjectPrefab;
+    public float icoObjPaddingY = 150f;
+    public float icoObjPaddingX = 50f;
 
     // This list keeps track of already created objects
     public List<GameObject> icoGameObjects;
@@ -105,7 +107,7 @@ public class MatrixGameManager : MonoBehaviour
             icoGameObjects.Add(newIcoObj);
 
             newIcoObj.GetComponent<IcoListObject>().SetIcoData(sIcoObjectList[randomIndex]); //i
-
+            newIcoObj.GetComponent<IcoListObject>().currentParentApp = this.gameObject;
 
             // Set ico object position 
             // 1st is up-left and then 2 to the right and then move down a row
@@ -141,7 +143,7 @@ public class MatrixGameManager : MonoBehaviour
         // Set Matrix panel width and height based on the generatex ico objects!
 
         Debug.Log("matrixPanelRectTransform.rect.size!!");
-        matrixPanelRectTransform.sizeDelta = new Vector2(icoObjListSqrt * icoObjWidth + 50, icoObjListSqrt * icoObjHeight + 50);
+        matrixPanelRectTransform.sizeDelta = new Vector2(icoObjListSqrt * icoObjWidth + icoObjPaddingX, icoObjListSqrt * icoObjHeight + icoObjPaddingY);
 
     }
 

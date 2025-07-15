@@ -20,6 +20,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public Vector3 newPosition;
     public bool setToNewPosition = false;
 
+    public GameObject currentParentApp;
+
     // Animation
     public Animation animator;
     public AnimationClip shakeAnim;
@@ -86,6 +88,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         dragging = true;
         isActive = true;
         canvasGroup.blocksRaycasts = false;
+        currentParentApp.transform.SetAsLastSibling();
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -94,7 +97,7 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         dragging = false;
         canvasGroup.blocksRaycasts = true;
 
-        // Check if is hovering over output panel and set it there if so
+        // Check if is hovering over output or generalinfo panel and set it there if so
         if (setToNewPosition)
         {
             Debug.Log("Drag to new position");
@@ -106,9 +109,12 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             // Return to matrix
             Debug.Log("Drag back to original position");
             this.transform.parent = originalParent;
+            currentParentApp = FindFirstObjectByType<MatrixGameManager>().gameObject;
+
             StartCoroutine(LerpToLocalVector3(returnPos, returnDuration));
             DragManager.Instance.SetDragObject(null);
             FindAnyObjectByType<OutputPanel>().RemoveObjectFromList(this.gameObject);
+            FindAnyObjectByType<GeneralInfo>().RemoveActiveInfoItem(this);
 
             if (FindAnyObjectByType<GeneralInfo>().activeInfoItem == null || FindAnyObjectByType<GeneralInfo>().activeInfoItem != this)
             {
@@ -173,8 +179,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
             if (leftClickNum == 2)
             {
                 Debug.Log("Double Click on ico: " + this.gameObject.name);
-                FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this);
-                isActive = true;
+                /*FindAnyObjectByType<GeneralInfo>().ActivateInfoPanel(this);
+                isActive = true;*/
                 //TODO: Need to add activation for nearest icoobject to lock them in later stages?
 
                 break;
