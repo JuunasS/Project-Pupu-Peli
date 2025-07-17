@@ -22,14 +22,16 @@ public class Coin : MonoBehaviour
             collision.gameObject?.GetComponent<CoinPurse>().AddMoney(this.value);
             Destroy(this.gameObject, .1f);
         }
-        else if (maxSoundPlayed < 2)
-        {
-            maxSoundPlayed++;
-            SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollide);
-        }
         else
         {
-            if (!moveToTargetActive) {
+            if (maxSoundPlayed < 2)
+            {
+                maxSoundPlayed++;
+                SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollide);
+            }
+
+            if (!moveToTargetActive)
+            {
                 FloatToPlayer();
             }
         }
@@ -54,12 +56,13 @@ public class Coin : MonoBehaviour
         if (player != null)
         {
             this.GetComponent<MeshCollider>().isTrigger = true;
-            StartCoroutine(MoveToTarget(player.transform.position + playerPositionOffset));
+            this.GetComponent<Rigidbody>().useGravity = false;
+            StartCoroutine(MoveToTarget(player));
         }
 
     }
 
-    IEnumerator MoveToTarget(Vector3 pos)
+    IEnumerator MoveToTarget(GameObject obj)
     {
         float timeElapsed = 0;
 
@@ -69,7 +72,7 @@ public class Coin : MonoBehaviour
 
             //Debug.Log("Lerp 1: " + timeElapsed);
             float t = timeElapsed / moveDuration;
-            transform.position = Vector3.Lerp(transform.position, pos, t);
+            transform.position = Vector3.Lerp(transform.position, obj.transform.position + playerPositionOffset, t);
             timeElapsed += Time.deltaTime;
 
             yield return null;

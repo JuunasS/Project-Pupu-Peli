@@ -25,7 +25,7 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = item.image;
         //itemName.text = item.name;
         itemDesc.text = item.description;
-        priceText.text = "[ " + item.price.ToString() + " ]";
+        priceText.text = "[ " + item.price.ToString() + "€ ]";
         if (item.price <= 0)
         {
             priceText.text = "[ Free ]";
@@ -54,6 +54,9 @@ public class ShopItem : MonoBehaviour
                 boughtText.gameObject.SetActive(true);
 
                 isBought = true;
+            } else
+            {
+                Debug.LogError("Not enough coins!");
             }
         }
     }
