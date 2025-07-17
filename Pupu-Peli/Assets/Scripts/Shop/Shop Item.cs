@@ -15,6 +15,8 @@ public class ShopItem : MonoBehaviour
 
     // Other
     public bool isBought;
+    public int price;
+    public TMP_Text priceText;
     public Button buyButton;
     public TMP_Text boughtText;
 
@@ -23,19 +25,39 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = item.image;
         //itemName.text = item.name;
         itemDesc.text = item.description;
+        priceText.text = "[ " + item.price.ToString() + "€ ]";
+        if (item.price <= 0)
+        {
+            priceText.text = "[ Free ]";
+        }
+        this.price = item.price;
         shopGameObject = gameObject;
     }
 
     public void Buy()
     {
         // check if player has enough coins
-        // Remove coins from player if possible and continue
-        shopGameObject.SetActive(true);
+        CoinPurse playerCoins = FindFirstObjectByType<CoinPurse>();
 
-        // Call function in shop manager to mark item as bought when generated again?
-        buyButton.gameObject.SetActive(false);
-        boughtText.gameObject.SetActive(true);
+        if (playerCoins != null)
+        {
+            if (playerCoins.currentMoney >= price)
+            {
+                playerCoins.currentMoney -= price;
 
-        isBought = true;
+                // Remove coins from player if possible and continue
+                shopGameObject.SetActive(true);
+
+                // Call function in shop manager to mark item as bought when generated again?
+                priceText.gameObject.SetActive(false);
+                buyButton.gameObject.SetActive(false);
+                boughtText.gameObject.SetActive(true);
+
+                isBought = true;
+            } else
+            {
+                Debug.LogError("Not enough coins!");
+            }
+        }
     }
 }
