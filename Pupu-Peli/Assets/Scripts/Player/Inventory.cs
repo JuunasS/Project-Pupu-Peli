@@ -23,20 +23,20 @@ public class Inventory : MonoBehaviour
     public float interactionCD; // Cooldown for interacting with objects
     public float interactionTImer;
 
+    private Animator animator;
+
     private void Start()
     {
         interactionManager = this.gameObject.GetComponent<InteractionManager>();
+        animator = GetComponent<Movement>().model;
     }
-    /*
+    
     private void Update()
     {
-        // Move keyboard press stuff into the input system?
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            DropItem();
-        }
+        if (bigItem != null)
+            SetItemLocation();
     }
-    */
+    
     public void SetBigItem(Carriable obj)
     {
         if (Time.time < interactionTImer) { return; }
@@ -47,6 +47,8 @@ public class Inventory : MonoBehaviour
         Debug.Log(smallItems.Count);
         if (smallItems.Count > 0) { obj.PickUpFailed(); return; }
         obj.PickUpSuccess();
+
+        GetComponent<Movement>().model.SetBool("basket", true);
 
         // ckeck if player has room for item
         bigItem = obj;
@@ -99,6 +101,12 @@ public class Inventory : MonoBehaviour
         }
 
     }
+
+    public void SetItemLocation()
+    {
+        bigItemHolder.transform.position = animator.GetBoneTransform(HumanBodyBones.RightHand).position;
+        bigItemHolder.transform.localPosition += bigItem.holdingPivot;
+    }
     /*
     public void CheckInteractionDistance(GameObject newObj)
     {
@@ -114,6 +122,7 @@ public class Inventory : MonoBehaviour
         {
             bigItem?.DropItem();
             bigItem = null;
+            GetComponent<Movement>().model.SetBool("basket", false);
         }
         for (int i = smallItems.Count - 1; i >= 0; i--)
         {
