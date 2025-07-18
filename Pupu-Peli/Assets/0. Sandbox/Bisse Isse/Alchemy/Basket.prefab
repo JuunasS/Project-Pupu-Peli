@@ -170,6 +170,7 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  holdingPivot: {x: 0, y: 0, z: 0}
   basketContent: []
   basketMax: 1
 --- !u!135 &9170807774628602256

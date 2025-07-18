@@ -108,7 +108,6 @@ MonoBehaviour:
   pickedUp: 0
   popup: {fileID: 0}
   hasDialoguePopUp: 0
-  inRange: 0
   col: {fileID: 2937433344280272897}
   rigidBody: {fileID: 5345185690463469052}
   bigItem: 0
@@ -117,6 +116,7 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
+  holdingPivot: {x: 0, y: 0, z: 0}
   herb: {fileID: 11400000, guid: 0cb5b050e8f5b4542b504bed2ac3ed57, type: 2}
 --- !u!135 &2937433344280272897
 SphereCollider:

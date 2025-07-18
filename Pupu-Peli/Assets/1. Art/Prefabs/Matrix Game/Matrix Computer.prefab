@@ -626,10 +626,13 @@ MonoBehaviour:
   generalInfoPanel: {fileID: 2166389147438237024}
   generalInfoText: {fileID: 8407445642301858412}
   activeInfoItem: {fileID: 0}
+  infoItemPosition: {fileID: 0}
+  itemSetSpeed: 1
   valueSliderPrefab: {fileID: 7044292182300230351, guid: 8b26c14b1bb129646bb0115db21768fd,
     type: 3}
   valueSliderPos1: {fileID: 7378426247852735670}
   sliderPaddingBottom: 60
+  PanelSizeOffsetY: 50
   valueSliderList: []
 --- !u!1 &1861673000270319520
 GameObject:
@@ -4042,6 +4045,8 @@ MonoBehaviour:
   firstIcoObjectPosition: {fileID: 8399715158277260066}
   icoObjectPrefab: {fileID: 4049593212688246462, guid: c7ab265272b07ce4297b19a83e8fc7fa,
     type: 3}
+  icoObjPaddingY: 150
+  icoObjPaddingX: 50
   icoGameObjects: []
   icoMasterList: {fileID: 8504064470907663617}
   icoScriptObjects:
