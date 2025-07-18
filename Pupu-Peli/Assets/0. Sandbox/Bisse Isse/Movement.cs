@@ -40,12 +40,10 @@ public class Movement : MonoBehaviour
     void movingPlayer()
     {
         Vector3 direction = new Vector3(heading.x, 0, heading.y);
+        model.SetFloat("run", rb.linearVelocity.magnitude);
 
         if (direction.magnitude >= 0.1f)
         {
-            model.SetBool("run", true);
-            model.SetBool("idle", false);
-
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));
@@ -59,11 +57,6 @@ public class Movement : MonoBehaviour
             rb.AddForce(moveDir.normalized * Time.deltaTime * force * accelerationMultiplier * rb.mass);
 
             Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), moveDir.normalized * Time.deltaTime * force * accelerationMultiplier, Color.green);
-        }
-        else
-        {
-            model.SetBool("run", false);
-            model.SetBool("idle", true);
         }
     }
 

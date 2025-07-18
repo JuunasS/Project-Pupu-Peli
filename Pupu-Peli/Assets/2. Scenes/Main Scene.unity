@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
-  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientSkyColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
+  m_AmbientEquatorColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -5278,7 +5278,7 @@ PrefabInstance:
     - target: {fileID: 331065461170860839, guid: 7d95609a56c251c489ffab6b7b907cbf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.39600003
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 331065461170860839, guid: 7d95609a56c251c489ffab6b7b907cbf,
         type: 3}
@@ -5325,6 +5325,21 @@ PrefabInstance:
       propertyPath: basketMax
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1315311523956707967, guid: 7d95609a56c251c489ffab6b7b907cbf,
+        type: 3}
+      propertyPath: holdingPivot.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315311523956707967, guid: 7d95609a56c251c489ffab6b7b907cbf,
+        type: 3}
+      propertyPath: holdingPivot.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315311523956707967, guid: 7d95609a56c251c489ffab6b7b907cbf,
+        type: 3}
+      propertyPath: holdingPivot.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3078861133922436805, guid: 7d95609a56c251c489ffab6b7b907cbf,
         type: 3}
       propertyPath: m_Name
@@ -5333,9 +5348,12 @@ PrefabInstance:
     - target: {fileID: 3078861133922436805, guid: 7d95609a56c251c489ffab6b7b907cbf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 776604762409022508, guid: 7d95609a56c251c489ffab6b7b907cbf, type: 3}
+    - {fileID: 7969148165668266806, guid: 7d95609a56c251c489ffab6b7b907cbf, type: 3}
+    - {fileID: 2146848962320264982, guid: 7d95609a56c251c489ffab6b7b907cbf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5598,7 +5616,7 @@ PrefabInstance:
     - target: {fileID: 595965950840513425, guid: c891f73db8cef894f9044c4913013f30,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 629269287473247309, guid: c891f73db8cef894f9044c4913013f30,
         type: 3}
@@ -6585,6 +6603,11 @@ PrefabInstance:
       propertyPath: stateDrivenCamera
       value: 
       objectReference: {fileID: 1176465841}
+    - target: {fileID: 7242154863213134537, guid: 81e5fb11b34724e479d3e707c82baccc,
+        type: 3}
+      propertyPath: bigItemHolder
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8262120869520244648, guid: 81e5fb11b34724e479d3e707c82baccc,
         type: 3}
       propertyPath: m_LocalRotation.w

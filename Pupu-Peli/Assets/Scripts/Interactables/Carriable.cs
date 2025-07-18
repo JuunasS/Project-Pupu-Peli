@@ -20,6 +20,8 @@ public class Carriable : Interactable
     public string outlineAssetName = "OutlineMaterial (Instance)";
     public float outlineThickness = 1.13f;
 
+    public Vector3 holdingPivot;
+
 
     public virtual void Start()
     {
