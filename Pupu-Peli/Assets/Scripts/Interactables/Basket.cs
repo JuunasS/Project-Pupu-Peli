@@ -30,6 +30,8 @@ public class Basket : Carriable
         basketContent.Add(item);
 
         item.transform.position = this.transform.position + new Vector3(0, (.2f * (basketContent.Count-1)), 0);
+        item.transform.localPosition += item.holdingPivot;
+        item.transform.rotation = Quaternion.Euler(item.rotationPivot);
         item.transform.SetParent(this.transform);
     }
 
