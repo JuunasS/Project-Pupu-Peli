@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0cb57bcf7b744846861b1ca7daf2930
+guid: da5f4c9484fdb9542bd582b83796fd94
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: aiSS_fruit_01
+    second: {fileID: 2100000, guid: 56b1dc897ac55404abffc9e71cdf509b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: aiSS_leaf_01
-    second: {fileID: 2100000, guid: 80222b101ed10b34091ba38d41096759, type: 2}
+    second: {fileID: 2100000, guid: f986f8e4c960ee54fae104e0f92101e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

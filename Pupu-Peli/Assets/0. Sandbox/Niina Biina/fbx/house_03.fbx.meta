@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0cb57bcf7b744846861b1ca7daf2930
+guid: e91356501e20eda4a98de8ae5c6ebc29
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: aiSS_leaf_01
-    second: {fileID: 2100000, guid: 80222b101ed10b34091ba38d41096759, type: 2}
+      name: aiSS_house_roofs
+    second: {fileID: 2100000, guid: 85720a0fbd2abd4499f91d355407e95e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiSS_plants
+    second: {fileID: 2100000, guid: c3b79d1b73f93894081659822d0b1128, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiSS_props
+    second: {fileID: 2100000, guid: d5f7d59a8983baa45a6fe86748f4e031, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiSS_stones
+    second: {fileID: 2100000, guid: 5b020a5f6a521124d98e1f2a943318c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiSS_walls
+    second: {fileID: 2100000, guid: f8d6fad190bd2254196fe710625e7779, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiSS_wood
+    second: {fileID: 2100000, guid: 9a92941bcea39014b9203fcdf98d2392, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

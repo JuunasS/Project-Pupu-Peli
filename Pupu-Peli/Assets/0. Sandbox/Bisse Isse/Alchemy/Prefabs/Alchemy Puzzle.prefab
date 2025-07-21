@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  solution: {fileID: 11400000, guid: 9859e09764f506d42b5e424514bbb32f, type: 2}
 --- !u!1 &438823596693069359
 GameObject:
   m_ObjectHideFlags: 0
