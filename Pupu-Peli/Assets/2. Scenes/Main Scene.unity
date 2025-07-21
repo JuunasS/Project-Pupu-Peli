@@ -1370,6 +1370,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 857698744}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &879405864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 6813476367566537277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &997361663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,8 +2031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512921701}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.102746874, y: -0.6996021, z: 0.102746874, w: 0.6996021}
-  m_LocalPosition: {x: 4.95, y: 3.85, z: 8.66}
+  m_LocalRotation: {x: 0.09647247, y: -0.73986155, z: 0.108659565, w: 0.6568798}
+  m_LocalPosition: {x: 4.95, y: 3.2, z: 8.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3585,7 +3591,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 1532859533}
+      objectReference: {fileID: 879405864}
     - target: {fileID: 5700476967148749769, guid: 81e5fb11b34724e479d3e707c82baccc,
         type: 3}
       propertyPath: turnSmoothTime
