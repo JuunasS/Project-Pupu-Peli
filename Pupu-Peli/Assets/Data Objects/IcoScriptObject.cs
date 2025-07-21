@@ -32,23 +32,3 @@ public class IcoScriptObject : ScriptableObject
 
 }
 
-[Serializable]
-public enum Locations
-{
-    Albium,
-    Gorrha,
-    Knoc,
-    Vshoosh,
-    Ckbolcheivvtgnoolho
-}
-
-[Serializable]
-public class Location 
-{
-
-    [SerializeField]
-    public Locations location;
-
-    [SerializeField]
-    public List<string> places;
-}
