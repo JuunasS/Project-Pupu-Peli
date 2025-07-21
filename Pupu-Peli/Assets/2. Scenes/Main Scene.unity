@@ -3230,6 +3230,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1969057489}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2066316451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1786446496422884546, guid: 81e5fb11b34724e479d3e707c82baccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1548686716232715993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2116382509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3344,6 +3350,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 545249672}
     m_Modifications:
+    - target: {fileID: 2359738109384307508, guid: 6b2181cb57ff231459de00f40029fce4,
+        type: 3}
+      propertyPath: holdingPivot.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359738109384307508, guid: 6b2181cb57ff231459de00f40029fce4,
+        type: 3}
+      propertyPath: holdingPivot.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359738109384307508, guid: 6b2181cb57ff231459de00f40029fce4,
+        type: 3}
+      propertyPath: holdingPivot.z
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359738109384307508, guid: 6b2181cb57ff231459de00f40029fce4,
+        type: 3}
+      propertyPath: rotationPivot.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359738109384307508, guid: 6b2181cb57ff231459de00f40029fce4,
+        type: 3}
+      propertyPath: rotationPivot.z
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8304308077963132792, guid: 6b2181cb57ff231459de00f40029fce4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3617,7 +3648,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bigItemHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2066316451}
     - target: {fileID: 8262120869520244648, guid: 81e5fb11b34724e479d3e707c82baccc,
         type: 3}
       propertyPath: m_LocalRotation.w
