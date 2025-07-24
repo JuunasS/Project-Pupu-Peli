@@ -20,8 +20,11 @@ MonoBehaviour:
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
     in culpa qui officia deserunt mollit anim id est laborum."'
-  location:
-    knoc: 0
+  icoLocation:
+    location: 0
+    places:
+    - Test
+    - 123415
   minAge: 0
   maxAge: 100
   minWeight: 0

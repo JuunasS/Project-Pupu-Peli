@@ -21,8 +21,9 @@ MonoBehaviour:
     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
     in culpa qui officia deserunt mollit anim id est laborum."'
   icoLocation:
-    location: 0
-    places: []
+    location: 2
+    places:
+    - Test
   minAge: 0
   maxAge: 100
   minWeight: 0
