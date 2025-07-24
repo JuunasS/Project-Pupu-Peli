@@ -39,7 +39,7 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
     private void OnDisable()
     {
         // Remove activeInfoItem
-        if(activeInfoItem != null)
+        if (activeInfoItem != null)
         {
             activeInfoItem.setToNewPosition = false;
             activeInfoItem.OnEndDrag(null);
@@ -74,7 +74,7 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
     {
         inputObj.transform.SetParent(infoItemPosition, true);
         inputObj.GetComponent<IcoListObject>().MoveToPos(infoItemPosition.localPosition, itemSetSpeed);
-        
+
     }
 
     public void RemoveActiveInfoItem(IcoListObject obj)
@@ -99,8 +99,8 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
 
         activeInfoItem = icoListObj;
 
-        generalInfoText.gameObject.SetActive(true);
-        generalInfoText.text = icoListObj.icoData.name;
+        //generalInfoText.gameObject.SetActive(true);
+        //generalInfoText.text = icoListObj.icoData.name;
 
         // Display other icoObject values in a meter in a 0 to 100 range
         GenerateValueSliders(icoListObj);
@@ -115,46 +115,52 @@ public class GeneralInfo : MonoBehaviour, IDropHandler
             Debug.Log("Generating new general info slider values");
             float sliderObjHeight = valueSliderPrefab.GetComponent<RectTransform>().rect.height;
 
-            GameObject newValueSlider = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
-            newValueSlider.transform.localPosition = valueSliderPos1.localPosition;
-            newValueSlider.GetComponent<IcoValueSlider>().SetSliderValues("Age", icoObj.icoData.minAge, icoObj.icoData.maxAge, icoObj.icoAge);
 
-            GameObject newValueSlider2 = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
-            newValueSlider2.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, -sliderObjHeight - sliderPaddingBottom, 0);
-            newValueSlider2.GetComponent<IcoValueSlider>().SetSliderValues("Weight", (int)icoObj.icoData.minWeight, (int)icoObj.icoData.maxWeight, (int)icoObj.icoWeight);
+            GameObject nameValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            nameValue.transform.localPosition = valueSliderPos1.localPosition;
+            nameValue.GetComponent<IcoValueSlider>().SetSliderValues("Name", icoObj.icoData.icoName);
 
-            GameObject newValueSlider3 = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
-            newValueSlider3.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 2, 0);
-            newValueSlider3.GetComponent<IcoValueSlider>().SetSliderValues("Height", (int)icoObj.icoData.minHeight, (int)icoObj.icoData.maxHeight, (int)icoObj.icoHeight);
+            GameObject ageValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            ageValue.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, -sliderObjHeight - sliderPaddingBottom, 0);
+            ageValue.GetComponent<IcoValueSlider>().SetSliderValues("Age", icoObj.icoData.minAge, icoObj.icoData.maxAge, icoObj.icoAge);
 
-            GameObject newValueSlider4 = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
-            newValueSlider4.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 3, 0);
-            newValueSlider4.GetComponent<IcoValueSlider>().SetSliderValues("Productivity", icoObj.icoData.minProductivity, icoObj.icoData.maxProductivity, icoObj.icoProductivity);
+            GameObject weightValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            weightValue.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 2, 0); ;
+            weightValue.GetComponent<IcoValueSlider>().SetSliderValues("Weight", (int)icoObj.icoData.minWeight, (int)icoObj.icoData.maxWeight, (int)icoObj.icoWeight);
 
-            GameObject newValueSlider5 = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
-            newValueSlider5.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 4, 0);
+            GameObject heightValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            heightValue.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 3, 0);
+            heightValue.GetComponent<IcoValueSlider>().SetSliderValues("Height", (int)icoObj.icoData.minHeight, (int)icoObj.icoData.maxHeight, (int)icoObj.icoHeight);
 
-            newValueSlider5.GetComponent<IcoValueSlider>().SetSliderValues("Location", icoObj.icoData.icoLocation.location + ": " + icoObj.icoData.icoLocation.GetPlaces());
+            GameObject productivityValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            productivityValue.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 4, 0);
+            productivityValue.GetComponent<IcoValueSlider>().SetSliderValues("Productivity", icoObj.icoData.minProductivity, icoObj.icoData.maxProductivity, icoObj.icoProductivity);
 
-            valueSliderList.Add(newValueSlider.GetComponent<IcoValueSlider>());
-            valueSliderList.Add(newValueSlider2.GetComponent<IcoValueSlider>());
-            valueSliderList.Add(newValueSlider3.GetComponent<IcoValueSlider>());
-            valueSliderList.Add(newValueSlider4.GetComponent<IcoValueSlider>());
-            valueSliderList.Add(newValueSlider5.GetComponent<IcoValueSlider>());
+            GameObject locationValue = Instantiate(valueSliderPrefab, valueSliderPanel.transform, false);
+            locationValue.transform.localPosition = valueSliderPos1.localPosition + new Vector3(0, (-sliderObjHeight - sliderPaddingBottom) * 5, 0);
+            locationValue.GetComponent<IcoValueSlider>().SetSliderValues("Location", icoObj.icoData.icoLocation.location + ": " + icoObj.icoData.icoLocation.GetPlaces());
+
+            valueSliderList.Add(nameValue.GetComponent<IcoValueSlider>());
+            valueSliderList.Add(ageValue.GetComponent<IcoValueSlider>());
+            valueSliderList.Add(weightValue.GetComponent<IcoValueSlider>());
+            valueSliderList.Add(heightValue.GetComponent<IcoValueSlider>());
+            valueSliderList.Add(productivityValue.GetComponent<IcoValueSlider>());
+            valueSliderList.Add(locationValue.GetComponent<IcoValueSlider>());
         }
         else
         {
             Debug.Log("Setting new general info slider values");
-            valueSliderList[0].SetSliderValues("Age", icoObj.icoData.minAge, icoObj.icoData.maxAge, icoObj.icoAge);
-            valueSliderList[1].SetSliderValues("Weight", (int)icoObj.icoData.minWeight, (int)icoObj.icoData.maxWeight, (int)icoObj.icoWeight);
-            valueSliderList[2].SetSliderValues("Height", (int)icoObj.icoData.minHeight, (int)icoObj.icoData.maxHeight, (int)icoObj.icoHeight);
-            valueSliderList[3].SetSliderValues("Productivity", icoObj.icoData.minProductivity, icoObj.icoData.maxProductivity, icoObj.icoProductivity);
-            valueSliderList[4].SetSliderValues("Location", icoObj.icoData.icoLocation.location + ": " + icoObj.icoData.icoLocation.GetPlaces());
+            valueSliderList[0].SetSliderValues("Name", icoObj.icoData.icoName);
+            valueSliderList[1].SetSliderValues("Age", icoObj.icoData.minAge, icoObj.icoData.maxAge, icoObj.icoAge);
+            valueSliderList[2].SetSliderValues("Weight", (int)icoObj.icoData.minWeight, (int)icoObj.icoData.maxWeight, (int)icoObj.icoWeight);
+            valueSliderList[3].SetSliderValues("Height", (int)icoObj.icoData.minHeight, (int)icoObj.icoData.maxHeight, (int)icoObj.icoHeight);
+            valueSliderList[4].SetSliderValues("Productivity", icoObj.icoData.minProductivity, icoObj.icoData.maxProductivity, icoObj.icoProductivity);
+            valueSliderList[5].SetSliderValues("Location", icoObj.icoData.icoLocation.location + ": " + icoObj.icoData.icoLocation.GetPlaces());
         }
         infoItemPosition.transform.parent.SetAsLastSibling();
 
         RectTransform temp = generalInfoPanel.GetComponent<RectTransform>();
-        temp.sizeDelta = new Vector2(temp.sizeDelta.x, temp.sizeDelta.y + 5 * valueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y + PanelSizeOffsetY);
+        temp.sizeDelta = new Vector2(temp.sizeDelta.x, temp.sizeDelta.y + valueSliderList.Count * valueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y + valueSliderList.Count * PanelSizeOffsetY);
     }
 
     public void ResetInfoPanel()
