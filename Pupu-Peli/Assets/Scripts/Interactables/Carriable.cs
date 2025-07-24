@@ -21,6 +21,7 @@ public class Carriable : Interactable
     public float outlineThickness = 1.13f;
 
     public Vector3 holdingPivot;
+    public Vector3 rotationPivot;
 
 
     public virtual void Start()
