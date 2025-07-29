@@ -58,7 +58,7 @@ public class herbsToBrew : Interactable
                 herbs.Add(item.GetComponent<carriableHerb>().herb);
             }
 
-            transform.root.GetComponent<AlchemyMaster>().enterPuzzle(player, herbs);
+            transform.parent.GetComponent<AlchemyMaster>().enterPuzzle(player, herbs);
         }
     }
 

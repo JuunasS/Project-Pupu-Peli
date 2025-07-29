@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AlchemyMaster : MonoBehaviour
 {
+    public bool demoMode;
+
     public GameObject alchemyUI;
     public herbsToBrew htb;
     public List<Image> basketButtons;
@@ -30,6 +32,15 @@ public class AlchemyMaster : MonoBehaviour
 
     public void brew()
     {
+        if (demoMode && !Check(herbs))
+            return;
+
+        foreach (Image img in basketButtons)
+        {
+            img.sprite = null;
+            img.transform.parent.gameObject.SetActive(false);
+        }
+
         player.GetComponentInChildren<thoughtBubble>().drawShape(herbs);
         Debug.Log("Solution check: " + Check(herbs));
 
@@ -38,7 +49,7 @@ public class AlchemyMaster : MonoBehaviour
 
         htb.basket.basketContent.Clear();
 
-        exitPuzzle();
+        //exitPuzzle();
     }
 
     public bool Check(List<Herb> herbs)
@@ -103,8 +114,7 @@ public class AlchemyMaster : MonoBehaviour
 
         alchemyUI.SetActive(false);
 
-        //player.GetComponent<PlayerInput>().ActivateInput();
-        // Player Input is resumed in the thought bubble script, which is called by the thought bubble animation
+        player.GetComponent<PlayerInput>().ActivateInput();
 
         herbs.Clear();
 
