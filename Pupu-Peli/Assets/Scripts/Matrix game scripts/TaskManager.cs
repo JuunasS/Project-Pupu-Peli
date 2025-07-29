@@ -49,7 +49,7 @@ public class TaskManager : MonoBehaviour
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -25 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50*col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
             col++;
@@ -62,7 +62,7 @@ public class TaskManager : MonoBehaviour
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -50 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50 * col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Weight", (int)currentTask.minWeight, (int)currentTask.maxWeight);
             col++;
@@ -75,7 +75,7 @@ public class TaskManager : MonoBehaviour
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -75 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50 * col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Height", (int)currentTask.minHeight, (int)currentTask.maxHeight);
             col++;
@@ -88,13 +88,13 @@ public class TaskManager : MonoBehaviour
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, -100 - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50 * col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Productivity", currentTask.minProductivity, currentTask.maxProductivity);
             col++;
         }
 
-        taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+        taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, (50*col) + taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
         taskSlidersGenerated = true;
     }
 

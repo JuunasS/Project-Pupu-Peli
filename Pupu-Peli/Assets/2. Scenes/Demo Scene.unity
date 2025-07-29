@@ -3924,6 +3924,26 @@ PrefabInstance:
       propertyPath: coinSpawner
       value: 
       objectReference: {fileID: 536066728}
+    - target: {fileID: 3672205059490214104, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 713.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672205059490214104, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 292.4493
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672205059490214104, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.1726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672205059490214104, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 151
+      objectReference: {fileID: 0}
     - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
         type: 3}
       propertyPath: matrixTaskScriptableObjects.Array.size
@@ -4006,6 +4026,56 @@ PrefabInstance:
       propertyPath: taskMasterList
       value: 
       objectReference: {fileID: 1420442332062024037}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 596.3403
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 132.73419
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208336723730379430, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -320.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004942611310392344, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004942611310392344, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -71.909
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

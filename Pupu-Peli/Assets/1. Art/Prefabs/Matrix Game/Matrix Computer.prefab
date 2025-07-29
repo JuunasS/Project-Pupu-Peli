@@ -2180,8 +2180,8 @@ RectTransform:
   - {fileID: 629269287473247309}
   - {fileID: 4450750712071970638}
   - {fileID: 5824668686296741558}
-  - {fileID: 8550826176439887567}
   - {fileID: 1619488553232421381}
+  - {fileID: 8550826176439887567}
   m_Father: {fileID: 2418575627322255058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3093,6 +3093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54afb2d92fcf3054296af6a6c123cd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskMasterList: {fileID: 0}
   currentTask: {fileID: 11400000, guid: eeeda25d6fa1da640a2b4d11a2571e50, type: 2}
   taskPanel: {fileID: 7983200754072566785}
   taskText: {fileID: 3894782676863553174}

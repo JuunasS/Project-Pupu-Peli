@@ -19,7 +19,7 @@ MonoBehaviour:
   checkWeight: 1
   minWeight: 12
   maxWeight: 72
-  checkHeight: 1
+  checkHeight: 0
   minHeight: 0
   maxHeight: 16
   checkProductivity: 0
