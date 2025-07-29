@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
-  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientSkyColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
+  m_AmbientEquatorColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -2597,8 +2597,19 @@ PrefabInstance:
       objectReference: {fileID: 1804501663}
     - target: {fileID: 6499890215422124288, guid: dfa806bb126659c41981b9c93d717d0b,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 6499890215422124288, guid: dfa806bb126659c41981b9c93d717d0b,
+        type: 3}
       propertyPath: m_Name
       value: Shop Computer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499890215422124288, guid: dfa806bb126659c41981b9c93d717d0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8319493251548865193, guid: dfa806bb126659c41981b9c93d717d0b,
         type: 3}

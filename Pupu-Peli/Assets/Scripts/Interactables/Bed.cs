@@ -68,7 +68,13 @@ public class Bed : Interactable
 
     public override void Interact(GameObject player)
     {
-        DayNightCycle.Instance.SetTime(morningTime);
+        if (DayNightCycle.Instance.timeOfDay == TimeOfDay.Night)
+        {
+            DayNightCycle.Instance.SetTime(morningTime);
+        }  else
+        {
+            Debug.LogError("Must be night to use bed!! (Demo)");
+        }
     }
 
    
