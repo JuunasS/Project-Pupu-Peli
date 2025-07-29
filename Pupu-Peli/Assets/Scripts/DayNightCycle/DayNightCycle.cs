@@ -32,6 +32,8 @@ public class DayNightCycle : MonoBehaviour
     public static event Action<TimeOfDay> OnDayTimeChanged;
     public TimeOfDay timeOfDay;
 
+    public bool dymamicCycle;
+
     public static DayNightCycle Instance { get; private set; }
 
     private void Awake()
@@ -50,14 +52,41 @@ public class DayNightCycle : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime * rotationSpeed;
+        if (dymamicCycle)
+        {
+            time += Time.deltaTime * rotationSpeed;
+            if (time > 24) { time = 0; }
+
+
+            if (time >= 0 && time <= 12)
+            {
+                // time of day 0 -> 12 == tValue: 0 -> 12
+                dayNightTransitionValue = time;
+            }
+            else // Less than 24 and more than 12
+            {
+                dayNightTransitionValue = 24 - time;
+            }
+
+            SetTimeText();
+
+            UpdateSunRotation();
+            UpdateMoonRotation();
+            UpdateLighting();
+
+            // TODO: Add events for times of day!
+            CheckDayTime();
+        }
+
+    }
+
+    public void AddTime(float nTime)
+    {
+        time += nTime;
         if (time > 24) { time = 0; }
 
         SetTimeText();
 
-        UpdateSunRotation();
-        UpdateMoonRotation();
-        UpdateLighting();
 
         if (time >= 0 && time <= 12)
         {
@@ -69,9 +98,12 @@ public class DayNightCycle : MonoBehaviour
             dayNightTransitionValue = 24 - time;
         }
 
+        UpdateSunRotation();
+        UpdateMoonRotation();
+        UpdateLighting();
+
         // TODO: Add events for times of day!
         CheckDayTime();
-
     }
 
     public void CheckDayTime()
