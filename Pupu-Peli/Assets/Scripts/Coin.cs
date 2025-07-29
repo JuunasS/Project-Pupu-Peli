@@ -8,15 +8,16 @@ public class Coin : MonoBehaviour
     public bool collected = false;
     public bool moveToTargetActive = false;
     public float moveDuration = 1f;
-    public Vector3 playerPositionOffset;
+    public Vector3 targetPositionOffset;
 
     private void OnCollisionEnter(Collision collision)
     {
         // Add player the money, sfx and delete this object
 
         //Debug.Log("Coin collision!");
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "CoinPurse") //(collision.transform.tag == "Player")
         {
+            Debug.Log("CoinPurse collision");
             //Debug.Log("Collect Coin!");
             SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollect);
             collision.gameObject?.GetComponent<CoinPurse>().AddMoney(this.value);
@@ -32,14 +33,14 @@ public class Coin : MonoBehaviour
 
             if (!moveToTargetActive)
             {
-                FloatToPlayer();
+                FloatToTarget();
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "CoinPurse")
         {
             //Debug.Log("Collect Coin!");
             SoundManager.Instance.PlaySound(SoundManager.Clip.CoinCollect);
@@ -48,18 +49,17 @@ public class Coin : MonoBehaviour
         }
     }
 
-    // Float to player after having made contact with ground?
-    public void FloatToPlayer()
+    // Float to target after having made contact with ground?
+    public void FloatToTarget()
     {
         moveToTargetActive = true;
-        GameObject player = FindFirstObjectByType<CoinPurse>().gameObject;
-        if (player != null)
+        GameObject target = FindFirstObjectByType<CoinPurse>().gameObject;
+        if (target != null)
         {
             this.GetComponent<MeshCollider>().isTrigger = true;
             this.GetComponent<Rigidbody>().useGravity = false;
-            StartCoroutine(MoveToTarget(player));
+            StartCoroutine(MoveToTarget(target));
         }
-
     }
 
     IEnumerator MoveToTarget(GameObject obj)
@@ -72,7 +72,7 @@ public class Coin : MonoBehaviour
 
             //Debug.Log("Lerp 1: " + timeElapsed);
             float t = timeElapsed / moveDuration;
-            transform.position = Vector3.Lerp(transform.position, obj.transform.position + playerPositionOffset, t);
+            transform.position = Vector3.Lerp(transform.position, obj.transform.position + targetPositionOffset, t);
             timeElapsed += Time.deltaTime;
 
             yield return null;

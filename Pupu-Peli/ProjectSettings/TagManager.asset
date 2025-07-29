@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Camera Switch
   - WorldSpaceCanvas
+  - CoinPurse
   layers:
   - Default
   - TransparentFX
