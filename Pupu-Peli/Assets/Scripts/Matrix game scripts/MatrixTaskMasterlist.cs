@@ -28,7 +28,7 @@ public class MatrixTaskMasterlist : MonoBehaviour
 
     public MatrixTaskScriptObject GetRandomMatrixTaskScriptObj()
     {
-        int randomIndex = Random.Range(0, matrixTaskScriptableObjects.Count);
+        int randomIndex = Random.Range(0, matrixTaskScriptableObjects.Count-1);
         MatrixTaskScriptObject randomObj = matrixTaskScriptableObjects[randomIndex];
 
         return randomObj;

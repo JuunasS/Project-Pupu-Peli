@@ -3909,6 +3909,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 595965950840513425, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2320041658448233618, guid: c891f73db8cef894f9044c4913013f30,
         type: 3}
       propertyPath: m_Name
@@ -3919,11 +3924,105 @@ PrefabInstance:
       propertyPath: coinSpawner
       value: 
       objectReference: {fileID: 536066728}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: matrixTaskScriptableObjects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: eeeda25d6fa1da640a2b4d11a2571e50,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5ebd6616e00f4243a40ba5637f6fce0,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d0fd85d7048930544a17c9a3f5b439e8,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04992179b70a0144885c20cf4845cddc,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 427fe78d9c06ed94f88419a483a80dad,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f9f04d028ad64be40a9b80c8043be125,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: eeeda25d6fa1da640a2b4d11a2571e50,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5ebd6616e00f4243a40ba5637f6fce0,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d0fd85d7048930544a17c9a3f5b439e8,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04992179b70a0144885c20cf4845cddc,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 427fe78d9c06ed94f88419a483a80dad,
+        type: 2}
+    - target: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: 'matrixTaskScriptableObjects.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f9f04d028ad64be40a9b80c8043be125,
+        type: 2}
+    - target: {fileID: 6328412208457571851, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: taskMasterList
+      value: 
+      objectReference: {fileID: 1420442332062024037}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c891f73db8cef894f9044c4913013f30, type: 3}
+--- !u!114 &1420442332062024037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5530789778488041052, guid: c891f73db8cef894f9044c4913013f30,
+    type: 3}
+  m_PrefabInstance: {fileID: 1420442332062024036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802f7147975cbb744a8b2d29e07292cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1420442332062024038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 259762326037563971, guid: c891f73db8cef894f9044c4913013f30,

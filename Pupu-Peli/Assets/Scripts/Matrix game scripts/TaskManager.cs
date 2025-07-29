@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    public MatrixTaskMasterlist taskMasterList;
     public MatrixTaskScriptObject currentTask;
 
     public GameObject taskPanel;
@@ -19,17 +20,25 @@ public class TaskManager : MonoBehaviour
 
     public bool taskSlidersGenerated = false;
 
+
     private void OnEnable()
     {
         //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+        SetRandomCurrentTask();
         GenerateTaskSliders();
 
         // Start matrix game timer!!
         matrixTimer.StartMatrixTimer();
     }
 
+    public void SetRandomCurrentTask()
+    {
+        currentTask = taskMasterList.GetRandomMatrixTaskScriptObj();
+    }
+
     public void GenerateTaskSliders()
     {
+
         if (taskSlidersGenerated) { return; }
         int col = 0;
 
