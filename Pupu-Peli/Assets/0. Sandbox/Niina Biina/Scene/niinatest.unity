@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
-  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientSkyColor: {r: 0.9839412, g: 0.9761295, b: 0.83102554, a: 1}
+  m_AmbientEquatorColor: {r: 0.9839412, g: 0.9761295, b: 0.83102554, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -301,11 +301,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Volume
       objectReference: {fileID: 0}
-    - target: {fileID: 44605440883532576, guid: 9cc45bec0df523c4ca9a14fda32fd6ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6835633426617100075, guid: 9cc45bec0df523c4ca9a14fda32fd6ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -404,6 +399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DayNightCycleManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273730225417575293, guid: 97146220c1a1db044a69736030f7aef9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3554900354956446801, guid: 97146220c1a1db044a69736030f7aef9,
         type: 3}
@@ -542,11 +542,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3357926101534852837, guid: e6ed88841ce54484f8411b256dda11ef,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ed88841ce54484f8411b256dda11ef, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
