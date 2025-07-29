@@ -9,6 +9,7 @@ public class thoughtBubble : MonoBehaviour
 {
     SpriteRenderer[] renders;
     public Animator stateDrivenCamera;
+    public AlchemyMaster AlchemyMaster;
 
     void Awake()
     {
@@ -63,6 +64,6 @@ public class thoughtBubble : MonoBehaviour
     public void endCutscene()
     {
         stateDrivenCamera.Play("Gazebo");
-        transform.GetComponentInParent<PlayerInput>().ActivateInput();
+        AlchemyMaster.exitPuzzle();
     }
 }
