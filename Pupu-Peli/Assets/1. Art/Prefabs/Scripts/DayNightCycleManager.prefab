@@ -330,6 +330,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   timeText: {fileID: 5937903280869056308}
   timeOfDay: 12
+  dymamicCycle: 0
 --- !u!1 &4815077083931066199
 GameObject:
   m_ObjectHideFlags: 0
