@@ -149,8 +149,8 @@ MonoBehaviour:
   outline: {fileID: 0}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
-  holdingPivot: {x: 0.4, y: -0.4, z: 0}
-  rotationPivot: {x: 0, y: 0, z: 0}
+  holdingPivot: {x: 0.35, y: -0.34, z: 0.04}
+  rotationPivot: {x: -10, y: 90, z: 0}
   basketContent: []
   basketMax: 3
 --- !u!135 &9170807774628602256

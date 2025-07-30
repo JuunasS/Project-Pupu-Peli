@@ -106,6 +106,7 @@ public class Inventory : MonoBehaviour
     {
         bigItemHolder.transform.position = animator.GetBoneTransform(HumanBodyBones.RightHand).position;
         bigItemHolder.transform.localPosition += bigItem.holdingPivot;
+        bigItemHolder.localEulerAngles = bigItem.rotationPivot;
     }
     /*
     public void CheckInteractionDistance(GameObject newObj)
