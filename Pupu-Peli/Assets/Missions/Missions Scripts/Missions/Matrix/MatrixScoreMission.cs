@@ -34,8 +34,7 @@ public class MatrixScoreMission : Mission
         if (scoreManager.GetScore() >= desiredScore)
         {
             Debug.LogError("MissionCompleted!!");
-            this.isComplete = true;
-            MissionManager.Instance.CheckMissionState();
+            base.CheckMissionState();
         }
     }
 

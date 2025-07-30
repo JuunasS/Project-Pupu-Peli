@@ -12,6 +12,8 @@ public class MissionManager : MonoBehaviour
     [SerializeField]
     private MissionListObject[] missionArray;
     public List<GameObject> activeMissions = new List<GameObject>();
+    public GameObject missionHighlightPrefab;
+    public GameObject activeMissionHighlight;
 
 
     public static event Action<int> OnMissionProgressionChanged;
@@ -43,14 +45,29 @@ public class MissionManager : MonoBehaviour
 
     public void GenerateCurrentMissions()
     {
-        for (int i = 0; i < missionArray[missionProgression].missionDataList.Count-1; i++)
+        Debug.Log("Generating missions! 1 " + missionArray[missionProgression].missionDataList.Count);
+        // Generate mission objects
+        for (int i = 0; i < missionArray[missionProgression].missionDataList.Count; i++)
         {
+            Debug.Log("Generating missions! 2");
             // Initialize current mission prefabs!
             GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefab, this.transform);
             missionArray[missionProgression].missionDataList[i].SetMissionDataSO(tempMissionObj);
 
             activeMissions.Add(tempMissionObj);
         }
+
+        if (missionArray[missionProgression].missionLocations.Length != 0)
+        {
+            // Generate highlights
+            for (int i = 0; i < activeMissions.Count; i++)
+            {
+                GameObject missionHighlight = Instantiate(missionHighlightPrefab, missionArray[missionProgression].missionLocations[i]);
+                missionHighlight.transform.SetParent(activeMissions[i].transform);
+                activeMissions[i].GetComponent<Mission>().missionHighlight = missionHighlight;
+            }
+        }
+
     }
 
     // Function for checking current mission state
@@ -67,7 +84,7 @@ public class MissionManager : MonoBehaviour
         }
         Debug.Log("ALL MISSIONS COMPLETE!");
 
-        for (int i = activeMissions.Count-1; 0 <= i; i--)
+        for (int i = activeMissions.Count - 1; 0 <= i; i--)
         {
             GameObject tempRef = activeMissions[i];
             activeMissions.Remove(tempRef);
@@ -103,8 +120,14 @@ public abstract class Mission : MonoBehaviour
     // Every mission must contain parameters for completion and a fucntion to check it's completion.
     public string missionTitle;
     public bool isComplete;
+    public GameObject missionHighlight;
 
-    public abstract void CheckMissionState();
+    public virtual void CheckMissionState()
+    {
+        this.isComplete = true;
+        Destroy(this.missionHighlight);
+        MissionManager.Instance.CheckMissionState();
+    }
 }
 
 
@@ -114,4 +137,5 @@ public class MissionListObject
 {
     //public int index;
     public List<MissionDataSO> missionDataList;
+    public Transform[] missionLocations;
 }

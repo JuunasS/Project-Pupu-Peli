@@ -638,14 +638,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
+      propertyPath: missionHighlightPrefab
+      value: 
+      objectReference: {fileID: 781655265025607722, guid: d72c2c54f4fbcb742a81168b25ad81f8,
+        type: 3}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
       propertyPath: missionArray.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[0].missionLocation
+      value: 
+      objectReference: {fileID: 1420442332062024038}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[1].missionLocation
+      value: 
+      objectReference: {fileID: 8846347830096992722}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[2].missionLocation
+      value: 
+      objectReference: {fileID: 1420442332062024038}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[0].missionDataList.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: missionArray.Array.data[2].missionDataList.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[0].missionLocations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[0].missionDataList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cbf23b268b51ba2419cd22e01d8b5658,
+        type: 2}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: 'missionArray.Array.data[1].missionDataList.Array.data[0]'
@@ -658,6 +695,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5045aaee0da452e4aadac66c04281f14,
         type: 2}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1420442332062024038}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8846347830096992722}
     - target: {fileID: 6000472931961197331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: m_Name

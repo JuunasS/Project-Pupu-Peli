@@ -17,8 +17,7 @@ public class AlchemyCompletionMission : Mission
 
     public override void CheckMissionState()
     {
-        this.isComplete = true;
-        MissionManager.Instance.CheckMissionState();
+        base.CheckMissionState();
     }
 
 }
