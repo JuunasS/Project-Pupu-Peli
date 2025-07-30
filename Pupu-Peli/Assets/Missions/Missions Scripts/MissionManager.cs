@@ -13,7 +13,6 @@ public class MissionManager : MonoBehaviour
     private MissionListObject[] missionArray;
     public List<GameObject> activeMissions = new List<GameObject>();
     public GameObject missionHighlightPrefab;
-    public GameObject activeMissionHighlight;
 
 
     public static event Action<int> OnMissionProgressionChanged;

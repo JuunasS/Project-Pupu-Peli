@@ -640,7 +640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: missionHighlightPrefab
       value: 
-      objectReference: {fileID: 781655265025607722, guid: d72c2c54f4fbcb742a81168b25ad81f8,
+      objectReference: {fileID: 6286162514085568987, guid: 18d8827e724055d4b8681408bb791012,
         type: 3}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
@@ -699,7 +699,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[0]'
       value: 
-      objectReference: {fileID: 1420442332062024038}
+      objectReference: {fileID: 1092776122}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[1]'
@@ -1967,6 +1967,12 @@ Transform:
   - {fileID: 1097449003}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1092776122 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7521832272492681882, guid: 7e89761980ef6d8459714fa52fcba84d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668554086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1097449002
 PrefabInstance:
   m_ObjectHideFlags: 0
