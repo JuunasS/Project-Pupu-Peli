@@ -63,7 +63,8 @@ public class MissionManager : MonoBehaviour
             for (int i = 0; i < activeMissions.Count; i++)
             {
                 GameObject missionHighlight = Instantiate(missionHighlightPrefab, missionArray[missionProgression].missionLocations[i]);
-                missionHighlight.transform.SetParent(activeMissions[i].transform);
+                missionHighlight.transform.SetParent(activeMissions[i].transform, false);
+                missionHighlight.transform.position = missionArray[missionProgression].missionLocations[i].position;
                 activeMissions[i].GetComponent<Mission>().missionHighlight = missionHighlight;
             }
         }
