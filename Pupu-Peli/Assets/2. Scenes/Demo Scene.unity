@@ -704,7 +704,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[1]'
       value: 
-      objectReference: {fileID: 8846347830096992722}
+      objectReference: {fileID: 989882603}
     - target: {fileID: 6000472931961197331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: m_Name
@@ -1784,6 +1784,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
     type: 3}
   m_PrefabInstance: {fileID: 6813476367566537277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &989882603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1427576286118296383, guid: 8e532969ea7c440499b9610aab5c1e03,
+    type: 3}
+  m_PrefabInstance: {fileID: 8846347830096992721}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &997361663
 GameObject:
