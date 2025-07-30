@@ -665,6 +665,11 @@ PrefabInstance:
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: missionArray.Array.data[0].missionDataList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[1].missionDataList.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
@@ -675,6 +680,11 @@ PrefabInstance:
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: missionArray.Array.data[0].missionLocations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: missionArray.Array.data[1].missionLocations.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
@@ -688,6 +698,12 @@ PrefabInstance:
       propertyPath: 'missionArray.Array.data[1].missionDataList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: cbf23b268b51ba2419cd22e01d8b5658,
+        type: 2}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[1].missionDataList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 371f4465cf2577246823c66e0090b459,
         type: 2}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
@@ -705,6 +721,16 @@ PrefabInstance:
       propertyPath: 'missionArray.Array.data[0].missionLocations.Array.data[1]'
       value: 
       objectReference: {fileID: 2097264930}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[1].missionLocations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2097264930}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: 'missionArray.Array.data[1].missionLocations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1092776122}
     - target: {fileID: 6000472931961197331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: m_Name
