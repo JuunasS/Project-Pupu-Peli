@@ -17,11 +17,11 @@ MonoBehaviour:
   minAge: 0
   maxAge: 0
   checkWeight: 1
-  minWeight: 66
-  maxWeight: 71
+  minWeight: 55
+  maxWeight: 86
   checkHeight: 0
   minHeight: 0
   maxHeight: 0
   checkProductivity: 1
-  minProductivity: 12
+  minProductivity: 0
   maxProductivity: 22

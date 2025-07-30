@@ -17,6 +17,7 @@ public class MatrixTimer : MonoBehaviour
     public void StartMatrixTimer()
     {
         timerActive = true;
+        timeElapsed = 0;
         StartCoroutine(GameTimer());
     }
 

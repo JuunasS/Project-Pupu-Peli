@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
@@ -20,10 +21,13 @@ public class TaskManager : MonoBehaviour
 
     public bool taskSlidersGenerated = false;
 
+    private Vector2 currentPanelSizeOffSet;
+
 
     private void OnEnable()
     {
         //taskValueSlider1.SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
+        Debug.Log("Setting random tasks!");
         SetRandomCurrentTask();
         GenerateTaskSliders();
 
@@ -38,8 +42,17 @@ public class TaskManager : MonoBehaviour
 
     public void GenerateTaskSliders()
     {
+        
+        if (taskSlidersGenerated)
+        {
+            taskPanel.GetComponent<RectTransform>().sizeDelta -= currentPanelSizeOffSet;
+            TaskValueSlider[] sliders = GetComponentsInChildren<TaskValueSlider>();
+            for (int i = sliders.Length - 1; 0 <= i; i--)
+            {
+                Destroy(sliders[i].gameObject);
+            }
+        }
 
-        if (taskSlidersGenerated) { return; }
         int col = 0;
 
         if (currentTask.checkAge)
@@ -49,7 +62,7 @@ public class TaskManager : MonoBehaviour
 
             tempTaskSlider.transform.SetParent(taskPanel.transform, false);
 
-            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50*col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+            tempTaskSlider.transform.localPosition = firstTaskSliderPos.localPosition + new Vector3(0, (-50 * col) - taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
 
             tempTaskSlider.GetComponent<TaskValueSlider>().SetSliderValues("Age", currentTask.minAge, currentTask.maxAge);
             col++;
@@ -94,7 +107,8 @@ public class TaskManager : MonoBehaviour
             col++;
         }
 
-        taskPanel.GetComponent<RectTransform>().sizeDelta += new Vector2(0, (50*col) + taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+        currentPanelSizeOffSet = new Vector2(0, (50 * col) + taskValueSliderPrefab.GetComponent<RectTransform>().sizeDelta.y * col);
+        taskPanel.GetComponent<RectTransform>().sizeDelta += currentPanelSizeOffSet;
         taskSlidersGenerated = true;
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskDesc: 'lorem ipsum '
   checkAge: 1
-  minAge: 11
+  minAge: 55
   maxAge: 100
   checkWeight: 0
   minWeight: 11
@@ -23,5 +23,5 @@ MonoBehaviour:
   minHeight: 56
   maxHeight: 77
   checkProductivity: 1
-  minProductivity: 11
+  minProductivity: 33
   maxProductivity: 100

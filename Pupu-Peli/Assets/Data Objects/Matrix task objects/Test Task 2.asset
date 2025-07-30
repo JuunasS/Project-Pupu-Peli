@@ -15,12 +15,12 @@ MonoBehaviour:
   taskDesc: 'lorem ipsum '
   checkAge: 1
   minAge: 1
-  maxAge: 15
+  maxAge: 25
   checkWeight: 0
   minWeight: 0
   maxWeight: 0
   checkHeight: 1
-  minHeight: 61
+  minHeight: 45
   maxHeight: 82
   checkProductivity: 1
   minProductivity: 12
