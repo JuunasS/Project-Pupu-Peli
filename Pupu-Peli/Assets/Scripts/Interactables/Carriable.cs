@@ -23,7 +23,6 @@ public class Carriable : Interactable
     public Vector3 holdingPivot;
     public Vector3 rotationPivot;
 
-
     public virtual void Start()
     {
 
