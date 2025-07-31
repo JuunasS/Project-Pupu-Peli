@@ -1,5 +1,60 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3188629414392977087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3389952348273100599}
+  - component: {fileID: 1942164190225546565}
+  m_Layer: 7
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3389952348273100599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188629414392977087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8304308077963132792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1942164190225546565
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188629414392977087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 14.01
+  m_Height: 55.9
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8477489685715196125
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,10 +86,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.37398335, y: 0.60823435, z: 0.60825914, w: 0.3467107}
   m_LocalPosition: {x: 2.361, y: -3.786, z: -1.562}
-  m_LocalScale: {x: 0.009980837, y: 0.009980837, z: 0.009980837}
+  m_LocalScale: {x: 0.013888999, y: 0.013889, z: 0.013888999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3369557490050959963}
+  - {fileID: 3389952348273100599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -92.21, y: 59.407997, z: 59.304}
 --- !u!33 &2430410768283281453
@@ -115,7 +171,8 @@ MonoBehaviour:
   outline: {fileID: 2100000, guid: f7277f50565329c4aa9f6d84e25398ce, type: 2}
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
-  holdingPivot: {x: 0, y: 0, z: 0}
+  holdingPivot: {x: 0.025, y: 0.16, z: -0.025}
+  rotationPivot: {x: -40, y: 0, z: 80}
   herb: {fileID: 11400000, guid: b4ebfa4f8ed5f7a428c17e7d054b7ab6, type: 2}
 --- !u!54 &8334071348330983631
 Rigidbody:

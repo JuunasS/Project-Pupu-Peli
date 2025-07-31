@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 76111142972112646}
+  - {fileID: 7517048064373783812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 65.307, z: 0}
 --- !u!33 &3966918701000749065
@@ -116,6 +117,7 @@ MonoBehaviour:
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
   holdingPivot: {x: 0, y: 0, z: 0}
+  rotationPivot: {x: 0, y: 0, z: 0}
   herb: {fileID: 11400000, guid: b74409c1a31e5a94d9452e9a4e4fb9c1, type: 2}
 --- !u!54 &4681792558724954799
 Rigidbody:
@@ -163,8 +165,61 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.8
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.38
+  m_Center: {x: 0, y: 0.24, z: 0}
+--- !u!1 &8260604916785666959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7517048064373783812}
+  - component: {fileID: 6505435757621628222}
+  m_Layer: 7
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7517048064373783812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260604916785666959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1941581507719919374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6505435757621628222
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260604916785666959}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.39
+  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1001 &4287708213969760296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 2060659449543270, guid: 6a3e676bfde7b6a458c531d7abdc0135, type: 3}
       propertyPath: m_Name
       value: FloatingText (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060659449543270, guid: 6a3e676bfde7b6a458c531d7abdc0135, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2060659449543270, guid: 6a3e676bfde7b6a458c531d7abdc0135, type: 3}
       propertyPath: m_IsActive
