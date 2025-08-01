@@ -122,11 +122,13 @@ public abstract class Mission : MonoBehaviour
     public string completionText;
     public bool isComplete;
     public GameObject missionHighlight;
+    public float missionDayTimeDuration;
 
     public virtual void CheckMissionState()
     {
         this.isComplete = true;
         EndOfDayScreen.Instance.MissionCompleted(completionText);
+        DayNightCycle.Instance.AddTime(missionDayTimeDuration);
         Destroy(this.missionHighlight);
         MissionManager.Instance.CheckMissionState();
     }

@@ -48,3 +48,4 @@ MonoBehaviour:
   completionText: Completed Alchemy Game Successfully
   isComplete: 0
   missionHighlight: {fileID: 0}
+  missionDayTimeDuration: 4

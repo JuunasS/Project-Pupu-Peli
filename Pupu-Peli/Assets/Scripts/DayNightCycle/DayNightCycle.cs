@@ -82,46 +82,49 @@ public class DayNightCycle : MonoBehaviour
 
     public void AddTime(float nTime)
     {
-        time += nTime;
-        if (time > 24) { time = 0; }
-
-        SetTimeText();
-
-
-        if (time >= 0 && time <= 12)
+        if (!dymamicCycle)
         {
-            // time of day 0 -> 12 == tValue: 0 -> 12
-            dayNightTransitionValue = time;
-        }
-        else // Less than 24 and more than 12
-        {
-            dayNightTransitionValue = 24 - time;
-        }
+            time += nTime;
+            if (time >= 24) { time = 0; }
 
-        UpdateSunRotation();
-        UpdateMoonRotation();
-        UpdateLighting();
+            SetTimeText();
 
-        // TODO: Add events for times of day!
-        CheckDayTime();
+
+            if (time >= 0 && time <= 12)
+            {
+                // time of day 0 -> 12 == tValue: 0 -> 12
+                dayNightTransitionValue = time;
+            }
+            else // Less than 24 and more than 12
+            {
+                dayNightTransitionValue = 24 - time;
+            }
+
+            UpdateSunRotation();
+            UpdateMoonRotation();
+            UpdateLighting();
+
+            // TODO: Add events for times of day!
+            CheckDayTime();
+        }
     }
 
     public void CheckDayTime()
     {
         // Invoke daytime change when a new day time starts (Should trigger once)
-        if (time > 6 && time < 12 && timeOfDay != TimeOfDay.Morning)
+        if (time >= 6 && time <= 12 && timeOfDay != TimeOfDay.Morning)
         {
             timeOfDay = TimeOfDay.Morning;
         }
-        else if (time > 12 && time < 18 && timeOfDay != TimeOfDay.Afternoon)
+        else if (time >= 12 && time <= 18 && timeOfDay != TimeOfDay.Afternoon)
         {
             timeOfDay = TimeOfDay.Afternoon;
         }
-        else if (time > 18 && time < 24 && timeOfDay != TimeOfDay.Evening)
+        else if (time >= 18 && time <= 24 && timeOfDay != TimeOfDay.Evening)
         {
             timeOfDay = TimeOfDay.Evening;
         }
-        else if (time > 0 && time < 6 && timeOfDay != TimeOfDay.Night)
+        else if (time >= 0 && time <= 6 && timeOfDay != TimeOfDay.Night)
         {
             timeOfDay = TimeOfDay.Night;
         }
