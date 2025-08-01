@@ -1,22 +1,18 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using NaughtyAttributes;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-public class thoughtBubble : MonoBehaviour
+public class thoughtBubbleDemo : MonoBehaviour
 {
-    SpriteRenderer[] renders;
+    Image[] renders;
     public Animator stateDrivenCamera;
-    public Transform cutsceneCamera;
-    public Vector3 cutsceneCameraPivot;
     public AlchemyMaster AlchemyMaster;
 
     void Awake()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-        renders = GetComponentsInChildren<SpriteRenderer>();
+        GetComponent<Image>().enabled = false;
+        renders = GetComponentsInChildren<Image>();
     }
 
     public void drawShape(List<Herb> toSort)
@@ -39,8 +35,8 @@ public class thoughtBubble : MonoBehaviour
 
     IEnumerator showShape(List<Sprite> sorted)
     {
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<Animator>().Play("thoughtBubbleAnimation");
+        GetComponent<Image>().enabled = true;
+        GetComponent<Animator>().Play("thoughtBubbleAnimationDemo");
         yield return new WaitForSeconds(1.5f);
 
         for (int i = 0; i < sorted.Count; i++)
@@ -62,10 +58,6 @@ public class thoughtBubble : MonoBehaviour
     {
         if (stateDrivenCamera !=  null)
             stateDrivenCamera.Play("Cutscene");
-
-        cutsceneCamera.position = transform.parent.position + transform.parent.forward * 10;
-        cutsceneCamera.position += cutsceneCameraPivot;
-        cutsceneCamera.rotation = Quaternion.LookRotation(transform.parent.position - cutsceneCamera.position);
     }
 
     public void endCutscene()

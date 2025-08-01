@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6310978114497181040}
+  - {fileID: 2067612044079960528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2149574190578933674
@@ -116,6 +117,7 @@ MonoBehaviour:
   outlineAssetName: OutlineMaterial (Instance)
   outlineThickness: 1.13
   holdingPivot: {x: 0, y: 0, z: 0}
+  rotationPivot: {x: 0, y: 0, z: 0}
   herb: {fileID: 11400000, guid: fbfcb17718630c646b6936ca9a570725, type: 2}
 --- !u!54 &5456107268498470145
 Rigidbody:
@@ -164,6 +166,59 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 220
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6566025120456814125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067612044079960528}
+  - component: {fileID: 3324054568889796139}
+  m_Layer: 7
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067612044079960528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566025120456814125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4364779572587904702}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3324054568889796139
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566025120456814125}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 37.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7862018729975118430
 PrefabInstance:

@@ -10,8 +10,8 @@ public class AlchemyMaster : MonoBehaviour
 
     public GameObject alchemyUI;
     public herbsToBrew htb;
+    public thoughtBubbleDemo demoBubble;
     public List<Image> basketButtons;
-    public List<Image> potButtons;
 
     public herbSolution solution;
 
@@ -32,14 +32,15 @@ public class AlchemyMaster : MonoBehaviour
 
     public void brew()
     {
-        if (demoMode && !Check(herbs))
-            return;
+        if (demoMode && !Check(herbs)) {demoBrew(); return;}
 
         foreach (Image img in basketButtons)
         {
             img.sprite = null;
             img.transform.parent.gameObject.SetActive(false);
         }
+
+        alchemyUI.SetActive(false);
 
         player.GetComponentInChildren<thoughtBubble>().drawShape(herbs);
         Debug.Log("Solution check: " + Check(herbs));
@@ -119,5 +120,10 @@ public class AlchemyMaster : MonoBehaviour
         herbs.Clear();
 
         htb.basketExit();
+    }
+
+    public void demoBrew()
+    {
+        demoBubble.GetComponent<thoughtBubbleDemo>().drawShape(herbs);
     }
 }

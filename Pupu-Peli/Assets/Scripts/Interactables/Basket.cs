@@ -27,12 +27,21 @@ public class Basket : Carriable
     public void AddItem(Carriable item)
     {
         if (basketMax <= basketContent.Count) { item.PickUpFailed(); return; }
+        if (item.GetComponent<carriableHerb>().carryModel != null)
+        {
+            item.GetComponent<MeshRenderer>().enabled = false;
+            item.GetComponent<carriableHerb>().carryModel.gameObject.SetActive(true);
+        }
+        
+
         basketContent.Add(item);
 
-        item.transform.position = this.transform.position + new Vector3(0, (.2f * (basketContent.Count-1)), 0);
-        item.transform.localPosition += item.holdingPivot;
-        item.transform.rotation = Quaternion.Euler(item.rotationPivot);
-        item.transform.SetParent(this.transform);
+        var hItem = item as carriableHerb;
+
+        //hItem.transform.position = this.transform.position + new Vector3(0, (.2f * (basketContent.Count-1)), 0);
+        hItem.transform.localPosition += hItem.positionPivots[basketContent.Count - 1];
+        hItem.transform.rotation = Quaternion.Euler(hItem.rotationPivots[basketContent.Count - 1]);
+        hItem.transform.SetParent(this.transform);
     }
 
     public override void DropItem()
