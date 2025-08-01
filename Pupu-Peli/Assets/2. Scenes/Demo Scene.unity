@@ -615,7 +615,7 @@ MonoBehaviour:
   coinsCollected: 0
   missionText: {fileID: 452661426}
   missionsCompleted: []
-  herbText: {fileID: 485805332}
+  herbText: {fileID: 1642702101}
   herbsCompleted: []
   brewText: {fileID: 1687358849}
   brewsCompleted: []
