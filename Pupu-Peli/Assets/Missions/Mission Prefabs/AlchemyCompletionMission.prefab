@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionTitle: Successfully complete a brewing
+  completionText: Completed Alchemy Game Successfully
   isComplete: 0
+  missionHighlight: {fileID: 0}

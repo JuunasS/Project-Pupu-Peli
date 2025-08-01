@@ -119,12 +119,14 @@ public abstract class Mission : MonoBehaviour
     // This is a parent class for missions
     // Every mission must contain parameters for completion and a fucntion to check it's completion.
     public string missionTitle;
+    public string completionText;
     public bool isComplete;
     public GameObject missionHighlight;
 
     public virtual void CheckMissionState()
     {
         this.isComplete = true;
+        EndOfDayScreen.Instance.MissionCompleted(completionText);
         Destroy(this.missionHighlight);
         MissionManager.Instance.CheckMissionState();
     }

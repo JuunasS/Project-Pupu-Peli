@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bed : Interactable
@@ -68,8 +69,11 @@ public class Bed : Interactable
 
     public override void Interact(GameObject player)
     {
+
+
         if (DayNightCycle.Instance.timeOfDay == TimeOfDay.Night)
         {
+            StartCoroutine(ShowEndOfDayScreen()); 
             DayNightCycle.Instance.SetTime(morningTime);
         }  else
         {
@@ -77,5 +81,10 @@ public class Bed : Interactable
         }
     }
 
-   
+   IEnumerator ShowEndOfDayScreen()
+    {
+        EndOfDayScreen.Instance.ActivateEndOfDayScreen();
+        yield return new WaitForSeconds(EndOfDayScreen.Instance.endOfDayScreenDuration);
+        EndOfDayScreen.Instance.DisableEndOfDayScreen();
+    }
 }

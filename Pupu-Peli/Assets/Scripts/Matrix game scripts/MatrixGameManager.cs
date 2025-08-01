@@ -189,6 +189,7 @@ public class MatrixGameManager : MonoBehaviour
     {
 
         // Spawn coins for player based on score!
+        EndOfDayScreen.Instance.CoinsCollected(scoreManager.currentScore);
         coinSpawner.BeginSpawningCoins(scoreManager.currentScore);
         scoreManager.currentScore = 0;
 

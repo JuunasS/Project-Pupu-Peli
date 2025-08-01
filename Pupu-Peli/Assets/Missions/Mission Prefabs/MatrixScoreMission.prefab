@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionTitle: Get 100 score in matrix game
-  complete: 0
+  completionText: Gained a score of 100 in the matrix game
+  isComplete: 0
+  missionHighlight: {fileID: 0}
   desiredScore: 100
   scoreManager: {fileID: 0}
