@@ -208,5 +208,6 @@ public class DayNightCycle : MonoBehaviour
     public void SetTime(float newTime)
     {
         time = newTime;
+        CheckDayTime();
     }
 }
