@@ -8,6 +8,8 @@ public class EndOfDayScreen : MonoBehaviour
 {
     public GameObject canvas;
 
+    public TMP_Text dayCompletedText;
+
     public TMP_Text coinsText;
     public int coinsCollected;
 
@@ -45,10 +47,13 @@ public class EndOfDayScreen : MonoBehaviour
 
     public void SetStats()
     {
+        dayCompletedText.text = "";
         coinsText.text = "";
         missionText.text = "";
         herbText.text = "";
         brewText.text = "";
+
+        dayCompletedText.text = "Day " + DayNightCycle.Instance.daysCompleted + " Completed!";
 
         coinsText.text = coinsCollected.ToString();
 

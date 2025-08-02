@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ed088cfa1c2cc4aa39e1c724e8f01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  daysCompleted: 0
   sun: {fileID: 2726978132097306818}
   moon: {fileID: 7817408697130771139}
   time: 0

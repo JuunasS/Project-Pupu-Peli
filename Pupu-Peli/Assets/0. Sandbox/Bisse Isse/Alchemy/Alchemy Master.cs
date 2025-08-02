@@ -47,6 +47,7 @@ public class AlchemyMaster : MonoBehaviour
         if (Check(herbs))
         {
             AlchemyGameSuccess?.Invoke();
+            EndOfDayScreen.Instance.brewsCompleted.Add(solution.name + " Brew");
         }
 
         foreach (var herb in htb.basket.basketContent)

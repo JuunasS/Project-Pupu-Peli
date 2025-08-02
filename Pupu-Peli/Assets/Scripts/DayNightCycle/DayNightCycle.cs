@@ -13,7 +13,7 @@ public enum TimeOfDay
 
 public class DayNightCycle : MonoBehaviour
 {
-
+    public int daysCompleted;
     public Light sun;
     public Light moon;
 
@@ -55,7 +55,7 @@ public class DayNightCycle : MonoBehaviour
         if (dymamicCycle)
         {
             time += Time.deltaTime * rotationSpeed;
-            if (time > 24) { time = 0; }
+            if (time > 24) { daysCompleted++; time = 0; }
 
 
             if (time >= 0 && time <= 12)
@@ -85,7 +85,7 @@ public class DayNightCycle : MonoBehaviour
         if (!dymamicCycle)
         {
             time += nTime;
-            if (time >= 24) { time = 0; }
+            if (time >= 24) { daysCompleted++; time = 0; }
 
             SetTimeText();
 
