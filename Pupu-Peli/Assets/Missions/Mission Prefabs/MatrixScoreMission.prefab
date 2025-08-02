@@ -48,6 +48,6 @@ MonoBehaviour:
   completionText: Gained a score of 100 in the matrix game
   isComplete: 0
   missionHighlight: {fileID: 0}
-  missionDayTimeDuration: 4
+  missionDayTimeDuration: 6
   desiredScore: 100
   scoreManager: {fileID: 0}
