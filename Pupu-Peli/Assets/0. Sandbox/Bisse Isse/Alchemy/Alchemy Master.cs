@@ -32,7 +32,7 @@ public class AlchemyMaster : MonoBehaviour
 
     public void brew()
     {
-        if (demoMode && !Check(herbs)) {demoBrew(); return;}
+        if (demoMode && !Check(herbs)) { demoBrew(); return; }
 
         foreach (Image img in basketButtons)
         {
@@ -44,6 +44,10 @@ public class AlchemyMaster : MonoBehaviour
 
         player.GetComponentInChildren<thoughtBubble>().drawShape(herbs);
         Debug.Log("Solution check: " + Check(herbs));
+        if (Check(herbs))
+        {
+            AlchemyGameSuccess?.Invoke();
+        }
 
         foreach (var herb in htb.basket.basketContent)
             Object.Destroy(herb.gameObject);
@@ -72,7 +76,6 @@ public class AlchemyMaster : MonoBehaviour
         else
             return false;
 
-        AlchemyGameSuccess?.Invoke();
         return true;
     }
 
