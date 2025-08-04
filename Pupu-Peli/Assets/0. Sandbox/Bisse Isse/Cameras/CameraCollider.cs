@@ -16,7 +16,7 @@ public class CameraCollider : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            transform.parent.GetComponent<CameraStateMachine>().switchState(transform.GetComponent<Collider>());
+            transform.parent.GetComponent<CameraStateMachine>().switchState(transform.GetComponent<Collider>(), other.GetComponent<Collider>());
 
             if (useCustomSettings)
                 transform.parent.GetComponent<CameraStateMachine>().changeSettings(settings);
@@ -27,7 +27,7 @@ public class CameraCollider : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            transform.parent.GetComponent<CameraStateMachine>().switchState(transform.GetComponent<Collider>(), true);
+            transform.parent.GetComponent<CameraStateMachine>().switchState(transform.GetComponent<Collider>(), other.GetComponent<Collider>(), true);
 
             if (useCustomSettings)
                 transform.parent.GetComponent<CameraStateMachine>().resetSettings();

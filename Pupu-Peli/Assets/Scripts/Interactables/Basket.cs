@@ -37,11 +37,15 @@ public class Basket : Carriable
         basketContent.Add(item);
 
         var hItem = item as carriableHerb;
-
-        //hItem.transform.position = this.transform.position + new Vector3(0, (.2f * (basketContent.Count-1)), 0);
-        hItem.transform.localPosition += hItem.positionPivots[basketContent.Count - 1];
-        hItem.transform.rotation = Quaternion.Euler(hItem.rotationPivots[basketContent.Count - 1]);
         hItem.transform.SetParent(this.transform);
+
+        if (hItem.basketPivots.Count != 3)
+            hItem.transform.position = this.transform.position + new Vector3(0, (.2f * (basketContent.Count-1)), 0);
+        else
+        {
+            hItem.transform.localPosition = hItem.basketPivots[basketContent.Count - 1];
+            hItem.transform.rotation = Quaternion.Euler(hItem.basketRotationPivots[basketContent.Count - 1]);
+        }
     }
 
     public override void DropItem()

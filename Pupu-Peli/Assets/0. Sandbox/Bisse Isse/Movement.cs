@@ -21,6 +21,9 @@ public class Movement : MonoBehaviour
 
     private Vector3 debugLastLoc = Vector3.zero;
 
+    private float camAngle;
+    bool dynCamAngle = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +32,8 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        camAngle = dynCamAngle ? cam.eulerAngles.y : camAngle;
+
         movingPlayer();
 
         if (Mathf.Abs(heading.y) + Mathf.Abs(heading.x) < 0.1f)
@@ -44,7 +49,7 @@ public class Movement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camAngle;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));
 
@@ -93,5 +98,13 @@ public class Movement : MonoBehaviour
     {
         Vector2 dir = con.ReadValue<Vector2>();
         heading = dir;
+    }
+
+    public void updateAngle(bool dynamic, Transform drct = null)
+    {
+        dynCamAngle = dynamic;
+
+        if (drct != null)
+            camAngle = drct.eulerAngles.y;
     }
 }

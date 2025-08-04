@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class carriableHerb : Carriable 
 {
-    public List<Vector3> positionPivots;
-    public List<Vector3> rotationPivots;
+    public List<Vector3> basketPivots;
+    public List<Vector3> basketRotationPivots;
     public Herb herb;
     public Transform carryModel;
 
