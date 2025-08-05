@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraCollider : MonoBehaviour
 {
-    CameraSettings settings = new();
+    CameraSettings settings;
 
     public bool useCustomSettings;
 
@@ -10,6 +10,7 @@ public class CameraCollider : MonoBehaviour
 
     void Awake()
     {
+        settings = new();
         settings.cullMask = cullMask;
     }
     private void OnTriggerEnter(Collider other)
@@ -35,7 +36,7 @@ public class CameraCollider : MonoBehaviour
     }
 }
 
-public class CameraSettings : MonoBehaviour
+public class CameraSettings : ScriptableObject
 {
     public int cullMask;
 }
