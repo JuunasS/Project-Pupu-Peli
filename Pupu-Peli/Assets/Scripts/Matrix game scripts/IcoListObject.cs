@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public MatrixGameManager matrixGameManager;
+
     // Drag and drop variables
     public CanvasGroup canvasGroup;
     private Transform originalParent;
@@ -50,7 +52,8 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     public int icoAge;
     public float icoWeight;
     public float icoHeight;
-    public int icoProductivity; // Needed?
+    public int icoProductivity;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,12 +62,6 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         returnPos = transform.localPosition;
         canvasGroup = GetComponent<CanvasGroup>();
     }
-
-    /* Update is called once per frame
-    void Update()
-    {
-    }
-    */
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -199,12 +196,42 @@ public class IcoListObject : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         this.icoImg.sprite = newIcoData.icoImg;
 
         // Generate icoObject values!
-
         icoAge = Random.Range(icoData.minAge, icoData.maxAge);
         icoWeight = (float)System.Math.Round(Random.Range(icoData.minWeight, icoData.maxWeight), 1);
         icoHeight = (float)System.Math.Round(Random.Range(icoData.minHeight, icoData.maxHeight), 1);
         icoProductivity = Random.Range(icoData.minProductivity, icoData.maxProductivity);
 
+        int pityCheck = Random.Range(matrixGameManager.pityValue, matrixGameManager.pityMax);
+
+        if (pityCheck == matrixGameManager.pityMax)
+        {
+            Debug.Log("Matrix Ico Data Generation Pity Triggered!");
+            matrixGameManager.pityValue = 0;
+
+            TaskManager taskManager = FindAnyObjectByType<TaskManager>();
+            MatrixTaskScriptObject currentTask = taskManager.currentTask;
+
+            if (currentTask.checkAge)
+            {
+                icoAge = Random.Range(currentTask.minAge, currentTask.maxAge);
+            }
+            if (currentTask.checkWeight)
+            {
+                icoWeight = (float)System.Math.Round(Random.Range(currentTask.minWeight, currentTask.maxWeight), 1);
+            }
+            if (currentTask.checkHeight)
+            {
+                icoHeight = (float)System.Math.Round(Random.Range(currentTask.minHeight, currentTask.maxHeight), 1);
+            }
+            if (currentTask.checkProductivity)
+            {
+                icoProductivity = Random.Range(currentTask.minProductivity, currentTask.maxProductivity);
+            }
+        }
+        else
+        {
+            matrixGameManager.pityValue++;
+        }
     }
 
     // Starts object data swapping coroutine

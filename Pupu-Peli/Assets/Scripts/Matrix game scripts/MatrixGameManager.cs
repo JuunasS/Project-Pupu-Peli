@@ -37,6 +37,9 @@ public class MatrixGameManager : MonoBehaviour
     public IcoObjMasterList icoMasterList;
     public List<IcoScriptObject> icoScriptObjects;
 
+    public int pityValue = 0; // For forcing correct values when generating icoObjectData;
+    public int pityMax = 10;
+
     public MatrixGameProgression matrixProgression;
 
     public MatrixScoreManager scoreManager;
@@ -105,7 +108,8 @@ public class MatrixGameManager : MonoBehaviour
             newIcoObj.transform.SetParent(matrixContentPanel.transform, false);
 
             icoGameObjects.Add(newIcoObj);
-
+            //SetIcoData(newIcoObj.GetComponent<IcoListObject>(), sIcoObjectList[randomIndex]);
+            newIcoObj.GetComponent<IcoListObject>().matrixGameManager = this;
             newIcoObj.GetComponent<IcoListObject>().SetIcoData(sIcoObjectList[randomIndex]); //i
             newIcoObj.GetComponent<IcoListObject>().currentParentApp = this.gameObject;
 
