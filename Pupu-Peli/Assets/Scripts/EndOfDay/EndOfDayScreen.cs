@@ -24,6 +24,8 @@ public class EndOfDayScreen : MonoBehaviour
 
     public float endOfDayScreenDuration;
 
+    public Diary diary;
+
     public static EndOfDayScreen Instance { get; private set; }
 
     private void Awake()
@@ -57,20 +59,28 @@ public class EndOfDayScreen : MonoBehaviour
 
         coinsText.text = coinsCollected.ToString();
 
+        string tempMissionText = "";
         for (int i = 0; i < missionsCompleted.Count; i++)
         {
-            missionText.text += missionsCompleted[i] + "\n";
+            tempMissionText += missionsCompleted[i] + "\n";
         }
+        missionText.text = tempMissionText;
 
+        string tempBrewText = "";
         for (int i = 0; i < herbsCompleted.Count; i++)
         {
-            herbText.text += herbsCompleted[i] + "\n";
+            tempBrewText += herbsCompleted[i] + "\n";
         }
+        herbText.text = tempBrewText;
 
+        string tempHerbText = "";
         for (int i = 0; i < brewsCompleted.Count; i++)
         {
-            brewText.text += brewsCompleted[i] + "\n";
+            tempHerbText += brewsCompleted[i] + "\n";
         }
+        brewText.text = tempHerbText;
+
+        diary.AddDayData(DayNightCycle.Instance.daysCompleted, coinsCollected, tempMissionText, tempBrewText, tempHerbText);
     }
 
     public void DisableEndOfDayScreen()
