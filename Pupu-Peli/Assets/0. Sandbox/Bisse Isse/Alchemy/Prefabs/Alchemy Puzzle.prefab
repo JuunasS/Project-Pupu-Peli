@@ -208,14 +208,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438823596693069359}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.342, y: 1.233, z: -2.185}
+  m_LocalRotation: {x: 0, y: -0.12273552, z: 0, w: 0.99243945}
+  m_LocalPosition: {x: -0.174, y: 1.233, z: -2.255}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3617074994050001939}
   m_Father: {fileID: 4644004592115674204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -14.1, z: 0}
 --- !u!33 &525380854036820922
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2509,6 +2509,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teapot
       objectReference: {fileID: 0}
+    - target: {fileID: 2705447833673242890, guid: 04ab6475f53fe4149b409d324a282af1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3515682769362963387, guid: 04ab6475f53fe4149b409d324a282af1,
         type: 3}
       propertyPath: m_Enabled
@@ -2596,7 +2601,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 4.4
   m_Height: 0

@@ -147,7 +147,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: d878b7fae13cf88488a4de510292e5df, type: 2}
   AnimatedTarget: {fileID: 6040986393032617559}
   LayerIndex: 0
   Instructions:
@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5807999718082056271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17374147, y: 0.008914666, z: -0.0015728332, w: 0.98474973}
+  m_LocalRotation: {x: 0.17371206, y: 0.008685607, z: -0.0015321492, w: 0.984757}
   m_LocalPosition: {x: -5.951064, y: 3.3533447, z: -1.1545868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -502,13 +502,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7187233555973733632}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.8662871, z: -0, w: 0.49954644}
-  m_LocalPosition: {x: -2.6599998, y: 2.88, z: -7.4599996}
+  m_LocalRotation: {x: 0, y: 0.8972969, z: -0.44142756, w: 0}
+  m_LocalPosition: {x: -6.942, y: 6.046, z: -6.253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5060615142820268856}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 52.39, y: 180, z: 0}
 --- !u!114 &1336226058839374121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 80
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -577,13 +577,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341734605588614316}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.70541435, y: 0.048894405, z: -0.048894405, w: 0.70541435}
-  m_LocalPosition: {x: -16.33, y: 10.25, z: 13.699999}
+  m_LocalRotation: {x: 0.1449566, y: -0.2824012, z: 0.043213442, w: 0.947296}
+  m_LocalPosition: {x: -14.298, y: 4.445, z: 9.616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5060615142820268856}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.4, y: -33.2, z: 0}
 --- !u!114 &2540189270081432646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 64.6
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
