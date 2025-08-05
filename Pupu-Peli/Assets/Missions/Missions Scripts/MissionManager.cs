@@ -45,6 +45,7 @@ public class MissionManager : MonoBehaviour
     public void GenerateCurrentMissions()
     {
         Debug.Log("Generating missions! 1 " + missionArray[missionProgression].missionDataList.Count);
+
         // Generate mission objects
         for (int i = 0; i < missionArray[missionProgression].missionDataList.Count; i++)
         {
@@ -53,9 +54,12 @@ public class MissionManager : MonoBehaviour
             GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefab, this.transform);
             missionArray[missionProgression].missionDataList[i].SetMissionDataSO(tempMissionObj);
 
+            // CurrentMissionCanvas.Instance.SetCurrentMissionText(missionArray[missionProgression].missionDataList[i].title);
+
             activeMissions.Add(tempMissionObj);
         }
 
+        // Generate highlight based on current missions
         if (missionArray[missionProgression].missionLocations.Length != 0)
         {
             // Generate highlights

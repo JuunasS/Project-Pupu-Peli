@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionPrefab: {fileID: 5467584677725665609, guid: 33ea6e96ce625094580c3af09ddb2c82,
     type: 3}
-  title: Get 100 score
+  title: Get 100 score in matrix game
   desiredScore: 100
