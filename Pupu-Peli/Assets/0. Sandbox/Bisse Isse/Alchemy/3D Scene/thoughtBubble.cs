@@ -63,7 +63,7 @@ public class thoughtBubble : MonoBehaviour
         if (stateDrivenCamera !=  null)
             stateDrivenCamera.Play("Cutscene");
 
-        cutsceneCamera.position = transform.parent.position + transform.parent.forward * 10;
+        cutsceneCamera.position = transform.parent.position + transform.parent.forward * 5;
         cutsceneCamera.position += cutsceneCameraPivot;
         cutsceneCamera.rotation = Quaternion.LookRotation(transform.parent.position - cutsceneCamera.position);
     }
