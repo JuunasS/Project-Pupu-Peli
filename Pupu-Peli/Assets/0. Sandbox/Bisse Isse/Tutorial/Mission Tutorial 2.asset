@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51be98c36a476d749a3ebf645ed7b710, type: 3}
   m_Name: Mission Tutorial 2
   m_EditorClassIdentifier: 
-  missionName: second name
-  tutorialText: Second mission
+  missionName: AlchemyCompletionMission
+  tutorialText: Do something else

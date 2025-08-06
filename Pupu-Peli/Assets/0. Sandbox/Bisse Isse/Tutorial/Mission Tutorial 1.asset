@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Mission Tutorial 1
   m_EditorClassIdentifier: 
   missionName: MatrixScoreMission1
-  tutorialText: Get 100 score in matrix game
+  tutorialText: '>Time to start the day! Get to your work terminal and try to finish
+    the day with atleast a score of 100'
