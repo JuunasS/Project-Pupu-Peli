@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
-  m_AmbientEquatorColor: {r: 0.98275214, g: 0.97504073, b: 0.8299179, a: 1}
+  m_AmbientSkyColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
+  m_AmbientEquatorColor: {r: 0.53333336, g: 0.6509804, b: 0.7686275, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -949,6 +949,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
+      propertyPath: tutorialManager
+      value: 
+      objectReference: {fileID: 697043925}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
       propertyPath: missionHighlightPrefab
@@ -2222,6 +2227,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4486879ddcf4f44bb50ac01d3fb7edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &697043925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4792944756935735015, guid: 81e5fb11b34724e479d3e707c82baccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1548686716232715993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918802c5e9ee37e49b606a1c8f361433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &809876809
@@ -3831,7 +3848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532859530}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17370707, y: 0.011452855, z: -0.0020202943, w: 0.9847287}
+  m_LocalRotation: {x: 0.17371203, y: 0.008692508, z: -0.0015333666, w: 0.98475695}
   m_LocalPosition: {x: -12.696353, y: -2.192996, z: 6.777618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6734,22 +6751,22 @@ PrefabInstance:
     - target: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98472875
+      value: 0.98475695
       objectReference: {fileID: 0}
     - target: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17370705
+      value: 0.17371206
       objectReference: {fileID: 0}
     - target: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.011452854
+      value: 0.008692508
       objectReference: {fileID: 0}
     - target: {fileID: 1457938652630743527, guid: cf37d245da463374490a2d774657f4cb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0020202936
+      value: -0.0015333667
       objectReference: {fileID: 0}
     - target: {fileID: 4737613988882143315, guid: cf37d245da463374490a2d774657f4cb,
         type: 3}
