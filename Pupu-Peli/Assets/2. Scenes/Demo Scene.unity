@@ -879,6 +879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
         type: 3}
+      propertyPath: tutorialManager
+      value: 
+      objectReference: {fileID: 997751471}
+    - target: {fileID: 3233325908638840331, guid: 63f3956c428d3674092cbd03c71bd908,
+        type: 3}
       propertyPath: missionHighlightPrefab
       value: 
       objectReference: {fileID: 6286162514085568987, guid: 18d8827e724055d4b8681408bb791012,
@@ -3065,6 +3070,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &997751471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4792944756935735015, guid: 81e5fb11b34724e479d3e707c82baccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1548686716232715993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918802c5e9ee37e49b606a1c8f361433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &1001199874 stripped
 SphereCollider:
   m_CorrespondingSourceObject: {fileID: 6505435757621628222, guid: 48a49f206745e0d4c95814e1b1d12757,
@@ -6403,6 +6420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -71.909
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079548574417203481, guid: c891f73db8cef894f9044c4913013f30,
+        type: 3}
+      propertyPath: time
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

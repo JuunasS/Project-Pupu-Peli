@@ -26,7 +26,7 @@ public class Diary : MonoBehaviour
     private void OnEnable()
     {
         GenerateDaySelectButtons();
-        ShowDayData(0);
+        ShowDayData(daysCompleted.Count-1);
     }
 
     public void AddDayData(int dayNum, int coins, string missions, string brews, string herbs)
@@ -37,7 +37,7 @@ public class Diary : MonoBehaviour
     public void GenerateDaySelectButtons()
     {
         int col = 0;
-        for (int i = 0; i < daysCompleted.Count; i++)
+        for (int i = daysCompleted.Count-1; i >= 0 ; i--)
         {
             GameObject tempButton = Instantiate(daySelectButtonPrefab);
 
