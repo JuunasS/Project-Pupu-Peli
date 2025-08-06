@@ -13,6 +13,7 @@ public class MissionManager : MonoBehaviour
     private MissionListObject[] missionArray;
     public List<GameObject> activeMissions = new List<GameObject>();
     public GameObject missionHighlightPrefab;
+    public tutorialManager tutorialManager;
 
 
     public static event Action<int> OnMissionProgressionChanged;
@@ -54,7 +55,7 @@ public class MissionManager : MonoBehaviour
             GameObject tempMissionObj = Instantiate(missionArray[missionProgression].missionDataList[i].missionPrefab, this.transform);
             missionArray[missionProgression].missionDataList[i].SetMissionDataSO(tempMissionObj);
 
-            // CurrentMissionCanvas.Instance.SetCurrentMissionText(missionArray[missionProgression].missionDataList[i].title);
+            tutorialManager.advanceTutorial(missionArray[missionProgression].missionDataList[i].name);
 
             activeMissions.Add(tempMissionObj);
         }
@@ -71,7 +72,6 @@ public class MissionManager : MonoBehaviour
                 activeMissions[i].GetComponent<Mission>().missionHighlight = missionHighlight;
             }
         }
-
     }
 
     // Function for checking current mission state

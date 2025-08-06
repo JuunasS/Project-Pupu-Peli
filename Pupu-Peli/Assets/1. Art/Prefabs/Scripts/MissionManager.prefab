@@ -49,10 +49,20 @@ MonoBehaviour:
   missionArray:
   - missionDataList:
     - {fileID: 11400000, guid: 371f4465cf2577246823c66e0090b459, type: 2}
-    - {fileID: 11400000, guid: 5045aaee0da452e4aadac66c04281f14, type: 2}
+    missionLocations:
+    - {fileID: 0}
   - missionDataList:
-    - {fileID: 11400000, guid: f78a6ecc8ef102b4ab62ff41fcab59fb, type: 2}
+    - {fileID: 11400000, guid: cbf23b268b51ba2419cd22e01d8b5658, type: 2}
+    missionLocations:
+    - {fileID: 0}
+  - missionDataList:
+    - {fileID: 11400000, guid: 5045aaee0da452e4aadac66c04281f14, type: 2}
+    missionLocations:
+    - {fileID: 0}
   activeMissions: []
+  missionHighlightPrefab: {fileID: 6286162514085568987, guid: 18d8827e724055d4b8681408bb791012,
+    type: 3}
+  tutorialManager: {fileID: 0}
 --- !u!1 &7546047616596273849
 GameObject:
   m_ObjectHideFlags: 0
