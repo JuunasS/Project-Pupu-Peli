@@ -15,7 +15,9 @@ public class DayNightCycle : MonoBehaviour
 {
     public int daysCompleted;
     public Light sun;
+    public float sunRotationY;
     public Light moon;
+    public float moonRotationY;
 
     [SerializeField, Range(0, 24)] public float time;
     [SerializeField, Range(0, 12)] public float dayNightTransitionValue; // 12 = peak daylight, 0 = midnight
@@ -140,6 +142,7 @@ public class DayNightCycle : MonoBehaviour
     {
         RenderSettings.skybox.SetColor("_LightColor", sun.color);
         RenderSettings.skybox.SetVector("_MoonDir", moon.transform.forward);
+
         /*
         int isActive = 1;
         if (moon.transform.forward.y < 0) { isActive = 0; }
@@ -187,13 +190,13 @@ public class DayNightCycle : MonoBehaviour
     public void UpdateSunRotation()
     {
         float rotation = Mathf.Lerp(-90, 270, time / 24);
-        sun.transform.rotation = Quaternion.Euler(rotation, sun.transform.rotation.y, sun.transform.rotation.z);
+        sun.transform.rotation = Quaternion.Euler(rotation, sunRotationY, sun.transform.rotation.z);
     }
 
     public void UpdateMoonRotation()
     {
         float rotation = Mathf.Lerp(-270, 90, time / 24);
-        moon.transform.rotation = Quaternion.Euler(rotation, moon.transform.rotation.y, moon.transform.rotation.z);
+        moon.transform.rotation = Quaternion.Euler(rotation, moonRotationY, moon.transform.rotation.z);
     }
 
 

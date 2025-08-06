@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/2. Scenes/JS-Testing/MatrixTestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/0. Sandbox/Bisse Isse/Alchemy/Alkemia.unity
     guid: 1f426dc7d22e1a14ba94d9b4065068b4
+  - enabled: 1
+    path: Assets/2. Scenes/Main Menu.unity
+    guid: 4898a9bf8fedb8f49bf6a95d9cbf05ee
+  - enabled: 1
+    path: Assets/2. Scenes/Demo Scene.unity
+    guid: f9329c3c13174d8468fffdd3673c161e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 0de9a1b3e2d346348bbc97028428d4f9,
       type: 3}
