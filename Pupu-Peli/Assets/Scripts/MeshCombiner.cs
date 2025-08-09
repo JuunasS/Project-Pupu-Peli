@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MeshCombiner : MonoBehaviour
 {
+#if UNITY_EDITOR
     // Source Meshes you want to combine
     [SerializeField] private List<MeshFilter> listMeshFilter;
 
@@ -40,7 +41,6 @@ public class MeshCombiner : MonoBehaviour
         print($"<color=#20E7B0>Combine Meshes was Successful!</color>");
     }
 
-#if UNITY_EDITOR
     public static void SaveMesh(Mesh mesh, string name, bool makeNewInstance, bool optimizeMesh)
     {
         string path = EditorUtility.SaveFilePanel("Save Separate Mesh Asset", "Assets/", name, "asset");
